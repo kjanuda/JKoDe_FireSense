@@ -1,0 +1,56 @@
+﻿Subject: Request for PMMA microgravity flame-spread data for independent validation research
+
+Dear Dr. Meyer,
+
+I am developing FireSense, a research decision-support system for
+evidence-grounded analysis of reduced-gravity flame-spread behaviour.
+
+I am currently looking for an independent experimental dataset to validate
+a PMMA thin-sheet flame-spread baseline.
+
+The specific condition of interest is:
+
+- PMMA thin sheet
+- approximately 0.2 mm / 200 µm thickness
+- 21 vol.% oxygen
+- approximately 101.3 kPa
+- true microgravity
+- 50 mm/s opposed flow
+
+I have reviewed the work reported in:
+
+Ries, Eigenbrod and Meyer,
+"Effect of oxygen concentration, pressure, and opposed flow velocity on
+the flame spread along thin PMMA sheets",
+Proceedings of the Combustion Institute, 2024,
+DOI: 10.1016/j.proci.2024.105358.
+
+I would be very grateful if you could clarify whether your Bremen drop-tower
+campaign contains runs matching, or closely approaching, the condition above.
+
+If available, I am particularly interested in run-level numerical data such as:
+
+- specimen thickness
+- oxygen concentration
+- pressure
+- opposed-flow velocity
+- flame-spread rate
+- run/experiment identifier
+- uncertainty or within-run variability
+
+Three or more independent runs at the same condition would be especially
+valuable.
+
+The data would be used strictly as holdout validation evidence and would not
+be used for model training or refitting. Source provenance and uncertainty
+information would be preserved explicitly.
+
+If the exact 50 mm/s condition was not tested, information about the nearest
+available conditions would also be useful as independent comparison evidence.
+
+Thank you very much for your time and consideration.
+
+Best regards,
+
+Januda
+FireSense Project

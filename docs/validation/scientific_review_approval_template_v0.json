@@ -1,0 +1,33 @@
+{
+  "approval_id": "FIRESENSE-SCIENTIFIC-REVIEW-APPROVAL-V0",
+  "version": "v0",
+  "scientific_review_approved": false,
+  "reviewer": {
+    "name": "",
+    "affiliation": "",
+    "role": ""
+  },
+  "reviewed_at_utc": null,
+  "reviewed_artifact_sha256": {
+    "validation_manifest": "",
+    "validation_evaluation": "",
+    "validation_performance": "",
+    "validation_uncertainty": ""
+  },
+  "review_checks": {
+    "source_independence_verified": false,
+    "experimental_conditions_verified": false,
+    "measurement_compatibility_verified": false,
+    "holdout_integrity_verified": false,
+    "performance_thresholds_verified": false,
+    "uncertainty_review_completed": false,
+    "provenance_complete": false
+  },
+  "review_comments": "",
+  "guardrails": [
+    "Do not set scientific_review_approved to true until every review check is supported by primary evidence.",
+    "The reviewer must verify artifact SHA-256 values against the frozen validation package.",
+    "Passing performance metrics alone does not establish independent external validation.",
+    "Scientific approval does not imply production readiness or certification."
+  ]
+}

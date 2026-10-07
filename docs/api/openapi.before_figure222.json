@@ -1,0 +1,1256 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FireSense API",
+    "description": "Evidence-grounded reduced-gravity fire behavior intelligence and decision-support API.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/predict/fire-behavior": {
+      "post": {
+        "tags": [
+          "Fire Behavior Prediction"
+        ],
+        "summary": "Predict PMMA thin-sheet flame spread",
+        "description": "Exploratory FireSense Physics Baseline v0. Predicts flame spread rate only inside the empirically supported Figure 2.21 domain. Requests outside the supported scientific scope return an explicit abstention.",
+        "operationId": "predict_fire_behavior_api_predict_fire_behavior_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FireBehaviorPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FireBehaviorPredictionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predict/fire-behavior/explain": {
+      "post": {
+        "tags": [
+          "Fire Behavior Prediction"
+        ],
+        "summary": "Predict and return evidence trace",
+        "description": "Returns the FireSense prediction or abstention together with the frozen dataset identity, artifact integrity verification, canonical Figure 2.21 evidence, coefficient derivation, nearby observations, provenance policy, and uncertainty limitations.",
+        "operationId": "explain_fire_behavior_prediction_api_predict_fire_behavior_explain_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FireBehaviorPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExplainedPredictionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/recommendations/next-experiment": {
+      "get": {
+        "tags": [
+          "Experiment Recommendation"
+        ],
+        "summary": "Return the current next-experiment research candidate",
+        "description": "Returns the frozen FireSense v0 research-priority matched-pair experiment candidate together with the coverage/Bayesian agreement, posterior uncertainty, evidence provenance, integrity verification, and scientific guardrails. This endpoint does not approve an experiment and does not refit the Bayesian model at request time.",
+        "operationId": "get_next_experiment_api_recommendations_next_experiment_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextExperimentRecommendationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/recommendations/next-experiment/explain": {
+      "get": {
+        "tags": [
+          "Experiment Recommendation"
+        ],
+        "summary": "Explain why the next experiment is prioritized",
+        "description": "Provides a human-readable scientific explanation of the frozen FireSense next-experiment decision, including the evidence chain, coverage/Bayesian agreement, posterior uncertainty, model limitations, and approval guardrails. No model is refitted at request time.",
+        "operationId": "explain_next_experiment_api_recommendations_next_experiment_explain_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextExperimentExplanationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgreementSummary": {
+        "properties": {
+          "coverage_candidate_um": {
+            "type": "number",
+            "title": "Coverage Candidate Um"
+          },
+          "bayesian_candidate_um": {
+            "type": "number",
+            "title": "Bayesian Candidate Um"
+          },
+          "absolute_difference_um": {
+            "type": "number",
+            "title": "Absolute Difference Um"
+          },
+          "relative_difference_percent": {
+            "type": "number",
+            "title": "Relative Difference Percent"
+          },
+          "within_one_percent": {
+            "type": "boolean",
+            "title": "Within One Percent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "coverage_candidate_um",
+          "bayesian_candidate_um",
+          "absolute_difference_um",
+          "relative_difference_percent",
+          "within_one_percent"
+        ],
+        "title": "AgreementSummary"
+      },
+      "ArtifactIntegritySummary": {
+        "properties": {
+          "dataset_sha256_verified": {
+            "type": "boolean",
+            "title": "Dataset Sha256 Verified"
+          },
+          "coverage_artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Coverage Artifact Sha256 Verified"
+          },
+          "bayesian_artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Bayesian Artifact Sha256 Verified"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_sha256_verified",
+          "coverage_artifact_sha256_verified",
+          "bayesian_artifact_sha256_verified"
+        ],
+        "title": "ArtifactIntegritySummary"
+      },
+      "CoefficientDerivationInfo": {
+        "properties": {
+          "formula": {
+            "type": "string",
+            "const": "V = K / tau",
+            "title": "Formula"
+          },
+          "coefficient_k": {
+            "type": "number",
+            "title": "Coefficient K"
+          },
+          "exponent": {
+            "type": "number",
+            "const": -1.0,
+            "title": "Exponent",
+            "default": -1.0
+          },
+          "fit_space": {
+            "type": "string",
+            "const": "natural_log",
+            "title": "Fit Space",
+            "default": "natural_log"
+          },
+          "derivation": {
+            "type": "string",
+            "title": "Derivation"
+          },
+          "contributing_record_count": {
+            "type": "integer",
+            "title": "Contributing Record Count"
+          },
+          "contributing_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Contributing Record Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "formula",
+          "coefficient_k",
+          "derivation",
+          "contributing_record_count",
+          "contributing_record_ids"
+        ],
+        "title": "CoefficientDerivationInfo"
+      },
+      "DatasetIntegrityInfo": {
+        "properties": {
+          "dataset_name": {
+            "type": "string",
+            "title": "Dataset Name"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "expected_sha256": {
+            "type": "string",
+            "title": "Expected Sha256"
+          },
+          "actual_sha256": {
+            "type": "string",
+            "title": "Actual Sha256"
+          },
+          "integrity_verified": {
+            "type": "boolean",
+            "title": "Integrity Verified"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_name",
+          "dataset_version",
+          "expected_sha256",
+          "actual_sha256",
+          "integrity_verified"
+        ],
+        "title": "DatasetIntegrityInfo"
+      },
+      "DecisionTraceStep": {
+        "properties": {
+          "order": {
+            "type": "integer",
+            "title": "Order"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "evidence",
+              "coverage",
+              "bayesian",
+              "agreement",
+              "decision"
+            ],
+            "title": "Stage"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order",
+          "stage",
+          "title",
+          "explanation"
+        ],
+        "title": "DecisionTraceStep"
+      },
+      "EvidenceRecordSummary": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure_ref": {
+            "type": "string",
+            "title": "Figure Ref"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "observed_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Observed Spread Rate Mm S"
+          },
+          "digitization_uncertainty_mm_s": {
+            "type": "number",
+            "title": "Digitization Uncertainty Mm S"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "source_id",
+          "figure_ref",
+          "gravity_regime",
+          "thickness_um",
+          "observed_spread_rate_mm_s",
+          "digitization_uncertainty_mm_s"
+        ],
+        "title": "EvidenceRecordSummary"
+      },
+      "EvidenceSummary": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure": {
+            "type": "string",
+            "title": "Figure"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "title": "Dataset Sha256"
+          },
+          "shared_canonical_evidence": {
+            "type": "boolean",
+            "title": "Shared Canonical Evidence"
+          },
+          "independent_validation": {
+            "type": "boolean",
+            "title": "Independent Validation"
+          },
+          "external_validation": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "figure",
+          "dataset_version",
+          "dataset_sha256",
+          "shared_canonical_evidence",
+          "independent_validation",
+          "external_validation"
+        ],
+        "title": "EvidenceSummary"
+      },
+      "ExistingObservationSummary": {
+        "properties": {
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "absolute_distance_um": {
+            "type": "number",
+            "title": "Absolute Distance Um"
+          },
+          "log_ratio_distance": {
+            "type": "number",
+            "title": "Log Ratio Distance"
+          }
+        },
+        "type": "object",
+        "required": [
+          "thickness_um",
+          "absolute_distance_um",
+          "log_ratio_distance"
+        ],
+        "title": "ExistingObservationSummary"
+      },
+      "ExperimentFamilySummary": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "title": "Material"
+          },
+          "geometry_family": {
+            "type": "string",
+            "title": "Geometry Family"
+          },
+          "oxygen_percent": {
+            "type": "number",
+            "title": "Oxygen Percent"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "title": "Pressure Kpa"
+          },
+          "matched_variable": {
+            "type": "string",
+            "title": "Matched Variable"
+          },
+          "gravity_regimes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Gravity Regimes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry_family",
+          "oxygen_percent",
+          "pressure_kpa",
+          "matched_variable",
+          "gravity_regimes"
+        ],
+        "title": "ExperimentFamilySummary"
+      },
+      "ExplainedPredictionResponse": {
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/FireBehaviorPredictionResponse"
+          },
+          "evidence_trace": {
+            "$ref": "#/components/schemas/PredictionEvidenceTrace"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result",
+          "evidence_trace"
+        ],
+        "title": "ExplainedPredictionResponse"
+      },
+      "FireBehaviorPredictionRequest": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Material",
+            "examples": [
+              "PMMA"
+            ]
+          },
+          "geometry": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Geometry",
+            "examples": [
+              "thin_sheet"
+            ]
+          },
+          "thickness_um": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Thickness Um",
+            "examples": [
+              200.0
+            ]
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "oxygen_fraction": {
+            "type": "number",
+            "maximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Oxygen Fraction",
+            "examples": [
+              0.21
+            ]
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Pressure Kpa",
+            "examples": [
+              101.325
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry",
+          "thickness_um",
+          "gravity_regime",
+          "oxygen_fraction",
+          "pressure_kpa"
+        ],
+        "title": "FireBehaviorPredictionRequest"
+      },
+      "FireBehaviorPredictionResponse": {
+        "properties": {
+          "decision": {
+            "type": "string",
+            "enum": [
+              "predict",
+              "abstain"
+            ],
+            "title": "Decision"
+          },
+          "prediction": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PredictionValue"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "abstention_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Abstention Reasons",
+            "default": []
+          },
+          "supported_domain": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupportedDomain"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "model": {
+            "$ref": "#/components/schemas/PredictionModelInfo"
+          },
+          "descriptive_residual_factor": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descriptive Residual Factor"
+          },
+          "uncertainty_note": {
+            "type": "string",
+            "title": "Uncertainty Note"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "decision",
+          "model",
+          "uncertainty_note"
+        ],
+        "title": "FireBehaviorPredictionResponse"
+      },
+      "GravityRecommendationSummary": {
+        "properties": {
+          "predicted_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Predicted Spread Rate Mm S"
+          },
+          "posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Posterior Sd Log Residual"
+          },
+          "nearest_existing_observation": {
+            "$ref": "#/components/schemas/ExistingObservationSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "predicted_spread_rate_mm_s",
+          "posterior_sd_log_residual",
+          "nearest_existing_observation"
+        ],
+        "title": "GravityRecommendationSummary"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "JointUncertaintySummary": {
+        "properties": {
+          "matched_pair_joint_sd_log": {
+            "type": "number",
+            "title": "Matched Pair Joint Sd Log"
+          },
+          "one_sd_ratio_uncertainty_factor": {
+            "type": "number",
+            "title": "One Sd Ratio Uncertainty Factor"
+          },
+          "predicted_mg_to_ng_spread_ratio": {
+            "type": "number",
+            "title": "Predicted Mg To Ng Spread Ratio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "matched_pair_joint_sd_log",
+          "one_sd_ratio_uncertainty_factor",
+          "predicted_mg_to_ng_spread_ratio"
+        ],
+        "title": "JointUncertaintySummary"
+      },
+      "NextExperimentExplanationResponse": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "decision_status": {
+            "type": "string",
+            "const": "research_priority_candidate",
+            "title": "Decision Status"
+          },
+          "approval_status": {
+            "type": "string",
+            "const": "not_approved",
+            "title": "Approval Status"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready"
+          },
+          "why_this_thickness": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Why This Thickness"
+          },
+          "decision_trace": {
+            "items": {
+              "$ref": "#/components/schemas/DecisionTraceStep"
+            },
+            "type": "array",
+            "title": "Decision Trace"
+          },
+          "uncertainty": {
+            "$ref": "#/components/schemas/RecommendationUncertaintyExplanation"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/RecommendationEvidenceExplanation"
+          },
+          "scientific_caveats": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Scientific Caveats"
+          },
+          "required_before_experiment_approval": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Before Experiment Approval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "title",
+          "summary",
+          "thickness_um",
+          "decision_status",
+          "approval_status",
+          "production_ready",
+          "why_this_thickness",
+          "decision_trace",
+          "uncertainty",
+          "evidence",
+          "scientific_caveats",
+          "required_before_experiment_approval"
+        ],
+        "title": "NextExperimentExplanationResponse"
+      },
+      "NextExperimentRecommendationResponse": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "decision_status": {
+            "type": "string",
+            "const": "research_priority_candidate",
+            "title": "Decision Status"
+          },
+          "recommendation_status": {
+            "type": "string",
+            "const": "bayesian_candidate_only",
+            "title": "Recommendation Status"
+          },
+          "approval_status": {
+            "type": "string",
+            "const": "not_approved",
+            "title": "Approval Status"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "why_selected": {
+            "type": "string",
+            "title": "Why Selected"
+          },
+          "experiment_family": {
+            "$ref": "#/components/schemas/ExperimentFamilySummary"
+          },
+          "agreement": {
+            "$ref": "#/components/schemas/AgreementSummary"
+          },
+          "microgravity": {
+            "$ref": "#/components/schemas/GravityRecommendationSummary"
+          },
+          "normal_gravity": {
+            "$ref": "#/components/schemas/GravityRecommendationSummary"
+          },
+          "joint_uncertainty": {
+            "$ref": "#/components/schemas/JointUncertaintySummary"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/EvidenceSummary"
+          },
+          "integrity": {
+            "$ref": "#/components/schemas/ArtifactIntegritySummary"
+          },
+          "scientific_guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Scientific Guardrails"
+          },
+          "required_before_experiment_approval": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Before Experiment Approval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "decision_status",
+          "recommendation_status",
+          "approval_status",
+          "production_ready",
+          "thickness_um",
+          "why_selected",
+          "experiment_family",
+          "agreement",
+          "microgravity",
+          "normal_gravity",
+          "joint_uncertainty",
+          "evidence",
+          "integrity",
+          "scientific_guardrails",
+          "required_before_experiment_approval"
+        ],
+        "title": "NextExperimentRecommendationResponse"
+      },
+      "PredictionEvidenceTrace": {
+        "properties": {
+          "canonical_source_id": {
+            "type": "string",
+            "title": "Canonical Source Id"
+          },
+          "canonical_figure_ref": {
+            "type": "string",
+            "title": "Canonical Figure Ref"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "dataset_integrity": {
+            "$ref": "#/components/schemas/DatasetIntegrityInfo"
+          },
+          "coefficient_derivation": {
+            "$ref": "#/components/schemas/CoefficientDerivationInfo"
+          },
+          "nearest_evidence_records": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRecordSummary"
+            },
+            "type": "array",
+            "title": "Nearest Evidence Records"
+          },
+          "contributing_evidence_records": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRecordSummary"
+            },
+            "type": "array",
+            "title": "Contributing Evidence Records"
+          },
+          "evidence_policy": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence Policy"
+          },
+          "uncertainty_state": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Uncertainty State"
+          },
+          "external_validation_status": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation Status",
+            "default": "not_performed"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "canonical_source_id",
+          "canonical_figure_ref",
+          "gravity_regime",
+          "dataset_integrity",
+          "coefficient_derivation",
+          "nearest_evidence_records",
+          "contributing_evidence_records",
+          "evidence_policy",
+          "uncertainty_state"
+        ],
+        "title": "PredictionEvidenceTrace"
+      },
+      "PredictionModelInfo": {
+        "properties": {
+          "model_name": {
+            "type": "string",
+            "title": "Model Name"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "formula": {
+            "type": "string",
+            "title": "Formula"
+          },
+          "coefficient_k": {
+            "type": "number",
+            "title": "Coefficient K"
+          },
+          "canonical_evidence_figure": {
+            "type": "string",
+            "title": "Canonical Evidence Figure"
+          },
+          "external_validation_status": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation Status",
+            "default": "not_performed"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "model_name",
+          "model_version",
+          "formula",
+          "coefficient_k",
+          "canonical_evidence_figure"
+        ],
+        "title": "PredictionModelInfo"
+      },
+      "PredictionValue": {
+        "properties": {
+          "quantity": {
+            "type": "string",
+            "const": "flame_spread_rate",
+            "title": "Quantity",
+            "default": "flame_spread_rate"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "unit": {
+            "type": "string",
+            "const": "mm/s",
+            "title": "Unit",
+            "default": "mm/s"
+          }
+        },
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "title": "PredictionValue"
+      },
+      "RatioRangeSummary": {
+        "properties": {
+          "predicted_ratio": {
+            "type": "number",
+            "title": "Predicted Ratio"
+          },
+          "one_sd_factor": {
+            "type": "number",
+            "title": "One Sd Factor"
+          },
+          "descriptive_lower": {
+            "type": "number",
+            "title": "Descriptive Lower"
+          },
+          "descriptive_upper": {
+            "type": "number",
+            "title": "Descriptive Upper"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "predicted_ratio",
+          "one_sd_factor",
+          "descriptive_lower",
+          "descriptive_upper",
+          "interpretation"
+        ],
+        "title": "RatioRangeSummary"
+      },
+      "RecommendationEvidenceExplanation": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure": {
+            "type": "string",
+            "title": "Figure"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "title": "Dataset Sha256"
+          },
+          "shared_canonical_evidence": {
+            "type": "boolean",
+            "title": "Shared Canonical Evidence"
+          },
+          "independent_validation": {
+            "type": "boolean",
+            "title": "Independent Validation"
+          },
+          "external_validation": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "figure",
+          "dataset_version",
+          "dataset_sha256",
+          "shared_canonical_evidence",
+          "independent_validation",
+          "external_validation",
+          "interpretation"
+        ],
+        "title": "RecommendationEvidenceExplanation"
+      },
+      "RecommendationUncertaintyExplanation": {
+        "properties": {
+          "microgravity_posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Microgravity Posterior Sd Log Residual"
+          },
+          "normal_gravity_posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Normal Gravity Posterior Sd Log Residual"
+          },
+          "matched_pair_joint_sd_log": {
+            "type": "number",
+            "title": "Matched Pair Joint Sd Log"
+          },
+          "ratio_range": {
+            "$ref": "#/components/schemas/RatioRangeSummary"
+          },
+          "uncertainty_target": {
+            "type": "string",
+            "title": "Uncertainty Target"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          },
+          "calibration_status": {
+            "type": "string",
+            "const": "not_externally_calibrated",
+            "title": "Calibration Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "microgravity_posterior_sd_log_residual",
+          "normal_gravity_posterior_sd_log_residual",
+          "matched_pair_joint_sd_log",
+          "ratio_range",
+          "uncertainty_target",
+          "interpretation",
+          "calibration_status"
+        ],
+        "title": "RecommendationUncertaintyExplanation"
+      },
+      "SupportedDomain": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "title": "Material"
+          },
+          "geometry": {
+            "type": "string",
+            "title": "Geometry"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "thickness_um_min": {
+            "type": "number",
+            "title": "Thickness Um Min"
+          },
+          "thickness_um_max": {
+            "type": "number",
+            "title": "Thickness Um Max"
+          },
+          "oxygen_fraction": {
+            "type": "number",
+            "title": "Oxygen Fraction"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "title": "Pressure Kpa"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry",
+          "gravity_regime",
+          "thickness_um_min",
+          "thickness_um_max",
+          "oxygen_fraction",
+          "pressure_kpa"
+        ],
+        "title": "SupportedDomain"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

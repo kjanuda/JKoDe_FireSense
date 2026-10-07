@@ -1,0 +1,3722 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FireSense API",
+    "description": "Evidence-grounded reduced-gravity fire behavior intelligence and decision-support API.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/predict/fire-behavior": {
+      "post": {
+        "tags": [
+          "Fire Behavior Prediction"
+        ],
+        "summary": "Predict PMMA thin-sheet flame spread",
+        "description": "Exploratory FireSense Physics Baseline v0. Predicts flame spread rate only inside the empirically supported Figure 2.21 domain. Requests outside the supported scientific scope return an explicit abstention.",
+        "operationId": "predict_fire_behavior_api_predict_fire_behavior_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FireBehaviorPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FireBehaviorPredictionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predict/fire-behavior/explain": {
+      "post": {
+        "tags": [
+          "Fire Behavior Prediction"
+        ],
+        "summary": "Predict and return evidence trace",
+        "description": "Returns the FireSense prediction or abstention together with the frozen dataset identity, artifact integrity verification, canonical Figure 2.21 evidence, coefficient derivation, nearby observations, provenance policy, and uncertainty limitations.",
+        "operationId": "explain_fire_behavior_prediction_api_predict_fire_behavior_explain_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FireBehaviorPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExplainedPredictionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/recommendations/next-experiment": {
+      "get": {
+        "tags": [
+          "Experiment Recommendation"
+        ],
+        "summary": "Return the current next-experiment research candidate",
+        "description": "Returns the frozen FireSense v0 research-priority matched-pair experiment candidate together with the coverage/Bayesian agreement, posterior uncertainty, evidence provenance, integrity verification, and scientific guardrails. This endpoint does not approve an experiment and does not refit the Bayesian model at request time.",
+        "operationId": "get_next_experiment_api_recommendations_next_experiment_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextExperimentRecommendationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/recommendations/next-experiment/explain": {
+      "get": {
+        "tags": [
+          "Experiment Recommendation"
+        ],
+        "summary": "Explain why the next experiment is prioritized",
+        "description": "Provides a human-readable scientific explanation of the frozen FireSense next-experiment decision, including the evidence chain, coverage/Bayesian agreement, posterior uncertainty, model limitations, and approval guardrails. No model is refitted at request time.",
+        "operationId": "explain_next_experiment_api_recommendations_next_experiment_explain_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NextExperimentExplanationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/figure-2-22": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return frozen Figure 2.22 comparison evidence",
+        "description": "Returns frozen Figure 2.22 comparison-only experimental evidence.",
+        "operationId": "figure_2_22_evidence_api_api_evidence_figure_2_22_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Figure222EvidenceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/external-comparison": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return independent external comparison evidence",
+        "description": "Returns the frozen Ries 2024 comparison against FireSense v0. It is not completed independent external validation.",
+        "operationId": "external_comparison_evidence_api_api_evidence_external_comparison_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalComparisonEvidenceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-readiness": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return independent validation readiness status",
+        "description": "Evaluates the frozen independent-validation acceptance protocol and screened external evidence.",
+        "operationId": "validation_readiness_api_api_evidence_validation_readiness_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationReadinessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-candidate/evaluate": {
+      "post": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Evaluate an independent external validation candidate",
+        "description": "Checks a candidate holdout dataset against the frozen FireSense v0 scientific acceptance gate and runs the frozen Physics Baseline v0 on eligible rows. Passing this gate does not by itself authorize an external-validation or production-ready claim.",
+        "operationId": "validation_candidate_evaluation_api_api_evidence_validation_candidate_evaluate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidationCandidateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationCandidateEvaluationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-release-status": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return trusted independent validation release status",
+        "description": "Returns the fail-closed FireSense independent-validation release state. Validation can only be promoted from a scientifically reviewed frozen artifact whose SHA-256 is pinned in source code.",
+        "operationId": "validation_release_status_api_api_evidence_validation_release_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationReleaseStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-candidate/performance": {
+      "post": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Evaluate validation candidate performance thresholds",
+        "description": "Runs the FireSense v0 candidate compatibility evaluator and then checks the resulting holdout metrics against the frozen pre-registered performance acceptance protocol. Passing this endpoint does not automatically promote scientific validation status.",
+        "operationId": "validation_candidate_performance_api_api_evidence_validation_candidate_performance_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidationCandidateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Validation Candidate Performance Api Api Evidence Validation Candidate Performance Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-source-registry": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return frozen validation source provenance registry",
+        "operationId": "validation_source_registry_api_api_evidence_validation_source_registry_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationSourceRegistryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-source-check": {
+      "post": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Check validation-source provenance status",
+        "operationId": "validation_source_check_api_api_evidence_validation_source_check_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidationSourceCheckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationSourceCheckResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-dataset/import-csv": {
+      "post": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Import trusted external validation CSV evidence",
+        "description": "Parses a candidate external holdout dataset, verifies source provenance through the frozen validation-source registry, preserves training exclusion, and only enters the direct validation and performance gates when the source has been scientifically approved.",
+        "operationId": "validation_dataset_import_csv_api_api_evidence_validation_dataset_import_csv_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidationCsvImportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationCsvImportResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-candidate/uncertainty": {
+      "post": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Assess independent-validation uncertainty readiness",
+        "description": "Checks uncertainty completeness and semantics while preserving separation between experimental, digitization and model uncertainty. FireSense v0 fails closed because its current baseline does not provide a calibrated prediction interval.",
+        "operationId": "validation_candidate_uncertainty_api_api_evidence_validation_candidate_uncertainty_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidationUncertaintyAssessmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationUncertaintyAssessmentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evidence/validation-scientific-review-status": {
+      "get": {
+        "tags": [
+          "Evidence"
+        ],
+        "summary": "Return scientific validation review status",
+        "description": "Verifies the frozen validation package, performance gate, calibrated uncertainty coverage, scientific-review checks and SHA-256 bindings. This endpoint does not itself promote external-validation status.",
+        "operationId": "validation_scientific_review_status_api_api_evidence_validation_scientific_review_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationScientificReviewStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgreementSummary": {
+        "properties": {
+          "coverage_candidate_um": {
+            "type": "number",
+            "title": "Coverage Candidate Um"
+          },
+          "bayesian_candidate_um": {
+            "type": "number",
+            "title": "Bayesian Candidate Um"
+          },
+          "absolute_difference_um": {
+            "type": "number",
+            "title": "Absolute Difference Um"
+          },
+          "relative_difference_percent": {
+            "type": "number",
+            "title": "Relative Difference Percent"
+          },
+          "within_one_percent": {
+            "type": "boolean",
+            "title": "Within One Percent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "coverage_candidate_um",
+          "bayesian_candidate_um",
+          "absolute_difference_um",
+          "relative_difference_percent",
+          "within_one_percent"
+        ],
+        "title": "AgreementSummary"
+      },
+      "ArtifactIntegritySummary": {
+        "properties": {
+          "dataset_sha256_verified": {
+            "type": "boolean",
+            "title": "Dataset Sha256 Verified"
+          },
+          "coverage_artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Coverage Artifact Sha256 Verified"
+          },
+          "bayesian_artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Bayesian Artifact Sha256 Verified"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_sha256_verified",
+          "coverage_artifact_sha256_verified",
+          "bayesian_artifact_sha256_verified"
+        ],
+        "title": "ArtifactIntegritySummary"
+      },
+      "CoefficientDerivationInfo": {
+        "properties": {
+          "formula": {
+            "type": "string",
+            "const": "V = K / tau",
+            "title": "Formula"
+          },
+          "coefficient_k": {
+            "type": "number",
+            "title": "Coefficient K"
+          },
+          "exponent": {
+            "type": "number",
+            "const": -1.0,
+            "title": "Exponent",
+            "default": -1.0
+          },
+          "fit_space": {
+            "type": "string",
+            "const": "natural_log",
+            "title": "Fit Space",
+            "default": "natural_log"
+          },
+          "derivation": {
+            "type": "string",
+            "title": "Derivation"
+          },
+          "contributing_record_count": {
+            "type": "integer",
+            "title": "Contributing Record Count"
+          },
+          "contributing_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Contributing Record Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "formula",
+          "coefficient_k",
+          "derivation",
+          "contributing_record_count",
+          "contributing_record_ids"
+        ],
+        "title": "CoefficientDerivationInfo"
+      },
+      "DatasetIntegrityInfo": {
+        "properties": {
+          "dataset_name": {
+            "type": "string",
+            "title": "Dataset Name"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "expected_sha256": {
+            "type": "string",
+            "title": "Expected Sha256"
+          },
+          "actual_sha256": {
+            "type": "string",
+            "title": "Actual Sha256"
+          },
+          "integrity_verified": {
+            "type": "boolean",
+            "title": "Integrity Verified"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_name",
+          "dataset_version",
+          "expected_sha256",
+          "actual_sha256",
+          "integrity_verified"
+        ],
+        "title": "DatasetIntegrityInfo"
+      },
+      "DecisionTraceStep": {
+        "properties": {
+          "order": {
+            "type": "integer",
+            "title": "Order"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "evidence",
+              "coverage",
+              "bayesian",
+              "agreement",
+              "decision"
+            ],
+            "title": "Stage"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order",
+          "stage",
+          "title",
+          "explanation"
+        ],
+        "title": "DecisionTraceStep"
+      },
+      "EvidenceRecordSummary": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure_ref": {
+            "type": "string",
+            "title": "Figure Ref"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "observed_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Observed Spread Rate Mm S"
+          },
+          "digitization_uncertainty_mm_s": {
+            "type": "number",
+            "title": "Digitization Uncertainty Mm S"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "source_id",
+          "figure_ref",
+          "gravity_regime",
+          "thickness_um",
+          "observed_spread_rate_mm_s",
+          "digitization_uncertainty_mm_s"
+        ],
+        "title": "EvidenceRecordSummary"
+      },
+      "EvidenceSummary": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure": {
+            "type": "string",
+            "title": "Figure"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "title": "Dataset Sha256"
+          },
+          "shared_canonical_evidence": {
+            "type": "boolean",
+            "title": "Shared Canonical Evidence"
+          },
+          "independent_validation": {
+            "type": "boolean",
+            "title": "Independent Validation"
+          },
+          "external_validation": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "figure",
+          "dataset_version",
+          "dataset_sha256",
+          "shared_canonical_evidence",
+          "independent_validation",
+          "external_validation"
+        ],
+        "title": "EvidenceSummary"
+      },
+      "ExistingObservationSummary": {
+        "properties": {
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "absolute_distance_um": {
+            "type": "number",
+            "title": "Absolute Distance Um"
+          },
+          "log_ratio_distance": {
+            "type": "number",
+            "title": "Log Ratio Distance"
+          }
+        },
+        "type": "object",
+        "required": [
+          "thickness_um",
+          "absolute_distance_um",
+          "log_ratio_distance"
+        ],
+        "title": "ExistingObservationSummary"
+      },
+      "ExperimentFamilySummary": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "title": "Material"
+          },
+          "geometry_family": {
+            "type": "string",
+            "title": "Geometry Family"
+          },
+          "oxygen_percent": {
+            "type": "number",
+            "title": "Oxygen Percent"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "title": "Pressure Kpa"
+          },
+          "matched_variable": {
+            "type": "string",
+            "title": "Matched Variable"
+          },
+          "gravity_regimes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Gravity Regimes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry_family",
+          "oxygen_percent",
+          "pressure_kpa",
+          "matched_variable",
+          "gravity_regimes"
+        ],
+        "title": "ExperimentFamilySummary"
+      },
+      "ExplainedPredictionResponse": {
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/FireBehaviorPredictionResponse"
+          },
+          "evidence_trace": {
+            "$ref": "#/components/schemas/PredictionEvidenceTrace"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result",
+          "evidence_trace"
+        ],
+        "title": "ExplainedPredictionResponse"
+      },
+      "ExternalComparisonEvidenceResponse": {
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "title": "Evidence Id"
+          },
+          "evidence_version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Evidence Version"
+          },
+          "source_name": {
+            "type": "string",
+            "title": "Source Name"
+          },
+          "source_doi": {
+            "type": "string",
+            "title": "Source Doi"
+          },
+          "figure_ref": {
+            "type": "string",
+            "const": "4",
+            "title": "Figure Ref"
+          },
+          "scientific_role": {
+            "type": "string",
+            "const": "independent_external_comparison_only",
+            "title": "Scientific Role"
+          },
+          "independent_external_source": {
+            "type": "boolean",
+            "const": true,
+            "title": "Independent External Source"
+          },
+          "numeric_external_comparison_available": {
+            "type": "boolean",
+            "const": true,
+            "title": "Numeric External Comparison Available"
+          },
+          "independent_external_validation_available": {
+            "type": "boolean",
+            "const": false,
+            "title": "Independent External Validation Available"
+          },
+          "direct_external_validation_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Direct External Validation Ready"
+          },
+          "training_eligible_count": {
+            "type": "integer",
+            "const": 0,
+            "title": "Training Eligible Count"
+          },
+          "independent_validation_eligible_count": {
+            "type": "integer",
+            "const": 0,
+            "title": "Independent Validation Eligible Count"
+          },
+          "comparison_count": {
+            "type": "integer",
+            "title": "Comparison Count"
+          },
+          "measurement_definition_classification": {
+            "type": "string",
+            "title": "Measurement Definition Classification"
+          },
+          "measurement_definition_exact_match": {
+            "type": "boolean",
+            "const": false,
+            "title": "Measurement Definition Exact Match"
+          },
+          "flow_condition_match": {
+            "type": "boolean",
+            "const": false,
+            "title": "Flow Condition Match"
+          },
+          "flow_correction_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Flow Correction Allowed"
+          },
+          "exact_independent_validation_source_found": {
+            "type": "boolean",
+            "const": false,
+            "title": "Exact Independent Validation Source Found"
+          },
+          "release_validation_status": {
+            "type": "string",
+            "title": "Release Validation Status"
+          },
+          "release_comparison_status": {
+            "type": "string",
+            "title": "Release Comparison Status"
+          },
+          "blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blocking Reasons"
+          },
+          "artifact_sha256": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Artifact Sha256"
+          },
+          "artifact_sha256_verified": {
+            "type": "boolean",
+            "const": true,
+            "title": "Artifact Sha256 Verified"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          },
+          "comparisons": {
+            "items": {
+              "$ref": "#/components/schemas/ExternalComparisonRecord"
+            },
+            "type": "array",
+            "title": "Comparisons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "evidence_version",
+          "source_name",
+          "source_doi",
+          "figure_ref",
+          "scientific_role",
+          "independent_external_source",
+          "numeric_external_comparison_available",
+          "independent_external_validation_available",
+          "direct_external_validation_ready",
+          "training_eligible_count",
+          "independent_validation_eligible_count",
+          "comparison_count",
+          "measurement_definition_classification",
+          "measurement_definition_exact_match",
+          "flow_condition_match",
+          "flow_correction_allowed",
+          "exact_independent_validation_source_found",
+          "release_validation_status",
+          "release_comparison_status",
+          "blocking_reasons",
+          "artifact_sha256",
+          "artifact_sha256_verified",
+          "guardrails",
+          "comparisons"
+        ],
+        "title": "ExternalComparisonEvidenceResponse"
+      },
+      "ExternalComparisonRecord": {
+        "properties": {
+          "gravity_context": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Context"
+          },
+          "external_record_id": {
+            "type": "string",
+            "title": "External Record Id"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "firesense_v0_rate_mm_s": {
+            "type": "number",
+            "title": "Firesense V0 Rate Mm S"
+          },
+          "ries_2024_rate_mm_s": {
+            "type": "number",
+            "title": "Ries 2024 Rate Mm S"
+          },
+          "external_minus_model_mm_s": {
+            "type": "number",
+            "title": "External Minus Model Mm S"
+          },
+          "relative_gap_vs_model_percent": {
+            "type": "number",
+            "title": "Relative Gap Vs Model Percent"
+          },
+          "relative_gap_vs_external_percent": {
+            "type": "number",
+            "title": "Relative Gap Vs External Percent"
+          },
+          "comparison_status": {
+            "type": "string",
+            "title": "Comparison Status"
+          },
+          "direct_validation_eligible": {
+            "type": "boolean",
+            "const": false,
+            "title": "Direct Validation Eligible"
+          }
+        },
+        "type": "object",
+        "required": [
+          "gravity_context",
+          "external_record_id",
+          "thickness_um",
+          "firesense_v0_rate_mm_s",
+          "ries_2024_rate_mm_s",
+          "external_minus_model_mm_s",
+          "relative_gap_vs_model_percent",
+          "relative_gap_vs_external_percent",
+          "comparison_status",
+          "direct_validation_eligible"
+        ],
+        "title": "ExternalComparisonRecord"
+      },
+      "Figure222DuplicateLinkage": {
+        "properties": {
+          "matched_figure_2_21_record_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Matched Figure 2 21 Record Id"
+          },
+          "classification": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Classification"
+          },
+          "relationship_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relationship Status"
+          },
+          "same_run_confirmed": {
+            "type": "boolean",
+            "title": "Same Run Confirmed",
+            "default": false
+          },
+          "safe_for_training_join": {
+            "type": "boolean",
+            "title": "Safe For Training Join",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Figure222DuplicateLinkage"
+      },
+      "Figure222EvidenceRecord": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure_ref": {
+            "type": "string",
+            "const": "2.22",
+            "title": "Figure Ref"
+          },
+          "dataset_version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Dataset Version"
+          },
+          "series_key": {
+            "type": "string",
+            "title": "Series Key"
+          },
+          "series_label": {
+            "type": "string",
+            "title": "Series Label"
+          },
+          "series_role": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Series Role"
+          },
+          "series_identity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Series Identity"
+          },
+          "identity_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Identity Status"
+          },
+          "publication_identity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publication Identity"
+          },
+          "gravity_context": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gravity Context"
+          },
+          "gravity_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gravity Status"
+          },
+          "source_family_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Family Status"
+          },
+          "evidence_type": {
+            "type": "string",
+            "const": "experimental",
+            "title": "Evidence Type"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "observed_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Observed Spread Rate Mm S"
+          },
+          "digitization_uncertainty_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Digitization Uncertainty Mm S"
+          },
+          "digitization_uncertainty_status": {
+            "type": "string",
+            "title": "Digitization Uncertainty Status"
+          },
+          "figure_validation_status": {
+            "type": "string",
+            "title": "Figure Validation Status"
+          },
+          "training_policy": {
+            "type": "string",
+            "title": "Training Policy"
+          },
+          "training_eligible": {
+            "type": "boolean",
+            "const": false,
+            "title": "Training Eligible"
+          },
+          "evaluation_role": {
+            "type": "string",
+            "const": "comparison_only",
+            "title": "Evaluation Role"
+          },
+          "independent_validation_eligible": {
+            "type": "boolean",
+            "const": false,
+            "title": "Independent Validation Eligible"
+          },
+          "possible_duplicate_with_existing_evidence": {
+            "type": "boolean",
+            "title": "Possible Duplicate With Existing Evidence"
+          },
+          "duplicate_linkage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Figure222DuplicateLinkage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "source_id",
+          "figure_ref",
+          "dataset_version",
+          "series_key",
+          "series_label",
+          "evidence_type",
+          "thickness_um",
+          "observed_spread_rate_mm_s",
+          "digitization_uncertainty_status",
+          "figure_validation_status",
+          "training_policy",
+          "training_eligible",
+          "evaluation_role",
+          "independent_validation_eligible",
+          "possible_duplicate_with_existing_evidence"
+        ],
+        "title": "Figure222EvidenceRecord"
+      },
+      "Figure222EvidenceResponse": {
+        "properties": {
+          "dataset_name": {
+            "type": "string",
+            "title": "Dataset Name"
+          },
+          "dataset_version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Dataset Version"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure_ref": {
+            "type": "string",
+            "const": "2.22",
+            "title": "Figure Ref"
+          },
+          "purpose": {
+            "type": "string",
+            "const": "comparison_only",
+            "title": "Purpose"
+          },
+          "scientific_status": {
+            "type": "string",
+            "const": "comparison_evidence_not_independent_external_validation",
+            "title": "Scientific Status"
+          },
+          "figure_validation_status": {
+            "type": "string",
+            "title": "Figure Validation Status"
+          },
+          "experimental_point_count": {
+            "type": "integer",
+            "title": "Experimental Point Count"
+          },
+          "theoretical_curves_included": {
+            "type": "boolean",
+            "const": false,
+            "title": "Theoretical Curves Included"
+          },
+          "training_eligible_count": {
+            "type": "integer",
+            "const": 0,
+            "title": "Training Eligible Count"
+          },
+          "independent_validation_eligible_count": {
+            "type": "integer",
+            "const": 0,
+            "title": "Independent Validation Eligible Count"
+          },
+          "digitization_uncertainty_status": {
+            "type": "string",
+            "title": "Digitization Uncertainty Status"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "title": "Dataset Sha256"
+          },
+          "dataset_sha256_verified": {
+            "type": "boolean",
+            "title": "Dataset Sha256 Verified"
+          },
+          "series_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Series Counts"
+          },
+          "gravity_context_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Gravity Context Counts"
+          },
+          "duplicate_linkage_class_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Duplicate Linkage Class Counts"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/Figure222EvidenceRecord"
+            },
+            "type": "array",
+            "title": "Records"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_name",
+          "dataset_version",
+          "source_id",
+          "figure_ref",
+          "purpose",
+          "scientific_status",
+          "figure_validation_status",
+          "experimental_point_count",
+          "theoretical_curves_included",
+          "training_eligible_count",
+          "independent_validation_eligible_count",
+          "digitization_uncertainty_status",
+          "dataset_sha256",
+          "dataset_sha256_verified",
+          "series_counts",
+          "gravity_context_counts",
+          "duplicate_linkage_class_counts",
+          "guardrails",
+          "records"
+        ],
+        "title": "Figure222EvidenceResponse"
+      },
+      "FireBehaviorPredictionRequest": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Material",
+            "examples": [
+              "PMMA"
+            ]
+          },
+          "geometry": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Geometry",
+            "examples": [
+              "thin_sheet"
+            ]
+          },
+          "thickness_um": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Thickness Um",
+            "examples": [
+              200.0
+            ]
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "oxygen_fraction": {
+            "type": "number",
+            "maximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Oxygen Fraction",
+            "examples": [
+              0.21
+            ]
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Pressure Kpa",
+            "examples": [
+              101.325
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry",
+          "thickness_um",
+          "gravity_regime",
+          "oxygen_fraction",
+          "pressure_kpa"
+        ],
+        "title": "FireBehaviorPredictionRequest"
+      },
+      "FireBehaviorPredictionResponse": {
+        "properties": {
+          "decision": {
+            "type": "string",
+            "enum": [
+              "predict",
+              "abstain"
+            ],
+            "title": "Decision"
+          },
+          "prediction": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PredictionValue"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "abstention_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Abstention Reasons",
+            "default": []
+          },
+          "supported_domain": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupportedDomain"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "model": {
+            "$ref": "#/components/schemas/PredictionModelInfo"
+          },
+          "descriptive_residual_factor": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descriptive Residual Factor"
+          },
+          "uncertainty_note": {
+            "type": "string",
+            "title": "Uncertainty Note"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "decision",
+          "model",
+          "uncertainty_note"
+        ],
+        "title": "FireBehaviorPredictionResponse"
+      },
+      "GravityRecommendationSummary": {
+        "properties": {
+          "predicted_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Predicted Spread Rate Mm S"
+          },
+          "posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Posterior Sd Log Residual"
+          },
+          "nearest_existing_observation": {
+            "$ref": "#/components/schemas/ExistingObservationSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "predicted_spread_rate_mm_s",
+          "posterior_sd_log_residual",
+          "nearest_existing_observation"
+        ],
+        "title": "GravityRecommendationSummary"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "JointUncertaintySummary": {
+        "properties": {
+          "matched_pair_joint_sd_log": {
+            "type": "number",
+            "title": "Matched Pair Joint Sd Log"
+          },
+          "one_sd_ratio_uncertainty_factor": {
+            "type": "number",
+            "title": "One Sd Ratio Uncertainty Factor"
+          },
+          "predicted_mg_to_ng_spread_ratio": {
+            "type": "number",
+            "title": "Predicted Mg To Ng Spread Ratio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "matched_pair_joint_sd_log",
+          "one_sd_ratio_uncertainty_factor",
+          "predicted_mg_to_ng_spread_ratio"
+        ],
+        "title": "JointUncertaintySummary"
+      },
+      "MinimumValidationScope": {
+        "properties": {
+          "independent_source_count": {
+            "type": "integer",
+            "title": "Independent Source Count"
+          },
+          "minimum_independent_numeric_points": {
+            "type": "integer",
+            "title": "Minimum Independent Numeric Points"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "independent_source_count",
+          "minimum_independent_numeric_points",
+          "note"
+        ],
+        "title": "MinimumValidationScope"
+      },
+      "NextExperimentExplanationResponse": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "decision_status": {
+            "type": "string",
+            "const": "research_priority_candidate",
+            "title": "Decision Status"
+          },
+          "approval_status": {
+            "type": "string",
+            "const": "not_approved",
+            "title": "Approval Status"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready"
+          },
+          "why_this_thickness": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Why This Thickness"
+          },
+          "decision_trace": {
+            "items": {
+              "$ref": "#/components/schemas/DecisionTraceStep"
+            },
+            "type": "array",
+            "title": "Decision Trace"
+          },
+          "uncertainty": {
+            "$ref": "#/components/schemas/RecommendationUncertaintyExplanation"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/RecommendationEvidenceExplanation"
+          },
+          "scientific_caveats": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Scientific Caveats"
+          },
+          "required_before_experiment_approval": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Before Experiment Approval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "title",
+          "summary",
+          "thickness_um",
+          "decision_status",
+          "approval_status",
+          "production_ready",
+          "why_this_thickness",
+          "decision_trace",
+          "uncertainty",
+          "evidence",
+          "scientific_caveats",
+          "required_before_experiment_approval"
+        ],
+        "title": "NextExperimentExplanationResponse"
+      },
+      "NextExperimentRecommendationResponse": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "decision_status": {
+            "type": "string",
+            "const": "research_priority_candidate",
+            "title": "Decision Status"
+          },
+          "recommendation_status": {
+            "type": "string",
+            "const": "bayesian_candidate_only",
+            "title": "Recommendation Status"
+          },
+          "approval_status": {
+            "type": "string",
+            "const": "not_approved",
+            "title": "Approval Status"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "why_selected": {
+            "type": "string",
+            "title": "Why Selected"
+          },
+          "experiment_family": {
+            "$ref": "#/components/schemas/ExperimentFamilySummary"
+          },
+          "agreement": {
+            "$ref": "#/components/schemas/AgreementSummary"
+          },
+          "microgravity": {
+            "$ref": "#/components/schemas/GravityRecommendationSummary"
+          },
+          "normal_gravity": {
+            "$ref": "#/components/schemas/GravityRecommendationSummary"
+          },
+          "joint_uncertainty": {
+            "$ref": "#/components/schemas/JointUncertaintySummary"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/EvidenceSummary"
+          },
+          "integrity": {
+            "$ref": "#/components/schemas/ArtifactIntegritySummary"
+          },
+          "scientific_guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Scientific Guardrails"
+          },
+          "required_before_experiment_approval": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Before Experiment Approval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "decision_status",
+          "recommendation_status",
+          "approval_status",
+          "production_ready",
+          "thickness_um",
+          "why_selected",
+          "experiment_family",
+          "agreement",
+          "microgravity",
+          "normal_gravity",
+          "joint_uncertainty",
+          "evidence",
+          "integrity",
+          "scientific_guardrails",
+          "required_before_experiment_approval"
+        ],
+        "title": "NextExperimentRecommendationResponse"
+      },
+      "PredictionEvidenceTrace": {
+        "properties": {
+          "canonical_source_id": {
+            "type": "string",
+            "title": "Canonical Source Id"
+          },
+          "canonical_figure_ref": {
+            "type": "string",
+            "title": "Canonical Figure Ref"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "dataset_integrity": {
+            "$ref": "#/components/schemas/DatasetIntegrityInfo"
+          },
+          "coefficient_derivation": {
+            "$ref": "#/components/schemas/CoefficientDerivationInfo"
+          },
+          "nearest_evidence_records": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRecordSummary"
+            },
+            "type": "array",
+            "title": "Nearest Evidence Records"
+          },
+          "contributing_evidence_records": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRecordSummary"
+            },
+            "type": "array",
+            "title": "Contributing Evidence Records"
+          },
+          "evidence_policy": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence Policy"
+          },
+          "uncertainty_state": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Uncertainty State"
+          },
+          "external_validation_status": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation Status",
+            "default": "not_performed"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "canonical_source_id",
+          "canonical_figure_ref",
+          "gravity_regime",
+          "dataset_integrity",
+          "coefficient_derivation",
+          "nearest_evidence_records",
+          "contributing_evidence_records",
+          "evidence_policy",
+          "uncertainty_state"
+        ],
+        "title": "PredictionEvidenceTrace"
+      },
+      "PredictionModelInfo": {
+        "properties": {
+          "model_name": {
+            "type": "string",
+            "title": "Model Name"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "formula": {
+            "type": "string",
+            "title": "Formula"
+          },
+          "coefficient_k": {
+            "type": "number",
+            "title": "Coefficient K"
+          },
+          "canonical_evidence_figure": {
+            "type": "string",
+            "title": "Canonical Evidence Figure"
+          },
+          "external_validation_status": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation Status",
+            "default": "not_performed"
+          },
+          "production_ready": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "model_name",
+          "model_version",
+          "formula",
+          "coefficient_k",
+          "canonical_evidence_figure"
+        ],
+        "title": "PredictionModelInfo"
+      },
+      "PredictionValue": {
+        "properties": {
+          "quantity": {
+            "type": "string",
+            "const": "flame_spread_rate",
+            "title": "Quantity",
+            "default": "flame_spread_rate"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "unit": {
+            "type": "string",
+            "const": "mm/s",
+            "title": "Unit",
+            "default": "mm/s"
+          }
+        },
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "title": "PredictionValue"
+      },
+      "RatioRangeSummary": {
+        "properties": {
+          "predicted_ratio": {
+            "type": "number",
+            "title": "Predicted Ratio"
+          },
+          "one_sd_factor": {
+            "type": "number",
+            "title": "One Sd Factor"
+          },
+          "descriptive_lower": {
+            "type": "number",
+            "title": "Descriptive Lower"
+          },
+          "descriptive_upper": {
+            "type": "number",
+            "title": "Descriptive Upper"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "predicted_ratio",
+          "one_sd_factor",
+          "descriptive_lower",
+          "descriptive_upper",
+          "interpretation"
+        ],
+        "title": "RatioRangeSummary"
+      },
+      "RecommendationEvidenceExplanation": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "figure": {
+            "type": "string",
+            "title": "Figure"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "title": "Dataset Sha256"
+          },
+          "shared_canonical_evidence": {
+            "type": "boolean",
+            "title": "Shared Canonical Evidence"
+          },
+          "independent_validation": {
+            "type": "boolean",
+            "title": "Independent Validation"
+          },
+          "external_validation": {
+            "type": "string",
+            "const": "not_performed",
+            "title": "External Validation"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "figure",
+          "dataset_version",
+          "dataset_sha256",
+          "shared_canonical_evidence",
+          "independent_validation",
+          "external_validation",
+          "interpretation"
+        ],
+        "title": "RecommendationEvidenceExplanation"
+      },
+      "RecommendationUncertaintyExplanation": {
+        "properties": {
+          "microgravity_posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Microgravity Posterior Sd Log Residual"
+          },
+          "normal_gravity_posterior_sd_log_residual": {
+            "type": "number",
+            "title": "Normal Gravity Posterior Sd Log Residual"
+          },
+          "matched_pair_joint_sd_log": {
+            "type": "number",
+            "title": "Matched Pair Joint Sd Log"
+          },
+          "ratio_range": {
+            "$ref": "#/components/schemas/RatioRangeSummary"
+          },
+          "uncertainty_target": {
+            "type": "string",
+            "title": "Uncertainty Target"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          },
+          "calibration_status": {
+            "type": "string",
+            "const": "not_externally_calibrated",
+            "title": "Calibration Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "microgravity_posterior_sd_log_residual",
+          "normal_gravity_posterior_sd_log_residual",
+          "matched_pair_joint_sd_log",
+          "ratio_range",
+          "uncertainty_target",
+          "interpretation",
+          "calibration_status"
+        ],
+        "title": "RecommendationUncertaintyExplanation"
+      },
+      "ScientificReviewArtifactState": {
+        "properties": {
+          "validation_manifest_present": {
+            "type": "boolean",
+            "title": "Validation Manifest Present"
+          },
+          "validation_evaluation_present": {
+            "type": "boolean",
+            "title": "Validation Evaluation Present"
+          },
+          "validation_performance_present": {
+            "type": "boolean",
+            "title": "Validation Performance Present"
+          },
+          "validation_uncertainty_present": {
+            "type": "boolean",
+            "title": "Validation Uncertainty Present"
+          },
+          "scientific_review_approval_present": {
+            "type": "boolean",
+            "title": "Scientific Review Approval Present"
+          }
+        },
+        "type": "object",
+        "required": [
+          "validation_manifest_present",
+          "validation_evaluation_present",
+          "validation_performance_present",
+          "validation_uncertainty_present",
+          "scientific_review_approval_present"
+        ],
+        "title": "ScientificReviewArtifactState"
+      },
+      "SupportedDomain": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "title": "Material"
+          },
+          "geometry": {
+            "type": "string",
+            "title": "Geometry"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "thickness_um_min": {
+            "type": "number",
+            "title": "Thickness Um Min"
+          },
+          "thickness_um_max": {
+            "type": "number",
+            "title": "Thickness Um Max"
+          },
+          "oxygen_fraction": {
+            "type": "number",
+            "title": "Oxygen Fraction"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "title": "Pressure Kpa"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry",
+          "gravity_regime",
+          "thickness_um_min",
+          "thickness_um_max",
+          "oxygen_fraction",
+          "pressure_kpa"
+        ],
+        "title": "SupportedDomain"
+      },
+      "ValidationCandidateEvaluationResponse": {
+        "properties": {
+          "dataset_id": {
+            "type": "string",
+            "title": "Dataset Id"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "compatible_independent_validation_candidate",
+              "independent_external_comparison_only",
+              "insufficient_validation_scope",
+              "non_independent_rejected",
+              "outside_firesense_v0_domain"
+            ],
+            "title": "Classification"
+          },
+          "direct_validation_gate_passed": {
+            "type": "boolean",
+            "title": "Direct Validation Gate Passed"
+          },
+          "holdout_evaluation_completed": {
+            "type": "boolean",
+            "title": "Holdout Evaluation Completed"
+          },
+          "external_validation_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "External Validation Claim Allowed"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Certification Claim Allowed"
+          },
+          "performance_acceptance_status": {
+            "type": "string",
+            "enum": [
+              "thresholds_not_yet_frozen",
+              "not_applicable_gate_failed"
+            ],
+            "title": "Performance Acceptance Status"
+          },
+          "submitted_point_count": {
+            "type": "integer",
+            "title": "Submitted Point Count"
+          },
+          "evaluated_point_count": {
+            "type": "integer",
+            "title": "Evaluated Point Count"
+          },
+          "blocked_point_count": {
+            "type": "integer",
+            "title": "Blocked Point Count"
+          },
+          "gate_checks": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationGateCheck"
+            },
+            "type": "array",
+            "title": "Gate Checks"
+          },
+          "metrics_role": {
+            "type": "string",
+            "enum": [
+              "validation_candidate_metrics",
+              "comparison_only_metrics",
+              "not_available"
+            ],
+            "title": "Metrics Role"
+          },
+          "metrics": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ValidationMetrics"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "evaluations": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationEvaluationRecord"
+            },
+            "type": "array",
+            "title": "Evaluations"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_id",
+          "dataset_version",
+          "source_id",
+          "classification",
+          "direct_validation_gate_passed",
+          "holdout_evaluation_completed",
+          "external_validation_claim_allowed",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "performance_acceptance_status",
+          "submitted_point_count",
+          "evaluated_point_count",
+          "blocked_point_count",
+          "gate_checks",
+          "metrics_role",
+          "metrics",
+          "evaluations",
+          "guardrails"
+        ],
+        "title": "ValidationCandidateEvaluationResponse"
+      },
+      "ValidationCandidateRecord": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Record Id"
+          },
+          "material": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Material"
+          },
+          "geometry_family": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Geometry Family"
+          },
+          "thickness_um": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Thickness Um"
+          },
+          "oxygen_percent": {
+            "type": "number",
+            "maximum": 100.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Oxygen Percent"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Pressure Kpa"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "transport_configuration": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Transport Configuration"
+          },
+          "flow_mm_s": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flow Mm S"
+          },
+          "observed_spread_rate_mm_s": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Observed Spread Rate Mm S"
+          },
+          "digitization_uncertainty_mm_s": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Digitization Uncertainty Mm S"
+          },
+          "experimental_uncertainty_mm_s": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experimental Uncertainty Mm S"
+          },
+          "training_eligible": {
+            "type": "boolean",
+            "title": "Training Eligible",
+            "default": false
+          },
+          "validation_holdout": {
+            "type": "boolean",
+            "title": "Validation Holdout",
+            "default": true
+          },
+          "provenance_reference": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Provenance Reference"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "material",
+          "geometry_family",
+          "thickness_um",
+          "oxygen_percent",
+          "pressure_kpa",
+          "gravity_regime",
+          "transport_configuration",
+          "observed_spread_rate_mm_s",
+          "provenance_reference"
+        ],
+        "title": "ValidationCandidateRecord"
+      },
+      "ValidationCandidateRequest": {
+        "properties": {
+          "dataset_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Dataset Id"
+          },
+          "dataset_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Dataset Version"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ValidationCandidateSource"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationCandidateRecord"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Records"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_id",
+          "dataset_version",
+          "source",
+          "records"
+        ],
+        "title": "ValidationCandidateRequest"
+      },
+      "ValidationCandidateSource": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Id"
+          },
+          "source_title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Title"
+          },
+          "provenance_reference": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Provenance Reference"
+          },
+          "independent_publication_or_dataset": {
+            "type": "boolean",
+            "title": "Independent Publication Or Dataset"
+          },
+          "independent_experimental_campaign": {
+            "type": "boolean",
+            "title": "Independent Experimental Campaign"
+          },
+          "not_firesense_training_source": {
+            "type": "boolean",
+            "title": "Not Firesense Training Source"
+          },
+          "not_reused_bass_ii_rows": {
+            "type": "boolean",
+            "title": "Not Reused Bass Ii Rows"
+          },
+          "experimental_data_only": {
+            "type": "boolean",
+            "title": "Experimental Data Only"
+          },
+          "measurement_quantity": {
+            "type": "string",
+            "title": "Measurement Quantity"
+          },
+          "measurement_definition_matches": {
+            "type": "boolean",
+            "title": "Measurement Definition Matches"
+          },
+          "cross_calibration_available": {
+            "type": "boolean",
+            "title": "Cross Calibration Available"
+          },
+          "normal_gravity_transport_equivalence_established": {
+            "type": "boolean",
+            "title": "Normal Gravity Transport Equivalence Established"
+          },
+          "uncertainty_or_variability_metadata_preserved": {
+            "type": "boolean",
+            "title": "Uncertainty Or Variability Metadata Preserved"
+          },
+          "digitization_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Digitization Uncertainty Separate"
+          },
+          "experimental_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Experimental Uncertainty Separate"
+          },
+          "model_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Model Uncertainty Separate"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "source_title",
+          "provenance_reference",
+          "independent_publication_or_dataset",
+          "independent_experimental_campaign",
+          "not_firesense_training_source",
+          "not_reused_bass_ii_rows",
+          "experimental_data_only",
+          "measurement_quantity",
+          "measurement_definition_matches",
+          "cross_calibration_available",
+          "normal_gravity_transport_equivalence_established",
+          "uncertainty_or_variability_metadata_preserved",
+          "digitization_uncertainty_separate",
+          "experimental_uncertainty_separate",
+          "model_uncertainty_separate"
+        ],
+        "title": "ValidationCandidateSource"
+      },
+      "ValidationCsvImportRequest": {
+        "properties": {
+          "dataset_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Dataset Id"
+          },
+          "dataset_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Dataset Version"
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Id"
+          },
+          "source_title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Title"
+          },
+          "provenance_reference": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Provenance Reference"
+          },
+          "csv_text": {
+            "type": "string",
+            "maxLength": 2000000,
+            "minLength": 1,
+            "title": "Csv Text"
+          },
+          "experimental_data_only": {
+            "type": "boolean",
+            "title": "Experimental Data Only"
+          },
+          "measurement_quantity": {
+            "type": "string",
+            "title": "Measurement Quantity",
+            "default": "flame_spread_rate"
+          },
+          "measurement_definition_matches": {
+            "type": "boolean",
+            "title": "Measurement Definition Matches"
+          },
+          "cross_calibration_available": {
+            "type": "boolean",
+            "title": "Cross Calibration Available",
+            "default": false
+          },
+          "normal_gravity_transport_equivalence_established": {
+            "type": "boolean",
+            "title": "Normal Gravity Transport Equivalence Established",
+            "default": false
+          },
+          "uncertainty_or_variability_metadata_preserved": {
+            "type": "boolean",
+            "title": "Uncertainty Or Variability Metadata Preserved"
+          },
+          "digitization_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Digitization Uncertainty Separate",
+            "default": true
+          },
+          "experimental_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Experimental Uncertainty Separate",
+            "default": true
+          },
+          "model_uncertainty_separate": {
+            "type": "boolean",
+            "title": "Model Uncertainty Separate",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_id",
+          "dataset_version",
+          "source_id",
+          "source_title",
+          "provenance_reference",
+          "csv_text",
+          "experimental_data_only",
+          "measurement_definition_matches",
+          "uncertainty_or_variability_metadata_preserved"
+        ],
+        "title": "ValidationCsvImportRequest"
+      },
+      "ValidationCsvImportResponse": {
+        "properties": {
+          "dataset_id": {
+            "type": "string",
+            "title": "Dataset Id"
+          },
+          "dataset_version": {
+            "type": "string",
+            "title": "Dataset Version"
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "imported_row_count": {
+            "type": "integer",
+            "title": "Imported Row Count"
+          },
+          "import_status": {
+            "type": "string",
+            "enum": [
+              "provenance_review_required",
+              "rejected_non_independent_source",
+              "comparison_only_source",
+              "evaluated_direct_validation_candidate"
+            ],
+            "title": "Import Status"
+          },
+          "source_known": {
+            "type": "boolean",
+            "title": "Source Known"
+          },
+          "source_independence_status": {
+            "type": "string",
+            "title": "Source Independence Status"
+          },
+          "registry_direct_validation_eligible": {
+            "type": "boolean",
+            "title": "Registry Direct Validation Eligible"
+          },
+          "validation_evaluation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ValidationCandidateEvaluationResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "performance_evaluation": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Performance Evaluation"
+          },
+          "external_validation_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "External Validation Claim Allowed"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Certification Claim Allowed"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dataset_id",
+          "dataset_version",
+          "source_id",
+          "imported_row_count",
+          "import_status",
+          "source_known",
+          "source_independence_status",
+          "registry_direct_validation_eligible",
+          "validation_evaluation",
+          "performance_evaluation",
+          "external_validation_claim_allowed",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "guardrails"
+        ],
+        "title": "ValidationCsvImportResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "ValidationEvaluationRecord": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "gravity_regime": {
+            "type": "string",
+            "enum": [
+              "microgravity",
+              "normal_gravity"
+            ],
+            "title": "Gravity Regime"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "observed_spread_rate_mm_s": {
+            "type": "number",
+            "title": "Observed Spread Rate Mm S"
+          },
+          "predicted_spread_rate_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Predicted Spread Rate Mm S"
+          },
+          "prediction_decision": {
+            "type": "string",
+            "enum": [
+              "predict",
+              "abstain"
+            ],
+            "title": "Prediction Decision"
+          },
+          "prediction_minus_observed_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prediction Minus Observed Mm S"
+          },
+          "absolute_error_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Error Mm S"
+          },
+          "relative_error_vs_observed_percent": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relative Error Vs Observed Percent"
+          },
+          "abstention_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Abstention Reasons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "gravity_regime",
+          "thickness_um",
+          "observed_spread_rate_mm_s",
+          "predicted_spread_rate_mm_s",
+          "prediction_decision",
+          "prediction_minus_observed_mm_s",
+          "absolute_error_mm_s",
+          "relative_error_vs_observed_percent",
+          "abstention_reasons"
+        ],
+        "title": "ValidationEvaluationRecord"
+      },
+      "ValidationGateCheck": {
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "title": "Check Id"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "check_id",
+          "passed",
+          "detail"
+        ],
+        "title": "ValidationGateCheck"
+      },
+      "ValidationMetrics": {
+        "properties": {
+          "evaluated_point_count": {
+            "type": "integer",
+            "title": "Evaluated Point Count"
+          },
+          "mae_mm_s": {
+            "type": "number",
+            "title": "Mae Mm S"
+          },
+          "rmse_mm_s": {
+            "type": "number",
+            "title": "Rmse Mm S"
+          },
+          "mean_bias_mm_s": {
+            "type": "number",
+            "title": "Mean Bias Mm S"
+          },
+          "mean_absolute_percentage_error_percent": {
+            "type": "number",
+            "title": "Mean Absolute Percentage Error Percent"
+          },
+          "max_absolute_error_mm_s": {
+            "type": "number",
+            "title": "Max Absolute Error Mm S"
+          }
+        },
+        "type": "object",
+        "required": [
+          "evaluated_point_count",
+          "mae_mm_s",
+          "rmse_mm_s",
+          "mean_bias_mm_s",
+          "mean_absolute_percentage_error_percent",
+          "max_absolute_error_mm_s"
+        ],
+        "title": "ValidationMetrics"
+      },
+      "ValidationReadinessResponse": {
+        "properties": {
+          "readiness_id": {
+            "type": "string",
+            "title": "Readiness Id"
+          },
+          "version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Version"
+          },
+          "validation_protocol_id": {
+            "type": "string",
+            "title": "Validation Protocol Id"
+          },
+          "scientific_status": {
+            "type": "string",
+            "const": "independent_external_validation_not_yet_available",
+            "title": "Scientific Status"
+          },
+          "independent_external_validation_available": {
+            "type": "boolean",
+            "const": false,
+            "title": "Independent External Validation Available"
+          },
+          "independent_external_comparison_available": {
+            "type": "boolean",
+            "const": true,
+            "title": "Independent External Comparison Available"
+          },
+          "exact_source_found": {
+            "type": "boolean",
+            "const": false,
+            "title": "Exact Source Found"
+          },
+          "exact_validation_source_count": {
+            "type": "integer",
+            "const": 0,
+            "title": "Exact Validation Source Count"
+          },
+          "screened_candidate_count": {
+            "type": "integer",
+            "title": "Screened Candidate Count"
+          },
+          "independent_comparison_source_count": {
+            "type": "integer",
+            "title": "Independent Comparison Source Count"
+          },
+          "target": {
+            "$ref": "#/components/schemas/ValidationTarget"
+          },
+          "minimum_validation_scope": {
+            "$ref": "#/components/schemas/MinimumValidationScope"
+          },
+          "ries_2024_classification": {
+            "type": "string",
+            "title": "Ries 2024 Classification"
+          },
+          "ries_2024_direct_validation_eligible": {
+            "type": "boolean",
+            "const": false,
+            "title": "Ries 2024 Direct Validation Eligible"
+          },
+          "ries_2024_blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Ries 2024 Blocking Reasons"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Certification Claim Allowed"
+          },
+          "acceptance_criteria_sha256": {
+            "type": "string",
+            "title": "Acceptance Criteria Sha256"
+          },
+          "source_screening_sha256": {
+            "type": "string",
+            "title": "Source Screening Sha256"
+          },
+          "artifact_sha256_verified": {
+            "type": "boolean",
+            "const": true,
+            "title": "Artifact Sha256 Verified"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "readiness_id",
+          "version",
+          "validation_protocol_id",
+          "scientific_status",
+          "independent_external_validation_available",
+          "independent_external_comparison_available",
+          "exact_source_found",
+          "exact_validation_source_count",
+          "screened_candidate_count",
+          "independent_comparison_source_count",
+          "target",
+          "minimum_validation_scope",
+          "ries_2024_classification",
+          "ries_2024_direct_validation_eligible",
+          "ries_2024_blocking_reasons",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "acceptance_criteria_sha256",
+          "source_screening_sha256",
+          "artifact_sha256_verified",
+          "guardrails"
+        ],
+        "title": "ValidationReadinessResponse"
+      },
+      "ValidationReleaseStatusResponse": {
+        "properties": {
+          "release_status_id": {
+            "type": "string",
+            "title": "Release Status Id"
+          },
+          "version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Version"
+          },
+          "scientific_status": {
+            "type": "string",
+            "enum": [
+              "independent_external_validation_not_yet_available",
+              "frozen_candidate_pending_scientific_review",
+              "review_approved_pending_release_promotion",
+              "independent_external_validation_approved"
+            ],
+            "title": "Scientific Status"
+          },
+          "frozen_candidate_available": {
+            "type": "boolean",
+            "title": "Frozen Candidate Available"
+          },
+          "scientific_review_approved": {
+            "type": "boolean",
+            "title": "Scientific Review Approved"
+          },
+          "approved_artifact_hash_frozen_in_code": {
+            "type": "boolean",
+            "title": "Approved Artifact Hash Frozen In Code"
+          },
+          "independent_external_validation_available": {
+            "type": "boolean",
+            "title": "Independent External Validation Available"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Certification Claim Allowed"
+          },
+          "blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blocking Reasons"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "release_status_id",
+          "version",
+          "scientific_status",
+          "frozen_candidate_available",
+          "scientific_review_approved",
+          "approved_artifact_hash_frozen_in_code",
+          "independent_external_validation_available",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "blocking_reasons",
+          "guardrails"
+        ],
+        "title": "ValidationReleaseStatusResponse"
+      },
+      "ValidationScientificReviewStatusResponse": {
+        "properties": {
+          "review_status_id": {
+            "type": "string",
+            "title": "Review Status Id"
+          },
+          "version": {
+            "type": "string",
+            "const": "v0",
+            "title": "Version"
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "no_frozen_validation_package",
+              "frozen_package_incomplete",
+              "pending_scientific_review",
+              "review_artifact_not_approved",
+              "review_approved_pending_release_promotion"
+            ],
+            "title": "Review Status"
+          },
+          "artifacts": {
+            "$ref": "#/components/schemas/ScientificReviewArtifactState"
+          },
+          "artifact_integrity_verified": {
+            "type": "boolean",
+            "title": "Artifact Integrity Verified"
+          },
+          "scientific_review_approved": {
+            "type": "boolean",
+            "title": "Scientific Review Approved"
+          },
+          "performance_gate_passed": {
+            "type": "boolean",
+            "title": "Performance Gate Passed"
+          },
+          "uncertainty_coverage_verified": {
+            "type": "boolean",
+            "title": "Uncertainty Coverage Verified"
+          },
+          "external_validation_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "External Validation Claim Allowed"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Certification Claim Allowed"
+          },
+          "blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blocking Reasons"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "review_status_id",
+          "version",
+          "review_status",
+          "artifacts",
+          "artifact_integrity_verified",
+          "scientific_review_approved",
+          "performance_gate_passed",
+          "uncertainty_coverage_verified",
+          "external_validation_claim_allowed",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "blocking_reasons",
+          "guardrails"
+        ],
+        "title": "ValidationScientificReviewStatusResponse"
+      },
+      "ValidationSourceCheckRequest": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id"
+        ],
+        "title": "ValidationSourceCheckRequest"
+      },
+      "ValidationSourceCheckResponse": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "known_source": {
+            "type": "boolean",
+            "title": "Known Source"
+          },
+          "independence_status": {
+            "type": "string",
+            "title": "Independence Status"
+          },
+          "current_role": {
+            "type": "string",
+            "title": "Current Role"
+          },
+          "direct_validation_eligible": {
+            "type": "boolean",
+            "title": "Direct Validation Eligible"
+          },
+          "blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blocking Reasons"
+          },
+          "registry_sha256": {
+            "type": "string",
+            "title": "Registry Sha256"
+          },
+          "artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Artifact Sha256 Verified"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "known_source",
+          "independence_status",
+          "current_role",
+          "direct_validation_eligible",
+          "blocking_reasons",
+          "registry_sha256",
+          "artifact_sha256_verified"
+        ],
+        "title": "ValidationSourceCheckResponse"
+      },
+      "ValidationSourceRegistryEntry": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "doi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doi"
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference"
+          },
+          "campaign": {
+            "type": "string",
+            "title": "Campaign"
+          },
+          "independence_status": {
+            "type": "string",
+            "title": "Independence Status"
+          },
+          "current_role": {
+            "type": "string",
+            "title": "Current Role"
+          },
+          "direct_validation_eligible": {
+            "type": "boolean",
+            "title": "Direct Validation Eligible"
+          },
+          "blocking_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blocking Reasons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "title",
+          "campaign",
+          "independence_status",
+          "current_role",
+          "direct_validation_eligible",
+          "blocking_reasons"
+        ],
+        "title": "ValidationSourceRegistryEntry"
+      },
+      "ValidationSourceRegistryResponse": {
+        "properties": {
+          "registry_id": {
+            "type": "string",
+            "title": "Registry Id"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "registry_sha256": {
+            "type": "string",
+            "title": "Registry Sha256"
+          },
+          "artifact_sha256_verified": {
+            "type": "boolean",
+            "title": "Artifact Sha256 Verified"
+          },
+          "firesense_training_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Firesense Training Source Ids"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationSourceRegistryEntry"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "registry_id",
+          "version",
+          "registry_sha256",
+          "artifact_sha256_verified",
+          "firesense_training_source_ids",
+          "sources",
+          "guardrails"
+        ],
+        "title": "ValidationSourceRegistryResponse"
+      },
+      "ValidationTarget": {
+        "properties": {
+          "material": {
+            "type": "string",
+            "title": "Material"
+          },
+          "geometry_family": {
+            "type": "string",
+            "title": "Geometry Family"
+          },
+          "thickness_um": {
+            "type": "number",
+            "title": "Thickness Um"
+          },
+          "oxygen_percent": {
+            "type": "number",
+            "title": "Oxygen Percent"
+          },
+          "pressure_kpa": {
+            "type": "number",
+            "title": "Pressure Kpa"
+          },
+          "microgravity_configuration": {
+            "type": "string",
+            "title": "Microgravity Configuration"
+          },
+          "microgravity_flow_mm_s": {
+            "type": "number",
+            "title": "Microgravity Flow Mm S"
+          },
+          "independent_campaign_required": {
+            "type": "boolean",
+            "title": "Independent Campaign Required"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material",
+          "geometry_family",
+          "thickness_um",
+          "oxygen_percent",
+          "pressure_kpa",
+          "microgravity_configuration",
+          "microgravity_flow_mm_s",
+          "independent_campaign_required"
+        ],
+        "title": "ValidationTarget"
+      },
+      "ValidationUncertaintyAssessmentRequest": {
+        "properties": {
+          "candidate": {
+            "$ref": "#/components/schemas/ValidationCandidateRequest"
+          },
+          "experimental_uncertainty_kind": {
+            "type": "string",
+            "enum": [
+              "standard_deviation",
+              "standard_error",
+              "confidence_interval_half_width",
+              "range_half_width",
+              "source_reported_unspecified",
+              "not_available"
+            ],
+            "title": "Experimental Uncertainty Kind"
+          },
+          "experimental_uncertainty_confidence_level_percent": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experimental Uncertainty Confidence Level Percent"
+          },
+          "digitization_uncertainty_kind": {
+            "type": "string",
+            "enum": [
+              "absolute_bound",
+              "method_sensitivity_bound",
+              "pixel_calibration_bound",
+              "source_reported_unspecified",
+              "not_available"
+            ],
+            "title": "Digitization Uncertainty Kind"
+          }
+        },
+        "type": "object",
+        "required": [
+          "candidate",
+          "experimental_uncertainty_kind",
+          "digitization_uncertainty_kind"
+        ],
+        "title": "ValidationUncertaintyAssessmentRequest"
+      },
+      "ValidationUncertaintyAssessmentResponse": {
+        "properties": {
+          "compatibility_gate_passed": {
+            "type": "boolean",
+            "title": "Compatibility Gate Passed"
+          },
+          "evaluated_point_count": {
+            "type": "integer",
+            "title": "Evaluated Point Count"
+          },
+          "rows_with_experimental_uncertainty": {
+            "type": "integer",
+            "title": "Rows With Experimental Uncertainty"
+          },
+          "rows_with_digitization_uncertainty": {
+            "type": "integer",
+            "title": "Rows With Digitization Uncertainty"
+          },
+          "experimental_uncertainty_completeness_fraction": {
+            "type": "number",
+            "title": "Experimental Uncertainty Completeness Fraction"
+          },
+          "digitization_uncertainty_completeness_fraction": {
+            "type": "number",
+            "title": "Digitization Uncertainty Completeness Fraction"
+          },
+          "uncertainty_categories_separate": {
+            "type": "boolean",
+            "title": "Uncertainty Categories Separate"
+          },
+          "calibrated_prediction_interval_available": {
+            "type": "boolean",
+            "title": "Calibrated Prediction Interval Available"
+          },
+          "uncertainty_readiness_status": {
+            "type": "string",
+            "enum": [
+              "blocked_compatibility_gate",
+              "blocked_incomplete_experimental_uncertainty",
+              "blocked_experimental_uncertainty_semantics",
+              "blocked_no_calibrated_prediction_interval"
+            ],
+            "title": "Uncertainty Readiness Status"
+          },
+          "coverage_verification_passed": {
+            "type": "boolean",
+            "title": "Coverage Verification Passed"
+          },
+          "uncertainty_calibration_claim_allowed": {
+            "type": "boolean",
+            "title": "Uncertainty Calibration Claim Allowed"
+          },
+          "external_validation_claim_allowed": {
+            "type": "boolean",
+            "title": "External Validation Claim Allowed"
+          },
+          "production_ready_claim_allowed": {
+            "type": "boolean",
+            "title": "Production Ready Claim Allowed"
+          },
+          "certification_claim_allowed": {
+            "type": "boolean",
+            "title": "Certification Claim Allowed"
+          },
+          "diagnostics": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationUncertaintyRowDiagnostic"
+            },
+            "type": "array",
+            "title": "Diagnostics"
+          },
+          "guardrails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Guardrails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "compatibility_gate_passed",
+          "evaluated_point_count",
+          "rows_with_experimental_uncertainty",
+          "rows_with_digitization_uncertainty",
+          "experimental_uncertainty_completeness_fraction",
+          "digitization_uncertainty_completeness_fraction",
+          "uncertainty_categories_separate",
+          "calibrated_prediction_interval_available",
+          "uncertainty_readiness_status",
+          "coverage_verification_passed",
+          "uncertainty_calibration_claim_allowed",
+          "external_validation_claim_allowed",
+          "production_ready_claim_allowed",
+          "certification_claim_allowed",
+          "diagnostics",
+          "guardrails"
+        ],
+        "title": "ValidationUncertaintyAssessmentResponse"
+      },
+      "ValidationUncertaintyRowDiagnostic": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "absolute_model_error_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Model Error Mm S"
+          },
+          "experimental_uncertainty_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experimental Uncertainty Mm S"
+          },
+          "digitization_uncertainty_mm_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Digitization Uncertainty Mm S"
+          },
+          "absolute_error_to_experimental_uncertainty_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Error To Experimental Uncertainty Ratio"
+          },
+          "absolute_error_to_digitization_uncertainty_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Error To Digitization Uncertainty Ratio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "absolute_model_error_mm_s",
+          "experimental_uncertainty_mm_s",
+          "digitization_uncertainty_mm_s",
+          "absolute_error_to_experimental_uncertainty_ratio",
+          "absolute_error_to_digitization_uncertainty_ratio"
+        ],
+        "title": "ValidationUncertaintyRowDiagnostic"
+      }
+    }
+  }
+}
