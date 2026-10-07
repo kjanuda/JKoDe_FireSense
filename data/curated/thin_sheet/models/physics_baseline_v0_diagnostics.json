@@ -1,0 +1,139 @@
+{
+  "diagnostic_name": "FireSense Physics Baseline v0 Diagnostics",
+  "model_version": "v0",
+  "dataset_version": "v0",
+  "groups": {
+    "microgravity": {
+      "record_count": 4,
+      "empirical_domain": {
+        "thickness_um_min": 101.933,
+        "thickness_um_max": 400.433,
+        "material": "PMMA",
+        "geometry": "thin_sheet",
+        "oxygen_fraction": 0.21,
+        "pressure_kpa": 101.325,
+        "gravity_regime": "microgravity"
+      },
+      "full_fit_inverse": {
+        "coefficient_k": 204.24457277066125,
+        "metrics": {
+          "rmse_log": 0.2513634198553956,
+          "mae_log": 0.21711146879639262,
+          "mape_percent": 23.686185813984657
+        }
+      },
+      "leave_one_out_inverse": {
+        "metrics": {
+          "rmse_log": 0.3351512264738611,
+          "mae_log": 0.28948195839519053,
+          "mape_percent": 32.743433506626054
+        },
+        "k_min": 192.84374352852595,
+        "k_max": 236.05365740830518
+      },
+      "leave_one_out_free_power_law": {
+        "role": "diagnostic_only",
+        "metrics": {
+          "rmse_log": 0.46799724692862726,
+          "mae_log": 0.4262465401603035,
+          "mape_percent": 51.49901988014537
+        },
+        "exponent_min": -1.7427598080421252,
+        "exponent_max": -0.9769921832233539
+      },
+      "residual_description": {
+        "log_residual_sd": 0.29024947623587516,
+        "multiplicative_residual_factor": 1.3367609365167126,
+        "important_note": "This is descriptive training residual spread, not a calibrated prediction interval."
+      },
+      "worst_training_residual": {
+        "record_id": "TS-F221-MG-004",
+        "thickness_um": 400.433,
+        "observed_mm_s": 0.3304,
+        "predicted_mm_s": 0.5100592927422596,
+        "absolute_log_residual": 0.4342229375927862
+      }
+    },
+    "normal_gravity": {
+      "record_count": 9,
+      "empirical_domain": {
+        "thickness_um_min": 25.147,
+        "thickness_um_max": 748.808,
+        "material": "PMMA",
+        "geometry": "thin_sheet",
+        "oxygen_fraction": 0.21,
+        "pressure_kpa": 101.325,
+        "gravity_regime": "normal_gravity"
+      },
+      "full_fit_inverse": {
+        "coefficient_k": 213.68679738969485,
+        "metrics": {
+          "rmse_log": 0.2733861527818297,
+          "mae_log": 0.23870497367405122,
+          "mape_percent": 24.14443684404452
+        }
+      },
+      "leave_one_out_inverse": {
+        "metrics": {
+          "rmse_log": 0.3075594218795582,
+          "mae_log": 0.2685430953833074,
+          "mape_percent": 27.272480251597063
+        },
+        "k_min": 204.16600493836938,
+        "k_max": 226.13820034772337
+      },
+      "leave_one_out_free_power_law": {
+        "role": "diagnostic_only",
+        "metrics": {
+          "rmse_log": 0.2071182449024012,
+          "mae_log": 0.1634682833898786,
+          "mape_percent": 17.250787024822767
+        },
+        "exponent_min": -1.2879137035164498,
+        "exponent_max": -1.1932451434457245
+      },
+      "residual_description": {
+        "log_residual_sd": 0.2899698037718,
+        "multiplicative_residual_factor": 1.3363871335653503,
+        "important_note": "This is descriptive training residual spread, not a calibrated prediction interval."
+      },
+      "worst_training_residual": {
+        "record_id": "TS-F221-DW-009",
+        "thickness_um": 748.808,
+        "observed_mm_s": 0.1814,
+        "predicted_mm_s": 0.28536927675678525,
+        "absolute_log_residual": 0.4530795118010537
+      }
+    }
+  },
+  "abstention_policy": {
+    "policy_version": "v0",
+    "decision": "interpolation_only",
+    "predict_only_when_all_true": [
+      "material == PMMA",
+      "geometry == thin_sheet",
+      "oxygen_fraction == 0.21",
+      "pressure_kpa == 101.325",
+      "gravity_regime is exactly microgravity or normal_gravity",
+      "thickness_um is inside the observed range for the selected gravity group"
+    ],
+    "abstain_when_any_true": [
+      "thickness is outside the empirical group range",
+      "material or geometry differs",
+      "oxygen fraction differs",
+      "pressure differs",
+      "gravity regime is unknown or intermediate",
+      "requested output is not flame spread rate"
+    ],
+    "important_note": "This abstention policy is a scientific scope guardrail, not a calibrated uncertainty-based selective prediction threshold."
+  },
+  "validation_status": "internal_leave_one_out_sensitivity_only",
+  "external_validation": "not_performed",
+  "important_limitations": [
+    "Leave-one-out evaluation is not independent external validation because all rows come from the same curated Figure 2.21 evidence source.",
+    "Microgravity contains only four observations.",
+    "Residual spread is descriptive and not a calibrated prediction interval.",
+    "No extrapolation is approved."
+  ],
+  "status": "baseline_diagnostics_complete"
+}

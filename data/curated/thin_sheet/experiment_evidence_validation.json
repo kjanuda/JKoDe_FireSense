@@ -1,0 +1,33 @@
+{
+  "file": "E:\\Nasa\\FireSense\\data\\curated\\thin_sheet\\experiment_evidence.jsonl",
+  "record_count": 15,
+  "figure_counts": {
+    "2.19": 2,
+    "2.21": 13,
+    "2.21_microgravity": 4,
+    "2.21_downward": 9
+  },
+  "duplicate_record_ids": [],
+  "checks": {
+    "schema_valid": true,
+    "total_count": true,
+    "unique_record_ids": true,
+    "figure_219_count": true,
+    "figure_221_count": true,
+    "figure_221_microgravity_count": true,
+    "figure_221_downward_count": true,
+    "figure_221_all_accepted_evidence": true,
+    "figure_221_no_run_ids": true,
+    "figure_221_all_figure_digitized": true,
+    "figure_221_all_human_verified": true,
+    "figure_221_all_overlay_verified": true,
+    "figure_221_oxygen_is_21_percent": true,
+    "figure_221_pressure_is_1_atm": true,
+    "microgravity_not_exact_zero_g": true,
+    "downward_is_1g": true,
+    "no_negative_spread_rates": true,
+    "no_nonpositive_thickness": true
+  },
+  "final_status": "pass",
+  "important_note": "accepted_evidence does not mean training_ready"
+}

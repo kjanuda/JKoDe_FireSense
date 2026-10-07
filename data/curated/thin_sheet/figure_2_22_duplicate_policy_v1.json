@@ -1,0 +1,58 @@
+{
+  "policy_version": "v1",
+  "scope": "Figure 2.22 BASS/NASA/Astra versus Figure 2.21 canonical experimental evidence",
+  "audit_source": "E:\\Nasa\\FireSense\\data\\curated\\thin_sheet\\figure_2_22_duplicate_linkage_audit_v1.json",
+  "comparison_summary": {
+    "total": 8,
+    "strong": 5,
+    "moderate": 2,
+    "possible": 1
+  },
+  "canonical_evidence_policy": {
+    "microgravity": "Figure 2.21",
+    "normal_gravity": "Figure 2.21",
+    "reason": "Figure 2.21 provides the already-curated experimental thin-sheet observations used by FireSense. Figure 2.22 is a cross-study comparison plot with substantial numerical overlap."
+  },
+  "figure_2_22_series_policy": {
+    "bass": {
+      "independent_training_row": false,
+      "use": "comparison_validation_only",
+      "relationship": "possible_duplicate_or_derived_representation",
+      "same_run_confirmed": false
+    },
+    "nasa": {
+      "independent_training_row": false,
+      "use": "comparison_validation_only",
+      "relationship": "possible_duplicate_or_derived_representation",
+      "same_run_confirmed": false
+    },
+    "astra": {
+      "independent_training_row": false,
+      "use": "comparison_validation_only",
+      "relationship": "possible_duplicate_or_derived_representation",
+      "same_run_confirmed": false
+    }
+  },
+  "external_series_policy": {
+    "mrc": {
+      "training_status": "blocked_pending_source_resolution"
+    },
+    "vcf": {
+      "training_status": "blocked_pending_source_resolution"
+    },
+    "ridout": {
+      "training_status": "blocked_pending_source_resolution"
+    },
+    "fernandez_pello_williams": {
+      "training_status": "blocked_pending_source_resolution"
+    }
+  },
+  "scientific_safeguards": [
+    "Numerical similarity is not proof of same-run identity.",
+    "Figure 2.22 BASS/NASA/Astra points must not be added as independent training rows.",
+    "No Appendix run conditions may be propagated without explicit evidence linkage.",
+    "Figure 2.21 remains the canonical thin-sheet modeling evidence for overlapping thickness regions.",
+    "Figure 2.22 external literature series require original-source provenance review before modeling."
+  ],
+  "status": "duplicate_policy_locked"
+}

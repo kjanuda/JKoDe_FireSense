@@ -1,0 +1,588 @@
+{
+  "gate_id": "EXTVAL-RIES-FIG4-COMPATIBILITY-V0",
+  "version": "v0",
+  "purpose": "independent_external_condition_compatibility_assessment",
+  "reference_condition": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.325,
+    "gravity_contexts": [
+      "microgravity",
+      "normal_gravity"
+    ],
+    "bass_ii_reference_microgravity_flow_mm_s": 50.0,
+    "firesense_v0_models_flow_velocity": false
+  },
+  "source_artifacts": {
+    "conditions_sha256": "66e71a6e59d24558ee943b0ef7257287a4efa6435fbb4dd58c588e6c9927b1dd",
+    "vector_points_sha256": "8d31ad600a5b933a4b5756978617384d2c78e4d5697e34a8cb6f8121682ac34c",
+    "error_bars_sha256": "b8d0edf2a06763c05772fcf02cff9eae906ad67cfefc79f653776d82ad2b799a",
+    "extraction_uncertainty_sha256": "80936b24e5b0b7c058e8e7dc56eabdca6b417a4e5a28ec6a4416f9edb08d60b4"
+  },
+  "records": [
+    {
+      "record_id": "R24-F4-C01-MG",
+      "oxygen_percent": 21.0,
+      "pressure_kpa": 101.3,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.4194639609499844,
+      "compatibility_class": "partial_condition_match_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 21.0,
+          "absolute_delta": 0.0,
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 101.3,
+          "absolute_delta_kpa": 0.025000000000005684,
+          "status": "near_match",
+          "blocking": false
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 3,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C01-NG",
+      "oxygen_percent": 21.0,
+      "pressure_kpa": 101.3,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 1.2796523330066658,
+      "compatibility_class": "partial_condition_match_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 21.0,
+          "absolute_delta": 0.0,
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 101.3,
+          "absolute_delta_kpa": 0.025000000000005684,
+          "status": "near_match",
+          "blocking": false
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 3,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C02-MG",
+      "oxygen_percent": 23.6,
+      "pressure_kpa": 90.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.4992966580702136,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 23.6,
+          "absolute_delta": 2.6000000000000014,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 90.0,
+          "absolute_delta_kpa": 11.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C02-NG",
+      "oxygen_percent": 23.6,
+      "pressure_kpa": 90.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 1.7330427847763326,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 23.6,
+          "absolute_delta": 2.6000000000000014,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 90.0,
+          "absolute_delta_kpa": 11.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C03-MG",
+      "oxygen_percent": 28.3,
+      "pressure_kpa": 75.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.9385745685568478,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 28.3,
+          "absolute_delta": 7.300000000000001,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 75.0,
+          "absolute_delta_kpa": 26.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C03-NG",
+      "oxygen_percent": 28.3,
+      "pressure_kpa": 75.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 2.175111320795631,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 28.3,
+          "absolute_delta": 7.300000000000001,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 75.0,
+          "absolute_delta_kpa": 26.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C04-MG",
+      "oxygen_percent": 35.4,
+      "pressure_kpa": 60.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 2.685017122645617,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 35.4,
+          "absolute_delta": 14.399999999999999,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 60.0,
+          "absolute_delta_kpa": 41.325,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C04-NG",
+      "oxygen_percent": 35.4,
+      "pressure_kpa": 60.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 3.2676562523302053,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 35.4,
+          "absolute_delta": 14.399999999999999,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 60.0,
+          "absolute_delta_kpa": 41.325,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "not_reconciled",
+          "blocking": true,
+          "reason": "The external propagation-rate measurement definition has not yet been formally reconciled with the FireSense/BASS-II operational definition."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false
+    }
+  ],
+  "closest_condition_records": [
+    "R24-F4-C01-MG",
+    "R24-F4-C01-NG"
+  ],
+  "summary": {
+    "record_count": 8,
+    "closest_condition_record_count": 2,
+    "direct_validation_eligible_count": 0,
+    "independent_external_source": true,
+    "numeric_external_comparison_available": true,
+    "direct_external_validation_ready": false
+  },
+  "blocking_reasons": [
+    "Ries Figure 4 microgravity data use 100 mm/s opposed flow while the BASS-II reference condition uses 50 mm/s.",
+    "FireSense v0 does not model flow velocity.",
+    "Normal-gravity transport equivalence has not been established.",
+    "Propagation-rate measurement definitions remain unreconciled."
+  ],
+  "allowed_claim": "Independent external numerical comparison evidence is available, with a partial condition match at 21% O2 and approximately 101.3 kPa.",
+  "prohibited_claims": [
+    "independent_external_validation_completed",
+    "firesense_validated_against_ries_2024",
+    "ries_2024_conditions_fully_matched",
+    "production_ready",
+    "certification_evidence"
+  ]
+}

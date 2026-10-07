@@ -1,0 +1,290 @@
+{
+  "model_name": "FireSense PMMA Physics Baseline v0",
+  "model_version": "v0",
+  "dataset_version": "v0",
+  "source_id": "SRC-NASA-20210011385",
+  "canonical_evidence_figure": "2.21",
+  "scientific_scope": {
+    "material": "PMMA",
+    "geometry": "thin_sheet",
+    "oxygen_fraction": 0.21,
+    "pressure_kpa": 101.325,
+    "input": "thickness_um",
+    "group_variable": "gravity_regime",
+    "output": "spread_rate_mm_s"
+  },
+  "groups": {
+    "microgravity": {
+      "record_count": 4,
+      "thickness_range_um": [
+        101.933,
+        400.433
+      ],
+      "source_theory_reference": {
+        "formula": "V = 223 / tau",
+        "coefficient": 223.0,
+        "exponent": -1.0,
+        "fitted": false,
+        "training_data": false,
+        "metrics": {
+          "rmse_log": 0.2662739671030765,
+          "mae_log": 0.17318466400873989,
+          "mape_percent": 21.26983359273707,
+          "r2_log_space": 0.8552831723723251,
+          "residual_log_sd": 0.29024947623587527
+        }
+      },
+      "physics_inverse_baseline": {
+        "formula": "V = K / tau",
+        "coefficient_k": 204.24457277066125,
+        "exponent": -1.0,
+        "fit_space": "natural_log",
+        "metrics": {
+          "rmse_log": 0.2513634198553957,
+          "mae_log": 0.21711146879639268,
+          "mape_percent": 23.686185813984657,
+          "r2_log_space": 0.8710368094317152,
+          "residual_log_sd": 0.29024947623587527
+        }
+      },
+      "free_power_law_diagnostic": {
+        "formula": "V = A * tau^b",
+        "coefficient_a": 1074.9331162191381,
+        "exponent_b": -1.307097112435929,
+        "fit_space": "natural_log",
+        "role": "diagnostic_challenger_only",
+        "metrics": {
+          "rmse_log": 0.19557810885693228,
+          "mae_log": 0.17719541397964153,
+          "mape_percent": 17.82989182347977,
+          "r2_log_space": 0.9219267782743085,
+          "residual_log_sd": 0.2258341475922956
+        }
+      },
+      "predictions": [
+        {
+          "record_id": "TS-F221-MG-001",
+          "gravity_regime": "microgravity",
+          "thickness_um": 101.933,
+          "observed_spread_rate_mm_s": 2.3067,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 2.1877115360089467,
+          "fitted_inverse_prediction_mm_s": 2.0037139372986297,
+          "free_power_law_prediction_mm_s": 2.548701407059031,
+          "inverse_percent_error": 13.135044119364048,
+          "free_power_law_percent_error": 10.491238871939593
+        },
+        {
+          "record_id": "TS-F221-MG-002",
+          "gravity_regime": "microgravity",
+          "thickness_um": 201.237,
+          "observed_spread_rate_mm_s": 1.1456,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 1.1081461162708648,
+          "fitted_inverse_prediction_mm_s": 1.0149454263910775,
+          "free_power_law_prediction_mm_s": 1.0476388244209267,
+          "inverse_percent_error": 11.404903422566552,
+          "free_power_law_percent_error": 8.551080270519662
+        },
+        {
+          "record_id": "TS-F221-MG-003",
+          "gravity_regime": "microgravity",
+          "thickness_um": 301.732,
+          "observed_spread_rate_mm_s": 0.8042,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 0.7390664563254808,
+          "fitted_inverse_prediction_mm_s": 0.6769072314857596,
+          "free_power_law_prediction_mm_s": 0.6169862820889858,
+          "inverse_percent_error": 15.828496457876204,
+          "free_power_law_percent_error": 23.27949737764415
+        },
+        {
+          "record_id": "TS-F221-MG-004",
+          "gravity_regime": "microgravity",
+          "thickness_um": 400.433,
+          "observed_spread_rate_mm_s": 0.3304,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 0.5568971588255713,
+          "fitted_inverse_prediction_mm_s": 0.5100592927422596,
+          "free_power_law_prediction_mm_s": 0.42620856855668704,
+          "inverse_percent_error": 54.37629925613182,
+          "free_power_law_percent_error": 28.997750773815678
+        }
+      ]
+    },
+    "normal_gravity": {
+      "record_count": 9,
+      "thickness_range_um": [
+        25.147,
+        748.808
+      ],
+      "source_theory_reference": {
+        "formula": "V = 223 / tau",
+        "coefficient": 223.0,
+        "exponent": -1.0,
+        "fitted": false,
+        "training_data": false,
+        "metrics": {
+          "rmse_log": 0.27669459262225027,
+          "mae_log": 0.24344501723995904,
+          "mape_percent": 25.68099439113951,
+          "r2_log_space": 0.95494279099815,
+          "residual_log_sd": 0.2899698037717999
+        }
+      },
+      "physics_inverse_baseline": {
+        "formula": "V = K / tau",
+        "coefficient_k": 213.68679738969485,
+        "exponent": -1.0,
+        "fit_space": "natural_log",
+        "metrics": {
+          "rmse_log": 0.2733861527818297,
+          "mae_log": 0.23870497367405127,
+          "mape_percent": 24.14443684404452,
+          "r2_log_space": 0.9560138481073542,
+          "residual_log_sd": 0.2899698037718
+        }
+      },
+      "free_power_law_diagnostic": {
+        "formula": "V = A * tau^b",
+        "coefficient_a": 604.0000670817059,
+        "exponent_b": -1.2146580884818967,
+        "fit_space": "natural_log",
+        "role": "diagnostic_challenger_only",
+        "metrics": {
+          "rmse_log": 0.14957209843215416,
+          "mae_log": 0.12253664423305685,
+          "mape_percent": 12.406852030541872,
+          "r2_log_space": 0.986833688795684,
+          "residual_log_sd": 0.15864516761651698
+        }
+      },
+      "predictions": [
+        {
+          "record_id": "TS-F221-DW-001",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 25.147,
+          "observed_spread_rate_mm_s": 8.9601,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 8.867857000835091,
+          "fitted_inverse_prediction_mm_s": 8.497506557032443,
+          "free_power_law_prediction_mm_s": 12.02057156364165,
+          "inverse_percent_error": 5.162815626695659,
+          "free_power_law_percent_error": 34.15666748855089
+        },
+        {
+          "record_id": "TS-F221-DW-002",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 45.237,
+          "observed_spread_rate_mm_s": 6.5175,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 4.92959303225236,
+          "fitted_inverse_prediction_mm_s": 4.723717253347809,
+          "free_power_law_prediction_mm_s": 5.890851259513444,
+          "inverse_percent_error": 27.522558444989503,
+          "free_power_law_percent_error": 9.614863682187279
+        },
+        {
+          "record_id": "TS-F221-DW-003",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 51.933,
+          "observed_spread_rate_mm_s": 5.925,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 4.29399418481505,
+          "fitted_inverse_prediction_mm_s": 4.1146630733771365,
+          "free_power_law_prediction_mm_s": 4.9814958429379965,
+          "inverse_percent_error": 30.554209732031453,
+          "free_power_law_percent_error": 15.924120794295415
+        },
+        {
+          "record_id": "TS-F221-DW-004",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 76.933,
+          "observed_spread_rate_mm_s": 3.8815,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 2.8986260772360364,
+          "fitted_inverse_prediction_mm_s": 2.7775700595283537,
+          "free_power_law_prediction_mm_s": 3.0906866681602874,
+          "inverse_percent_error": 28.440807431963062,
+          "free_power_law_percent_error": 20.373910391336146
+        },
+        {
+          "record_id": "TS-F221-DW-005",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 100.446,
+          "observed_spread_rate_mm_s": 2.0556,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 2.2200983613085636,
+          "fitted_inverse_prediction_mm_s": 2.127379859722586,
+          "free_power_law_prediction_mm_s": 2.2354929513245767,
+          "inverse_percent_error": 3.4919176747706664,
+          "free_power_law_percent_error": 8.751359764768273
+        },
+        {
+          "record_id": "TS-F221-DW-006",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 200.446,
+          "observed_spread_rate_mm_s": 0.8827,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 1.112519082446145,
+          "fitted_inverse_prediction_mm_s": 1.0660566805508458,
+          "free_power_law_prediction_mm_s": 0.9658223083881624,
+          "inverse_percent_error": 20.77225337610125,
+          "free_power_law_percent_error": 9.416824333087387
+        },
+        {
+          "record_id": "TS-F221-DW-007",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 301.786,
+          "observed_spread_rate_mm_s": 0.5804,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 0.7389342116599179,
+          "fitted_inverse_prediction_mm_s": 0.7080739245349182,
+          "free_power_law_prediction_mm_s": 0.5875575776478561,
+          "inverse_percent_error": 21.997574868180255,
+          "free_power_law_percent_error": 1.2332146188587305
+        },
+        {
+          "record_id": "TS-F221-DW-008",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 402.232,
+          "observed_spread_rate_mm_s": 0.4353,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 0.5544064122198133,
+          "fitted_inverse_prediction_mm_s": 0.5312526039442282,
+          "free_power_law_prediction_mm_s": 0.4144655097546565,
+          "inverse_percent_error": 22.04286789437818,
+          "free_power_law_percent_error": 4.786237134239261
+        },
+        {
+          "record_id": "TS-F221-DW-009",
+          "gravity_regime": "normal_gravity",
+          "thickness_um": 748.808,
+          "observed_spread_rate_mm_s": 0.1814,
+          "digitization_uncertainty_mm_s": 0.048368,
+          "source_theory_223_over_tau_mm_s": 0.2978066473648786,
+          "fitted_inverse_prediction_mm_s": 0.28536927675678525,
+          "free_power_law_prediction_mm_s": 0.19483170870254202,
+          "inverse_percent_error": 57.31492654729065,
+          "free_power_law_percent_error": 7.404470067553478
+        }
+      ]
+    }
+  },
+  "important_limitations": [
+    "Only 13 Figure 2.21 observations are used.",
+    "Microgravity has only 4 observations.",
+    "Digitization uncertainty is known, but experimental uncertainty is not yet quantified.",
+    "Digitization uncertainty is not used as statistical weight because it is not the complete observation uncertainty.",
+    "The free power-law fit is diagnostic only and must not replace physics solely because it achieves lower training residuals.",
+    "No Figure 2.22 points are used for fitting.",
+    "No production or cross-study performance claim is supported."
+  ],
+  "modeling_policy": {
+    "primary_baseline": "physics_inverse_baseline",
+    "diagnostic_challenger": "free_power_law",
+    "external_validation": "pending Figure 2.22 provenance resolution",
+    "production_ready": false
+  },
+  "status": "exploratory_physics_baseline_fitted"
+}

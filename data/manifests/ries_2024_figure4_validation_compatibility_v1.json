@@ -1,0 +1,634 @@
+{
+  "gate_id": "EXTVAL-RIES-FIG4-COMPATIBILITY-V1",
+  "version": "v1",
+  "supersedes_for_analysis": "EXTVAL-RIES-FIG4-COMPATIBILITY-V0",
+  "v0_preserved": true,
+  "purpose": "independent_external_condition_compatibility_assessment",
+  "reference_condition": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.325,
+    "gravity_contexts": [
+      "microgravity",
+      "normal_gravity"
+    ],
+    "bass_ii_reference_microgravity_flow_mm_s": 50.0,
+    "firesense_v0_models_flow_velocity": false
+  },
+  "source_artifacts": {
+    "compatibility_v0_sha256": "5935e0ac941ad2ec5393fb94272b44d7b5e97aa32c0bc86cd302423b370cab14",
+    "measurement_compatibility_sha256": "a722cd84b0f453ffafb8bb709e7880a25c1d2045c7b9a98493e5010c8dfea009",
+    "numeric_comparison_sha256": "704388a360a592cb304511f29efb046bab4c571d013766ae17b33c4e3040036f"
+  },
+  "records": [
+    {
+      "record_id": "R24-F4-C01-MG",
+      "oxygen_percent": 21.0,
+      "pressure_kpa": 101.3,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.4194639609499844,
+      "compatibility_class": "partial_condition_match_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 21.0,
+          "absolute_delta": 0.0,
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 101.3,
+          "absolute_delta_kpa": 0.025000000000005684,
+          "status": "near_match",
+          "blocking": false
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 3,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C01-NG",
+      "oxygen_percent": 21.0,
+      "pressure_kpa": 101.3,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 1.2796523330066658,
+      "compatibility_class": "partial_condition_match_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 21.0,
+          "absolute_delta": 0.0,
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 101.3,
+          "absolute_delta_kpa": 0.025000000000005684,
+          "status": "near_match",
+          "blocking": false
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 3,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C02-MG",
+      "oxygen_percent": 23.6,
+      "pressure_kpa": 90.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.4992966580702136,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 23.6,
+          "absolute_delta": 2.6000000000000014,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 90.0,
+          "absolute_delta_kpa": 11.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C02-NG",
+      "oxygen_percent": 23.6,
+      "pressure_kpa": 90.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 1.7330427847763326,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 23.6,
+          "absolute_delta": 2.6000000000000014,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 90.0,
+          "absolute_delta_kpa": 11.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C03-MG",
+      "oxygen_percent": 28.3,
+      "pressure_kpa": 75.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 1.9385745685568478,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 28.3,
+          "absolute_delta": 7.300000000000001,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 75.0,
+          "absolute_delta_kpa": 26.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C03-NG",
+      "oxygen_percent": 28.3,
+      "pressure_kpa": 75.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 2.175111320795631,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 28.3,
+          "absolute_delta": 7.300000000000001,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 75.0,
+          "absolute_delta_kpa": 26.325000000000003,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C04-MG",
+      "oxygen_percent": 35.4,
+      "pressure_kpa": 60.0,
+      "gravity_context": "microgravity",
+      "observed_propagation_rate_mm_s": 2.685017122645617,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 35.4,
+          "absolute_delta": 14.399999999999999,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 60.0,
+          "absolute_delta_kpa": 41.325,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "microgravity_flow_velocity_mm_s",
+          "reference": 50.0,
+          "external": 100.0,
+          "status": "mismatch",
+          "blocking": true,
+          "reason": "Ries Figure 4 uses 100 mm/s while the BASS-II comparison condition is 50 mm/s."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    },
+    {
+      "record_id": "R24-F4-C04-NG",
+      "oxygen_percent": 35.4,
+      "pressure_kpa": 60.0,
+      "gravity_context": "normal_gravity",
+      "observed_propagation_rate_mm_s": 3.2676562523302053,
+      "compatibility_class": "condition_mismatch_direct_validation_blocked",
+      "checks": [
+        {
+          "field": "material",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "geometry_family",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "thickness_um",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "oxygen_percent",
+          "reference": 21.0,
+          "external": 35.4,
+          "absolute_delta": 14.399999999999999,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "pressure_kpa",
+          "reference": 101.325,
+          "external": 60.0,
+          "absolute_delta_kpa": 41.325,
+          "status": "mismatch",
+          "blocking": true
+        },
+        {
+          "field": "gravity_context",
+          "status": "match",
+          "blocking": false
+        },
+        {
+          "field": "normal_gravity_transport",
+          "status": "not_directly_reconciled",
+          "blocking": true,
+          "reason": "The Ries 1g condition involves natural-convection transport. Direct transport equivalence with the FireSense/BASS-II reference has not been established."
+        },
+        {
+          "field": "measurement_definition",
+          "status": "resolved_but_operationally_different",
+          "classification": "conceptually_aligned_operationally_different",
+          "blocking": true,
+          "reason": "BASS-II tracks a visible flame leading edge using an image-intensity threshold, whereas Ries 2024 tracks an IR-derived pyrolysis front using a 603 K threshold. Cross-calibration evidence between these operational definitions is not available."
+        },
+        {
+          "field": "firesense_flow_variable",
+          "status": "not_modeled",
+          "blocking": true,
+          "reason": "FireSense v0 does not include flow velocity as a model input."
+        }
+      ],
+      "blocking_issue_count": 5,
+      "direct_validation_eligible": false,
+      "measurement_definition_reconciled": true,
+      "measurement_definition_exact_match": false,
+      "numeric_comparison_eligible": true
+    }
+  ],
+  "closest_condition_records": [
+    "R24-F4-C01-MG",
+    "R24-F4-C01-NG"
+  ],
+  "measurement_definition": {
+    "reconciled": true,
+    "exact_match": false,
+    "classification": "conceptually_aligned_operationally_different",
+    "cross_calibration_available": false,
+    "direct_validation_blocking": true
+  },
+  "comparability_policy": {
+    "numeric_comparison_allowed": true,
+    "direct_validation_allowed": false,
+    "reason": "The closest 21% O2 / approximately 101.3 kPa records are suitable for transparent external comparison, but remaining transport/flow and operational measurement-definition differences prevent direct validation."
+  },
+  "summary": {
+    "record_count": 8,
+    "closest_condition_record_count": 2,
+    "measurement_definition_reconciled": true,
+    "numeric_external_comparison_available": true,
+    "direct_validation_eligible_count": 0,
+    "direct_external_validation_ready": false
+  },
+  "remaining_blocker_classes": [
+    "microgravity_flow_condition_mismatch",
+    "normal_gravity_transport_mismatch",
+    "firesense_v0_transport_or_flow_not_modeled",
+    "measurement_definition_operational_difference"
+  ],
+  "allowed_claim": "Independent external numerical comparison is available and the measurement definitions have been reconciled conceptually, but direct validation remains blocked.",
+  "prohibited_claims": [
+    "external_validation_completed",
+    "firesense_validated_against_ries_2024",
+    "measurement_definitions_identical",
+    "conditions_fully_matched",
+    "production_ready",
+    "certification_evidence"
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "condition_set_id": "EXTVAL-RIES-FIG4-CONDITIONS-V0",
+  "version": "v0",
+  "source": {
+    "candidate_id": "EXTVAL-RIES-2024-001",
+    "doi": "10.1016/j.proci.2024.105358",
+    "figure_ref": "4",
+    "pdf_page": 4
+  },
+  "material": {
+    "name": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0
+  },
+  "figure_scope": {
+    "series_type": "normoxic_combinations",
+    "microgravity_opposed_flow_mm_s": 100.0,
+    "planned_marker_count": 8,
+    "gravity_regimes": [
+      "microgravity",
+      "normal_gravity"
+    ]
+  },
+  "condition_groups": [
+    {
+      "condition_id": "R24-F4-C01",
+      "oxygen_percent": 21.0,
+      "oxygen_mole_fraction": 0.21,
+      "pressure_kpa": 101.3
+    },
+    {
+      "condition_id": "R24-F4-C02",
+      "oxygen_percent": 23.6,
+      "oxygen_mole_fraction": 0.236,
+      "pressure_kpa": 90.0
+    },
+    {
+      "condition_id": "R24-F4-C03",
+      "oxygen_percent": 28.3,
+      "oxygen_mole_fraction": 0.283,
+      "pressure_kpa": 75.0
+    },
+    {
+      "condition_id": "R24-F4-C04",
+      "oxygen_percent": 35.4,
+      "oxygen_mole_fraction": 0.354,
+      "pressure_kpa": 60.0
+    }
+  ],
+  "planned_records": [
+    {
+      "record_id": "R24-F4-C01-MG",
+      "condition_id": "R24-F4-C01",
+      "gravity_context": "microgravity",
+      "oxygen_percent": 21.0,
+      "oxygen_mole_fraction": 0.21,
+      "pressure_kpa": 101.3,
+      "flow_velocity_mm_s": 100.0,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C01-NG",
+      "condition_id": "R24-F4-C01",
+      "gravity_context": "normal_gravity",
+      "oxygen_percent": 21.0,
+      "oxygen_mole_fraction": 0.21,
+      "pressure_kpa": 101.3,
+      "flow_velocity_mm_s": null,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C02-MG",
+      "condition_id": "R24-F4-C02",
+      "gravity_context": "microgravity",
+      "oxygen_percent": 23.6,
+      "oxygen_mole_fraction": 0.236,
+      "pressure_kpa": 90.0,
+      "flow_velocity_mm_s": 100.0,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C02-NG",
+      "condition_id": "R24-F4-C02",
+      "gravity_context": "normal_gravity",
+      "oxygen_percent": 23.6,
+      "oxygen_mole_fraction": 0.236,
+      "pressure_kpa": 90.0,
+      "flow_velocity_mm_s": null,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C03-MG",
+      "condition_id": "R24-F4-C03",
+      "gravity_context": "microgravity",
+      "oxygen_percent": 28.3,
+      "oxygen_mole_fraction": 0.283,
+      "pressure_kpa": 75.0,
+      "flow_velocity_mm_s": 100.0,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C03-NG",
+      "condition_id": "R24-F4-C03",
+      "gravity_context": "normal_gravity",
+      "oxygen_percent": 28.3,
+      "oxygen_mole_fraction": 0.283,
+      "pressure_kpa": 75.0,
+      "flow_velocity_mm_s": null,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C04-MG",
+      "condition_id": "R24-F4-C04",
+      "gravity_context": "microgravity",
+      "oxygen_percent": 35.4,
+      "oxygen_mole_fraction": 0.354,
+      "pressure_kpa": 60.0,
+      "flow_velocity_mm_s": 100.0,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    },
+    {
+      "record_id": "R24-F4-C04-NG",
+      "condition_id": "R24-F4-C04",
+      "gravity_context": "normal_gravity",
+      "oxygen_percent": 35.4,
+      "oxygen_mole_fraction": 0.354,
+      "pressure_kpa": 60.0,
+      "flow_velocity_mm_s": null,
+      "observed_propagation_rate_mm_s": null,
+      "digitization_status": "pending",
+      "training_eligible": false,
+      "independent_validation_eligible": false
+    }
+  ],
+  "normal_gravity_policy": {
+    "forced_flow_velocity_mm_s": null,
+    "transport": "natural_convection",
+    "note": "Do not assign the 100 mm/s microgravity forced-flow value to normal-gravity rows."
+  },
+  "microgravity_policy": {
+    "configuration": "opposed_flow",
+    "forced_flow_velocity_mm_s": 100.0
+  },
+  "exclusions": [
+    {
+      "oxygen_percent": 26.5,
+      "reason": "Present in the broader test matrix, but not part of the four Figure 4 normoxic marker groups selected for digitization."
+    }
+  ],
+  "scientific_status": {
+    "independent_external_source": true,
+    "training_eligible": false,
+    "independent_validation_eligible": false,
+    "direct_external_validation_ready": false
+  },
+  "remaining_before_validation": [
+    "Digitize Figure 4 marker centers.",
+    "Quantify Figure 4 digitization uncertainty.",
+    "Reconcile propagation-rate measurement definition.",
+    "Preserve FireSense/BASS-II 50 mm/s versus Ries 100 mm/s mismatch."
+  ]
+}

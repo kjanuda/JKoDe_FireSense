@@ -1,0 +1,81 @@
+{
+  "criteria_id": "FIRESENSE-INDEPENDENT-VALIDATION-ACCEPTANCE-V0",
+  "version": "v0",
+  "purpose": "Define requirements for evidence to be called independent external validation of FireSense v0.",
+  "required": {
+    "source_independence": {
+      "independent_publication_or_dataset": true,
+      "independent_experimental_campaign": true,
+      "not_fireSense_training_source": true,
+      "not_reused_bass_ii_rows": true
+    },
+    "experiment": {
+      "experimental_data_only": true,
+      "theory_only_allowed": false,
+      "simulation_only_allowed": false,
+      "raw_or_published_experimental_points": true
+    },
+    "material_geometry": {
+      "material": "PMMA",
+      "geometry_family": "thin_sheet",
+      "geometry_must_match": true,
+      "thickness_must_be_explicit": true
+    },
+    "environment": {
+      "oxygen_condition_must_be_explicit": true,
+      "pressure_condition_must_be_explicit": true,
+      "gravity_regime_must_be_explicit": true
+    },
+    "microgravity_transport": {
+      "configuration": "opposed_flow",
+      "reference_flow_mm_s": 50.0,
+      "flow_must_match_reference": true,
+      "flow_correction_without_empirical_cross_condition_model_allowed": false
+    },
+    "normal_gravity_transport": {
+      "configuration_must_be_explicit": true,
+      "transport_equivalence_must_be_established": true
+    },
+    "measurement": {
+      "quantity": "flame_spread_rate",
+      "operational_definition_must_match": true,
+      "or_cross_calibration_required": true
+    },
+    "validation_integrity": {
+      "training_eligible": false,
+      "validation_rows_must_remain_holdout": true,
+      "provenance_required": true,
+      "uncertainty_or_variability_metadata_preserved": true,
+      "digitization_uncertainty_separate": true,
+      "experimental_uncertainty_separate": true,
+      "model_uncertainty_separate": true
+    }
+  },
+  "minimum_validation_scope": {
+    "independent_source_count": 1,
+    "minimum_independent_numeric_points": 3,
+    "note": "A single compatible observation may be reported as an external check, but FireSense will not label the model externally validated from one point."
+  },
+  "classification": {
+    "all_required_checks_pass": "independent_external_validation",
+    "independent_but_condition_mismatch": "independent_external_comparison",
+    "same_campaign_or_source_family": "within_source_or_non_independent_comparison",
+    "theory_or_simulation_only": "supporting_nonexperimental_evidence"
+  },
+  "current_ries_2024_status": {
+    "classification": "independent_external_comparison",
+    "direct_validation_eligible": false,
+    "blocking_reasons": [
+      "100 mm/s versus 50 mm/s microgravity flow mismatch",
+      "normal-gravity transport is not directly equivalent",
+      "front definitions are operationally different and lack cross-calibration"
+    ]
+  },
+  "release_policy": {
+    "comparison_evidence_can_be_published": true,
+    "comparison_must_not_be_labeled_validation": true,
+    "absence_of_exact_external_validation_must_be_disclosed": true,
+    "production_ready_claim_allowed": false,
+    "certification_claim_allowed": false
+  }
+}

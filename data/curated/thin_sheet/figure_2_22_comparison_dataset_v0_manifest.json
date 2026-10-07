@@ -1,0 +1,53 @@
+{
+  "dataset_name": "figure_2_22_comparison_dataset_v0",
+  "dataset_version": "v0",
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "purpose": "comparison_only",
+  "scientific_status": "comparison_evidence_not_independent_external_validation",
+  "figure_validation_status": "human_overlay_verified",
+  "experimental_point_count": 33,
+  "theoretical_curves_included": false,
+  "training_eligible_count": 0,
+  "independent_validation_eligible_count": 0,
+  "digitization_uncertainty_status": "not_quantified_for_figure_2_22_v0",
+  "series_counts": {
+    "astra": 1,
+    "bass": 4,
+    "fernandez_pello_williams": 14,
+    "mrc": 2,
+    "nasa": 3,
+    "ridout": 4,
+    "vcf": 5
+  },
+  "gravity_context_counts": {
+    "microgravity": 4,
+    "normal_gravity": 4,
+    "unresolved": 25
+  },
+  "duplicate_linkage_class_counts": {
+    "moderate_duplicate_candidate": 2,
+    "possible_duplicate_candidate": 1,
+    "strong_duplicate_candidate": 5
+  },
+  "dataset_sha256": "ee7e7d54b57e2bdcbd9dd4eddbcdf8b9ad88b9924fcee31a4ad7ddac3aff2a9d",
+  "input_artifacts": {
+    "figure_2_22_provenance_audit_v0.json": {
+      "sha256": "5cc366ec2fe33d234795934043982fbf0c5937aa7ca9bc4fb7d6b8204dd7ed8e"
+    },
+    "figure_2_22_series_roles_v2.json": {
+      "sha256": "fbfe53acd5c937aa891797b728f2c3e164eeece58086f389f894e190e1d852d9"
+    },
+    "figure_2_22_duplicate_linkage_audit_v1.json": {
+      "sha256": "2788bff5ccbf2e1e620692551d67d0b9a8752c60c53e8cabe71d56b9ebf0d580"
+    }
+  },
+  "guardrails": [
+    "Figure 2.22 experimental points are not added to the Figure 2.21 training dataset.",
+    "BASS, NASA and Astra numerical overlap does not prove independent experiments.",
+    "Series labels are not automatically treated as publication identities.",
+    "Unresolved source identity or experimental conditions block independent-validation claims.",
+    "Theory is excluded from this dataset.",
+    "Figure 2.22 digitization uncertainty is not borrowed from Figure 2.21."
+  ]
+}

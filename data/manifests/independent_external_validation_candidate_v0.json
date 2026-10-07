@@ -1,0 +1,101 @@
+{
+  "candidate_id": "EXTVAL-RIES-2024-001",
+  "audit_version": "v0",
+  "source": {
+    "title": "Effect of oxygen concentration, pressure, and opposed flow velocity on the flame spread along thin PMMA sheets",
+    "authors": [
+      "Hans-Christoph Ries",
+      "Christian Eigenbrod",
+      "Florian Meyer"
+    ],
+    "year": 2024,
+    "journal": "Proceedings of the Combustion Institute",
+    "volume": "40",
+    "article_number": "105358",
+    "doi": "10.1016/j.proci.2024.105358",
+    "institution": "University of Bremen / ZARM"
+  },
+  "relationship_to_current_training_source": {
+    "current_source_id": "SRC-NASA-20210011385",
+    "current_source": "BASS-II Summary Report",
+    "same_publication": false,
+    "same_experimental_campaign": false,
+    "independent_experimental_facility": true,
+    "independent_external_source": true,
+    "notes": "Ries et al. report a separate Bremen drop-tower/FReD experimental campaign and explicitly compare their results against previously reported BASS-II data."
+  },
+  "experiment_family": {
+    "material": "PMMA",
+    "pmma_form": "cast",
+    "manufacturer": "CLAREX / Nitto Jushi Kogyo Ltd.",
+    "geometry_family": "thin_sheet",
+    "sample_length_mm": 80.0,
+    "sample_width_mm": 50.0,
+    "sample_thickness_mm": 0.2,
+    "sample_thickness_um": 200.0
+  },
+  "microgravity": {
+    "facility": "Bremen drop tower",
+    "mode": "catapult",
+    "duration_s": 9.3,
+    "gravity_level_approx_g": 1e-06,
+    "configuration": "opposed_flow",
+    "forced_flow_velocity_range_mm_s": [
+      30.0,
+      200.0
+    ]
+  },
+  "normal_gravity": {
+    "facility": "Fire Research Device (FReD)",
+    "configuration": "downward_spread",
+    "forced_flow_direct_match": false
+  },
+  "atmospheric_domain": {
+    "pressure_kpa_range": [
+      60.0,
+      101.3
+    ],
+    "oxygen_volume_percent_range": [
+      21.0,
+      35.4
+    ]
+  },
+  "measurement": {
+    "flame_front_method": "infrared imaging",
+    "visible_imaging": true,
+    "reported_quantity": "flame propagation rate"
+  },
+  "closest_condition_to_firesense_v0": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.3,
+    "ries_microgravity_flow_mm_s": 100.0,
+    "bass_ii_comparison_flow_mm_s": 50.0,
+    "condition_match": false
+  },
+  "validation_assessment": {
+    "independent_source_confirmed": true,
+    "independent_experiment_confirmed": true,
+    "direct_external_validation_ready": false,
+    "blocking_reasons": [
+      "Opposed-flow velocity differs from the directly comparable BASS-II 200 um condition.",
+      "FireSense v0 predictor does not currently include opposed-flow velocity as an input variable.",
+      "Normal-gravity natural-convection conditions are not directly matched to the microgravity forced-flow case.",
+      "Exact external experimental values and their extraction uncertainty have not yet been independently digitized and frozen."
+    ],
+    "allowed_current_use": [
+      "independent_external_comparison_evidence",
+      "provenance_audit",
+      "condition_compatibility_analysis"
+    ],
+    "prohibited_current_claims": [
+      "external_validation_completed",
+      "model_validated_by_ries_2024",
+      "production_ready",
+      "certification_evidence"
+    ]
+  },
+  "status": "independent_external_source_confirmed_condition_match_pending"
+}

@@ -1,0 +1,96 @@
+{
+  "registry_id": "FIRESENSE-INDEPENDENT-VALIDATION-SOURCE-REGISTRY-V0",
+  "version": "v0",
+  "purpose": "Frozen provenance registry separating FireSense training evidence, independent external comparison evidence, rejected same-campaign evidence, and unresolved validation leads.",
+  "firesense_training_source_ids": [
+    "SRC-NASA-20210011385"
+  ],
+  "sources": [
+    {
+      "source_id": "RIES-2024-PROCI-105358",
+      "title": "Effect of oxygen concentration, pressure, and opposed flow velocity on the flame spread along thin PMMA sheets",
+      "doi": "10.1016/j.proci.2024.105358",
+      "campaign": "ZARM_BREMEN_DROP_TOWER",
+      "independence_status": "independent_external",
+      "current_role": "independent_external_comparison",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "The closest normoxic microgravity condition uses 100 mm/s rather than the FireSense 50 mm/s reference.",
+        "Normal-gravity transport is not directly equivalent to the FireSense reference.",
+        "Operational flame-front measurement definitions differ without empirical cross-calibration."
+      ]
+    },
+    {
+      "source_id": "SDSU-NCA-2013",
+      "title": "SDSU narrow-channel PMMA flame-spread experiments",
+      "reference": "NASA NTRS 20140004923",
+      "campaign": "SDSU_NARROW_CHANNEL",
+      "independence_status": "independent_external",
+      "current_role": "independent_external_comparison",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "Uses simulated rather than true microgravity.",
+        "Reported PMMA thicknesses do not match the 200 um target."
+      ]
+    },
+    {
+      "source_id": "MINITEXUS6",
+      "title": "MiniTexus 6 thin-PMMA microgravity flame-spread evidence",
+      "campaign": "MINITEXUS6",
+      "independence_status": "independent_external",
+      "current_role": "independent_external_comparison",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "Available true-microgravity conditions use approximately 40 percent oxygen rather than the 21 percent FireSense target."
+      ]
+    },
+    {
+      "source_id": "MANU-KUMAR-2025",
+      "title": "Independent PMMA flame-spread study reported in 2025",
+      "doi": "10.1080/00102202.2025.2465790",
+      "campaign": "INDEPENDENT_ROD_CAMPAIGN",
+      "independence_status": "independent_external",
+      "current_role": "independent_external_comparison",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "Uses PMMA rods rather than the FireSense thin-sheet geometry family.",
+        "Reported dimensions do not match the 200 um sheet target."
+      ]
+    },
+    {
+      "source_id": "BHATTACHARJEE-2016-BASSII",
+      "title": "BASS-II PMMA flame-spread publication",
+      "doi": "10.1016/j.firesaf.2015.11.011",
+      "campaign": "NASA_BASS_II",
+      "independence_status": "same_campaign_as_training",
+      "current_role": "rejected_for_independent_validation",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "Evidence comes from the BASS-II campaign already represented by FireSense training evidence."
+      ]
+    },
+    {
+      "source_id": "TAKAHASHI-GIFU-2002",
+      "title": "Thin PMMA flame spread in 4.5 s Gifu drop-tower microgravity",
+      "campaign": "GIFU_MGLAB",
+      "independence_status": "requires_primary_source_review",
+      "current_role": "acquisition_lead_only",
+      "direct_validation_eligible": false,
+      "blocking_reasons": [
+        "Exact 200 um, 21 percent O2, 1 atm and 50 mm/s condition has not been verified.",
+        "Numeric run-level values and replicate independence require primary-source verification."
+      ]
+    }
+  ],
+  "unknown_source_policy": {
+    "direct_validation_eligible": false,
+    "required_status": "requires_scientific_provenance_review",
+    "reason": "An unknown source must be reviewed before it can be treated as independent validation evidence."
+  },
+  "guardrails": [
+    "Source independence is established by provenance review, not by a request payload boolean.",
+    "A source may be independent while still being incompatible with the FireSense validation target.",
+    "Same-campaign BASS-II evidence cannot satisfy independent external validation.",
+    "Unknown sources fail closed until scientific provenance review."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "comparison_id": "EXTVAL-RIES-FIG4-FIRESENSE-COMP-V0",
+  "version": "v0",
+  "purpose": "independent_external_numeric_comparison",
+  "model": {
+    "name": "FireSense v0 descriptive physics baseline",
+    "equation": "V = K / thickness_um",
+    "flow_velocity_modeled": false
+  },
+  "comparison_condition": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "firesense_oxygen_percent": 21.0,
+    "external_oxygen_percent": 21.0,
+    "firesense_pressure_kpa": 101.325,
+    "external_pressure_kpa": 101.3
+  },
+  "comparisons": [
+    {
+      "gravity_context": "microgravity",
+      "external_record_id": "R24-F4-C01-MG",
+      "oxygen_percent_external": 21.0,
+      "pressure_kpa_external": 101.3,
+      "thickness_um": 200.0,
+      "firesense_v0_rate_mm_s": 1.021222865,
+      "ries_2024_rate_mm_s": 1.4194639609499844,
+      "external_minus_model_mm_s": 0.39824109594998447,
+      "relative_gap_vs_model_percent": 38.99649230337048,
+      "relative_gap_vs_external_percent": 28.055738427022785,
+      "comparison_status": "numeric_comparison_only_condition_mismatch_present",
+      "direct_validation_eligible": false
+    },
+    {
+      "gravity_context": "normal_gravity",
+      "external_record_id": "R24-F4-C01-NG",
+      "oxygen_percent_external": 21.0,
+      "pressure_kpa_external": 101.3,
+      "thickness_um": 200.0,
+      "firesense_v0_rate_mm_s": 1.068433985,
+      "ries_2024_rate_mm_s": 1.2796523330066658,
+      "external_minus_model_mm_s": 0.21121834800666583,
+      "relative_gap_vs_model_percent": 19.76896569858416,
+      "relative_gap_vs_external_percent": 16.505916689917495,
+      "comparison_status": "numeric_comparison_only_condition_mismatch_present",
+      "direct_validation_eligible": false
+    }
+  ],
+  "source_artifacts": {
+    "external_points_sha256": "8d31ad600a5b933a4b5756978617384d2c78e4d5697e34a8cb6f8121682ac34c",
+    "compatibility_gate_sha256": "5935e0ac941ad2ec5393fb94272b44d7b5e97aa32c0bc86cd302423b370cab14"
+  },
+  "interpretation": {
+    "independent_external_source": true,
+    "numeric_comparison_available": true,
+    "direct_external_validation_ready": false,
+    "reason": "The closest Ries 2024 conditions remain only partially compatible. Flow/transport and measurement-definition blockers remain."
+  },
+  "allowed_claim": "FireSense v0 can be numerically compared with the closest independent Ries 2024 Figure 4 observations.",
+  "prohibited_claims": [
+    "external_validation_completed",
+    "firesense_validated_against_ries_2024",
+    "model_accuracy_established",
+    "production_ready"
+  ]
+}

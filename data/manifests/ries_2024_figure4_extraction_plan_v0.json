@@ -1,0 +1,90 @@
+{
+  "plan_id": "EXTVAL-RIES-FIG4-EXTRACT-V0",
+  "version": "v0",
+  "source": {
+    "candidate_id": "EXTVAL-RIES-2024-001",
+    "doi": "10.1016/j.proci.2024.105358",
+    "year": 2024,
+    "figure_ref": "4"
+  },
+  "scientific_role": {
+    "purpose": "independent_external_comparison_evidence",
+    "training_eligible": false,
+    "independent_source": true,
+    "direct_external_validation_ready": false,
+    "reason": "Figure 4 is from an independent experimental campaign, but important condition mismatches remain."
+  },
+  "figure_description": {
+    "reported_role": "normoxic propagation-rate results",
+    "material": "PMMA",
+    "sample_thickness_um": 200.0,
+    "microgravity_configuration": "opposed_flow",
+    "microgravity_flow_mm_s": 100.0,
+    "normal_gravity_configuration": "downward_spread_natural_convection",
+    "x_axis": "oxygen_mole_fraction",
+    "y_axis": "propagation_rate",
+    "y_axis_unit": "mm/s"
+  },
+  "extraction_scope": {
+    "include": [
+      "microgravity_experimental_markers",
+      "normal_gravity_experimental_markers"
+    ],
+    "exclude": [
+      "fit_curves",
+      "correlation_lines",
+      "theory",
+      "BASS_II_values_reported_only_in_text",
+      "non_figure4_results"
+    ],
+    "error_bar_policy": "Do not interpret or convert plotted error bars until their statistical meaning is explicitly reconciled from the source."
+  },
+  "required_record_fields": [
+    "record_id",
+    "source_candidate_id",
+    "figure_ref",
+    "gravity_context",
+    "oxygen_percent",
+    "pressure_kpa",
+    "flow_velocity_mm_s",
+    "thickness_um",
+    "observed_propagation_rate_mm_s",
+    "digitization_status",
+    "digitization_uncertainty_mm_s",
+    "digitization_uncertainty_status",
+    "training_eligible",
+    "evaluation_role",
+    "independent_validation_eligible"
+  ],
+  "metadata_rules": {
+    "pressure": "Pressure must come from explicit source-supported condition mapping. Do not infer pressure merely from the normoxic relation.",
+    "flow": "Microgravity Figure 4 points use 100 mm/s opposed flow. Normal-gravity points must not be assigned an equivalent forced-flow velocity.",
+    "measurement": "Digitized Figure 4 points represent reported propagation-rate results, not raw replicate measurements.",
+    "independence": "Independent publication and campaign do not by themselves make every point eligible for direct model validation."
+  },
+  "digitization_uncertainty_policy": {
+    "status": "not_yet_quantified",
+    "borrow_figure_2_21_uncertainty": false,
+    "rule": "Figure 2.21 digitization uncertainty must never be reused for Figure 4."
+  },
+  "validation_gate": {
+    "current_status": "blocked",
+    "required_before_direct_validation": [
+      "Acquire and freeze the source PDF.",
+      "Freeze a Figure 4 source image.",
+      "Digitize only experimental markers.",
+      "Quantify Figure 4 digitization uncertainty.",
+      "Reconcile pressure for every extracted point.",
+      "Reconcile the propagation-rate measurement definition.",
+      "Preserve the 50 versus 100 mm/s flow mismatch.",
+      "Do not mark any row validation-eligible until condition compatibility is reviewed."
+    ]
+  },
+  "prohibited_claims": [
+    "external_validation_completed",
+    "validated_against_ries_2024",
+    "figure4_is_training_data",
+    "flow_velocity_is_matched",
+    "production_ready"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "calibration_id": "EXTVAL-RIES-FIG4-CAL-V0",
+  "version": "v0",
+  "source": {
+    "doi": "10.1016/j.proci.2024.105358",
+    "pdf_page": 4,
+    "figure_ref": "4",
+    "pdf_sha256": "c614bbfaafdf4c6231695f2b9ee8501d4e2ee9d746b4a2cfb25f35ec02f8c4dd"
+  },
+  "figure_clip_pdf_points": {
+    "left": 295.0,
+    "top": 55.0,
+    "right": 570.0,
+    "bottom": 233.5
+  },
+  "plot_frame_pdf_points": {
+    "left": 371.125,
+    "top": 58.125,
+    "right": 515.375,
+    "bottom": 201.0
+  },
+  "diagnostic_render": {
+    "scale": 4.0,
+    "width_px": 1100,
+    "height_px": 714,
+    "detected_plot_frame_px": {
+      "left": 304.5,
+      "right": 881.5,
+      "top": 12.5,
+      "bottom": 584.0
+    }
+  },
+  "axis_calibration": {
+    "x": {
+      "variable": "oxygen_mole_fraction",
+      "minimum": 0.15,
+      "maximum": 0.4,
+      "scale": "linear"
+    },
+    "y": {
+      "variable": "mean_propagation_rate_mm_s",
+      "minimum": 0.0,
+      "maximum": 3.5,
+      "scale": "linear"
+    }
+  },
+  "marker_semantics": {
+    "triangle": "microgravity",
+    "circle": "normal_gravity"
+  },
+  "scientific_role": "independent_external_comparison_evidence",
+  "training_eligible": false,
+  "direct_external_validation_ready": false,
+  "digitization_status": "calibration_frozen_points_not_yet_digitized",
+  "artifacts": {
+    "full_figure": {
+      "path": "data\\figures\\external\\ries_2024\\ries_2024_figure4_v0.png",
+      "sha256": "46bfea78ea567d376ff857ca59a9951f1b80443647924cd43ebd73fc16e2771d"
+    },
+    "plot_area": {
+      "path": "data\\figures\\external\\ries_2024\\ries_2024_figure4_plot_area_v0.png",
+      "sha256": "4bfb6214925987ed111b9fc9a102643f65fdaf83f40b1124dcd1a2327ff7970d"
+    }
+  }
+}

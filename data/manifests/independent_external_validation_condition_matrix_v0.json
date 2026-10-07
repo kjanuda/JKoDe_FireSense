@@ -1,0 +1,168 @@
+{
+  "matrix_id": "EXTVAL-MATCH-RIES-2024-V0",
+  "version": "v0",
+  "candidate_id": "EXTVAL-RIES-2024-001",
+  "current_firesense_domain": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.325,
+    "gravity_regimes": [
+      "microgravity",
+      "normal_gravity"
+    ],
+    "modeled_flow_velocity": false
+  },
+  "external_source": {
+    "doi": "10.1016/j.proci.2024.105358",
+    "year": 2024,
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0
+  },
+  "figure_assessment": {
+    "figure_4": {
+      "role": "closest_external_comparison_candidate",
+      "description": "Normoxic flame propagation results for 0.2 mm PMMA in microgravity and normal gravity.",
+      "microgravity": {
+        "oxygen_percent": 21.0,
+        "pressure_kpa": 101.3,
+        "opposed_flow_mm_s": 100.0
+      },
+      "normal_gravity": {
+        "oxygen_percent": 21.0,
+        "pressure_kpa": 101.3,
+        "external_forced_flow": false,
+        "transport": "natural_convection",
+        "spread_direction": "downward"
+      },
+      "usable_for_direct_validation": false
+    },
+    "figure_7": {
+      "role": "auxiliary_flow_sensitivity_evidence",
+      "description": "Microgravity flow-velocity variation.",
+      "oxygen_percent": 35.4,
+      "pressure_kpa": 60.0,
+      "flow_velocity_range_mm_s": [
+        30.0,
+        200.0
+      ],
+      "usable_for_direct_validation": false,
+      "useful_for": [
+        "flow_sensitivity_assessment",
+        "omitted_variable_risk_analysis"
+      ]
+    }
+  },
+  "condition_match_matrix": [
+    {
+      "field": "publication_source",
+      "firesense": "BASS-II Summary Report",
+      "external": "Ries et al. 2024",
+      "status": "independent",
+      "validation_blocker": false
+    },
+    {
+      "field": "experimental_campaign",
+      "firesense": "BASS-II",
+      "external": "Bremen drop tower / FReD",
+      "status": "independent",
+      "validation_blocker": false
+    },
+    {
+      "field": "material",
+      "firesense": "PMMA",
+      "external": "cast PMMA",
+      "status": "family_match",
+      "validation_blocker": false
+    },
+    {
+      "field": "geometry_family",
+      "firesense": "thin_sheet",
+      "external": "thin_sheet",
+      "status": "match",
+      "validation_blocker": false
+    },
+    {
+      "field": "thickness_um",
+      "firesense": 200.0,
+      "external": 200.0,
+      "status": "exact_match",
+      "validation_blocker": false
+    },
+    {
+      "field": "oxygen_percent",
+      "firesense": 21.0,
+      "external": 21.0,
+      "status": "exact_match",
+      "validation_blocker": false
+    },
+    {
+      "field": "pressure_kpa",
+      "firesense": 101.325,
+      "external": 101.3,
+      "status": "near_match",
+      "absolute_difference_kpa": 0.025,
+      "validation_blocker": false,
+      "note": "Numerically very close, but retained as distinct reported conditions."
+    },
+    {
+      "field": "microgravity_regime",
+      "firesense": "microgravity",
+      "external": "~1e-6 g",
+      "status": "match",
+      "validation_blocker": false
+    },
+    {
+      "field": "microgravity_flow_mm_s",
+      "firesense_reference": 50.0,
+      "external": 100.0,
+      "status": "mismatch",
+      "validation_blocker": true,
+      "note": "Ries et al. explicitly note the BASS-II reference condition at 50 mm/s while their comparable microgravity condition uses 100 mm/s."
+    },
+    {
+      "field": "flow_velocity_in_model",
+      "firesense": "not_modeled",
+      "external": "experimentally_influential",
+      "status": "omitted_variable",
+      "validation_blocker": true
+    },
+    {
+      "field": "normal_gravity_transport",
+      "firesense": "not_explicitly_parameterized",
+      "external": "downward spread under natural convection",
+      "status": "not_directly_matched",
+      "validation_blocker": true
+    },
+    {
+      "field": "measurement_quantity",
+      "firesense": "flame_spread_rate_mm_s",
+      "external": "propagation_rate_mm_s",
+      "status": "conceptually_aligned",
+      "validation_blocker": false
+    },
+    {
+      "field": "measurement_definition",
+      "firesense": "current Figure 2.21 operational definition not yet reconciled here",
+      "external": "IR-derived pyrolysis front using 603 K criterion",
+      "status": "unresolved",
+      "validation_blocker": true
+    }
+  ],
+  "summary": {
+    "independent_external_source": true,
+    "closest_candidate_figure": "Figure 4",
+    "direct_external_validation_ready": false,
+    "primary_blockers": [
+      "microgravity_flow_velocity_mismatch",
+      "flow_velocity_omitted_from_firesense_v0",
+      "normal_gravity_transport_not_directly_matched",
+      "measurement_definition_not_reconciled",
+      "external_numeric_points_not_yet_digitized"
+    ],
+    "allowed_interpretation": "Independent external comparison evidence with partial condition compatibility.",
+    "prohibited_interpretation": "Completed independent numerical external validation."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "compatibility_id": "EXTVAL-RIES-BASSII-MEASUREMENT-V0",
+  "version": "v0",
+  "bass_ii": {
+    "source_pdf_sha256": "5ffa911fd9b6356f204646003fb9342e341810dcdfdf5cb15756e7f01ec5f770",
+    "measurement_quantity": "flame_spread_rate",
+    "sensing_modality": "visible_top_view_image_analysis",
+    "tracked_front": "flame_leading_edge",
+    "front_definition": "fixed_visible_intensity_threshold",
+    "spatial_processing": "central_slice_rgb_to_intensity_width_averaged",
+    "rate_estimation": "linear_regression_of_consecutive_leading_edge_positions",
+    "reported_tracking_variability": "approximately_5_percent_or_less_away_from_ignition_region"
+  },
+  "ries_2024": {
+    "source_pdf_sha256": "c614bbfaafdf4c6231695f2b9ee8501d4e2ee9d746b4a2cfb25f35ec02f8c4dd",
+    "measurement_quantity": "propagation_rate",
+    "sensing_modality": "infrared_surface_temperature",
+    "tracked_front": "pyrolysis_front",
+    "front_definition": "first_pixel_above_603_K_from_side_away_from_igniter",
+    "spatial_processing": "11_widthwise_evaluation_lines",
+    "rate_estimation": "linear_regression_of_mean_front_positions",
+    "evaluation_interval": "approximately_3_to_7_seconds"
+  },
+  "comparison": {
+    "same_general_physical_behavior": true,
+    "same_rate_dimension": true,
+    "both_position_vs_time_based": true,
+    "both_use_linear_regression": true,
+    "same_sensing_modality": false,
+    "same_front_definition": false,
+    "same_spatial_aggregation": false,
+    "same_operational_measurement": false,
+    "classification": "conceptually_aligned_operationally_different"
+  },
+  "validation_policy": {
+    "measurement_definition_reconciled": true,
+    "measurement_definition_exact_match": false,
+    "measurement_definition_blocking": true,
+    "direct_validation_eligible": false,
+    "reason": "Both sources estimate a propagation rate from front position versus time, but BASS-II tracks a visible flame leading edge while Ries tracks a 603 K IR-derived pyrolysis front. Their numerical rates therefore cannot be assumed operationally equivalent without additional cross-calibration evidence."
+  },
+  "uncertainty_separation": {
+    "bass_reported_tracking_variability": "measurement_method_variability",
+    "ries_error_bars": "within_experiment_deviation",
+    "ries_figure_extraction_uncertainty": "separate_digitization_or_extraction_component",
+    "must_not_combine_without_model": true
+  },
+  "allowed_claim": "The BASS-II and Ries measurements are conceptually aligned as propagation-rate measurements but use operationally different front definitions.",
+  "prohibited_claims": [
+    "measurement_definitions_identical",
+    "measurement_definition_exact_match",
+    "external_validation_completed",
+    "firesense_validated_against_ries_2024"
+  ]
+}

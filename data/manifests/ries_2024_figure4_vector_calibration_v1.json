@@ -1,0 +1,55 @@
+{
+  "calibration_id": "EXTVAL-RIES-FIG4-VECTOR-CAL-V1",
+  "version": "v1",
+  "source_pdf_sha256": "c614bbfaafdf4c6231695f2b9ee8501d4e2ee9d746b4a2cfb25f35ec02f8c4dd",
+  "method": "linear_least_squares_fit_to_vector_gridline_centers",
+  "x_axis": {
+    "pdf_positions": [
+      371.2500915527344,
+      400.09754943847656,
+      428.94554138183594,
+      457.7919921875,
+      486.58250427246094,
+      515.4295043945312
+    ],
+    "data_values": [
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4
+    ],
+    "slope": 0.001734049390080576,
+    "intercept": -0.49378998302179555,
+    "rmse": 2.6262213907483113e-05,
+    "max_absolute_residual": 4.394181471062408e-05
+  },
+  "y_axis": {
+    "pdf_positions": [
+      58.176414489746094,
+      78.60041046142578,
+      99.02516174316406,
+      119.44841003417969,
+      139.87215423583984,
+      160.29645538330078,
+      180.71945190429688,
+      201.14395904541016
+    ],
+    "data_values": [
+      3.5,
+      3.0,
+      2.5,
+      2.0,
+      1.5,
+      1.0,
+      0.5,
+      0.0
+    ],
+    "slope": -0.0244811505131736,
+    "intercept": 4.924233372815664,
+    "rmse_mm_s": 8.752409279355932e-06,
+    "max_absolute_residual_mm_s": 1.651641009603466e-05
+  },
+  "scientific_note": "Axis-fit residuals quantify vector calibration consistency only. They are not experimental uncertainty and are not yet treated as total figure-extraction uncertainty."
+}

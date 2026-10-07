@@ -1,0 +1,79 @@
+{
+  "artifact_name": "FireSense Coverage Next Experiment Candidate v0",
+  "artifact_version": "v0",
+  "source_id": "SRC-NASA-20210011385",
+  "dataset_version": "v0",
+  "dataset_sha256": "4024475ca9f0bf5d703ce1cb375e6d9e11897ead4dfc3f5e0fe6369879798ab4",
+  "canonical_evidence_figure": "2.21",
+  "source_gap_map": "evidence_gap_map_v0.json",
+  "source_gap_map_sha256": "9faf4d2ae3fdc0c6907b80ad0a8cad3f8ebf61d8185b952b5a30fd93b29556c7",
+  "candidate": {
+    "candidate_id": "NEXTEXP-COVERAGE-V0-001",
+    "basis": "empirical_coverage_gap",
+    "recommendation_status": "coverage_candidate_only",
+    "approval_status": "not_approved",
+    "experiment_condition": {
+      "material": "PMMA",
+      "geometry": "thin_sheet",
+      "thickness_um": 142.55687623132627,
+      "oxygen_fraction": 0.21,
+      "pressure_kpa": 101.325
+    },
+    "matched_pair": {
+      "thickness_um": 142.55687623132627,
+      "microgravity_thickness_um": 143.2225230925639,
+      "normal_gravity_thickness_um": 141.89432305768966,
+      "relative_difference": 0.009316882203265504,
+      "similar_thickness": true
+    },
+    "gravity_candidates": [
+      {
+        "gravity_regime": "microgravity",
+        "candidate_thickness_um": 143.2225230925639,
+        "gap_left_um": 101.933,
+        "gap_right_um": 201.237,
+        "log_gap_decades": 0.2953930281656647,
+        "left_record_id": "TS-F221-MG-001",
+        "right_record_id": "TS-F221-MG-002"
+      },
+      {
+        "gravity_regime": "normal_gravity",
+        "candidate_thickness_um": 141.89432305768966,
+        "gap_left_um": 100.446,
+        "gap_right_um": 200.446,
+        "log_gap_decades": 0.3000647473263527,
+        "left_record_id": "TS-F221-DW-005",
+        "right_record_id": "TS-F221-DW-006"
+      }
+    ],
+    "rationale": [
+      "The largest internal microgravity evidence gap lies between approximately 102 and 201 µm.",
+      "The largest internal normal-gravity evidence gap lies between approximately 100 and 200 µm.",
+      "The two independent coverage-gap midpoints are within approximately one percent of each other.",
+      "A matched thickness near the geometric mean of the two candidates provides a clean comparison target."
+    ],
+    "scientific_guardrails": [
+      "This candidate is derived from evidence spacing only.",
+      "It is not a Bayesian optimal experiment.",
+      "It is not an approved experiment.",
+      "No expected information gain has been calculated.",
+      "No experiment cost model has been applied.",
+      "No Figure 2.22 unresolved external evidence is used.",
+      "No theoretical curve is treated as experimental evidence."
+    ],
+    "required_before_bayesian_recommendation": [
+      "Define candidate search space.",
+      "Fit a probabilistic model with explicit predictive uncertainty.",
+      "Define an acquisition objective.",
+      "Evaluate candidate points with Bayesian experimental design."
+    ],
+    "required_before_experiment_approval": [
+      "Resolve practical sample thickness availability.",
+      "Confirm experimental hardware constraints.",
+      "Confirm atmosphere and flow configuration.",
+      "Perform scientific and safety review."
+    ],
+    "production_ready": false
+  },
+  "status": "coverage_candidate_frozen"
+}

@@ -1,0 +1,413 @@
+{
+  "gap_map_name": "FireSense PMMA Evidence Gap Map v0",
+  "gap_map_version": "v0",
+  "source_id": "SRC-NASA-20210011385",
+  "dataset_version": "v0",
+  "dataset_sha256": "4024475ca9f0bf5d703ce1cb375e6d9e11897ead4dfc3f5e0fe6369879798ab4",
+  "canonical_evidence_figure": "2.21",
+  "analysis_space": "log10_thickness_um",
+  "groups": {
+    "microgravity": {
+      "record_count": 4,
+      "empirical_domain_um": {
+        "min": 101.933,
+        "max": 400.433
+      },
+      "observations": [
+        {
+          "record_id": "TS-F221-MG-001",
+          "thickness_um": 101.933,
+          "spread_rate_mm_s": 2.3067
+        },
+        {
+          "record_id": "TS-F221-MG-002",
+          "thickness_um": 201.237,
+          "spread_rate_mm_s": 1.1456
+        },
+        {
+          "record_id": "TS-F221-MG-003",
+          "thickness_um": 301.732,
+          "spread_rate_mm_s": 0.8042
+        },
+        {
+          "record_id": "TS-F221-MG-004",
+          "thickness_um": 400.433,
+          "spread_rate_mm_s": 0.3304
+        }
+      ],
+      "intervals": [
+        {
+          "left_record_id": "TS-F221-MG-001",
+          "right_record_id": "TS-F221-MG-002",
+          "left_thickness_um": 101.933,
+          "right_thickness_um": 201.237,
+          "thickness_ratio": 1.9742085487526118,
+          "log_gap_decades": 0.2953930281656647,
+          "coverage_candidate_thickness_um": 143.2225230925639,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 1.0
+        },
+        {
+          "left_record_id": "TS-F221-MG-002",
+          "right_record_id": "TS-F221-MG-003",
+          "left_thickness_um": 201.237,
+          "right_thickness_um": 301.732,
+          "thickness_ratio": 1.49938629576072,
+          "log_gap_decades": 0.17591353712054003,
+          "coverage_candidate_thickness_um": 246.41355986227705,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.595523659488276
+        },
+        {
+          "left_record_id": "TS-F221-MG-003",
+          "right_record_id": "TS-F221-MG-004",
+          "left_thickness_um": 301.732,
+          "right_thickness_um": 400.433,
+          "thickness_ratio": 1.3271147906088845,
+          "log_gap_decades": 0.12290848938433152,
+          "coverage_candidate_thickness_um": 347.59667713601635,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.4160845980271443
+        }
+      ],
+      "largest_internal_gap": {
+        "left_record_id": "TS-F221-MG-001",
+        "right_record_id": "TS-F221-MG-002",
+        "left_thickness_um": 101.933,
+        "right_thickness_um": 201.237,
+        "thickness_ratio": 1.9742085487526118,
+        "log_gap_decades": 0.2953930281656647,
+        "coverage_candidate_thickness_um": 143.2225230925639,
+        "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+        "relative_gap_score": 1.0
+      },
+      "coverage_candidate": {
+        "thickness_um": 143.2225230925639,
+        "left_record_id": "TS-F221-MG-001",
+        "right_record_id": "TS-F221-MG-002",
+        "basis": "largest unsampled internal interval in log-thickness space",
+        "status": "coverage_heuristic_only"
+      }
+    },
+    "normal_gravity": {
+      "record_count": 9,
+      "empirical_domain_um": {
+        "min": 25.147,
+        "max": 748.808
+      },
+      "observations": [
+        {
+          "record_id": "TS-F221-DW-001",
+          "thickness_um": 25.147,
+          "spread_rate_mm_s": 8.9601
+        },
+        {
+          "record_id": "TS-F221-DW-002",
+          "thickness_um": 45.237,
+          "spread_rate_mm_s": 6.5175
+        },
+        {
+          "record_id": "TS-F221-DW-003",
+          "thickness_um": 51.933,
+          "spread_rate_mm_s": 5.925
+        },
+        {
+          "record_id": "TS-F221-DW-004",
+          "thickness_um": 76.933,
+          "spread_rate_mm_s": 3.8815
+        },
+        {
+          "record_id": "TS-F221-DW-005",
+          "thickness_um": 100.446,
+          "spread_rate_mm_s": 2.0556
+        },
+        {
+          "record_id": "TS-F221-DW-006",
+          "thickness_um": 200.446,
+          "spread_rate_mm_s": 0.8827
+        },
+        {
+          "record_id": "TS-F221-DW-007",
+          "thickness_um": 301.786,
+          "spread_rate_mm_s": 0.5804
+        },
+        {
+          "record_id": "TS-F221-DW-008",
+          "thickness_um": 402.232,
+          "spread_rate_mm_s": 0.4353
+        },
+        {
+          "record_id": "TS-F221-DW-009",
+          "thickness_um": 748.808,
+          "spread_rate_mm_s": 0.1814
+        }
+      ],
+      "intervals": [
+        {
+          "left_record_id": "TS-F221-DW-001",
+          "right_record_id": "TS-F221-DW-002",
+          "left_thickness_um": 25.147,
+          "right_thickness_um": 45.237,
+          "thickness_ratio": 1.798902453572991,
+          "log_gap_decades": 0.2550076141384583,
+          "coverage_candidate_thickness_um": 33.727953376983905,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.8498419638115973
+        },
+        {
+          "left_record_id": "TS-F221-DW-002",
+          "right_record_id": "TS-F221-DW-003",
+          "left_thickness_um": 45.237,
+          "right_thickness_um": 51.933,
+          "thickness_ratio": 1.1480204257576763,
+          "log_gap_decades": 0.05994961516555386,
+          "coverage_candidate_thickness_um": 48.469507125614555,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.19978893122140803
+        },
+        {
+          "left_record_id": "TS-F221-DW-003",
+          "right_record_id": "TS-F221-DW-004",
+          "left_thickness_um": 51.933,
+          "right_thickness_um": 76.933,
+          "thickness_ratio": 1.4813894826025842,
+          "log_gap_decades": 0.1706692569728756,
+          "coverage_candidate_thickness_um": 63.20887191684408,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.568774767757888
+        },
+        {
+          "left_record_id": "TS-F221-DW-004",
+          "right_record_id": "TS-F221-DW-005",
+          "left_thickness_um": 76.933,
+          "right_thickness_um": 100.446,
+          "thickness_ratio": 1.3056295737849817,
+          "log_gap_decades": 0.11581997871536487,
+          "coverage_candidate_thickness_um": 87.9068377203958,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.3859832910974983
+        },
+        {
+          "left_record_id": "TS-F221-DW-005",
+          "right_record_id": "TS-F221-DW-006",
+          "left_thickness_um": 100.446,
+          "right_thickness_um": 200.446,
+          "thickness_ratio": 1.995559803277383,
+          "log_gap_decades": 0.3000647473263527,
+          "coverage_candidate_thickness_um": 141.89432305768966,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 1.0
+        },
+        {
+          "left_record_id": "TS-F221-DW-006",
+          "right_record_id": "TS-F221-DW-007",
+          "left_thickness_um": 200.446,
+          "right_thickness_um": 301.786,
+          "thickness_ratio": 1.505572573161849,
+          "log_gap_decades": 0.17770169466384234,
+          "coverage_candidate_thickness_um": 245.95080108834776,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.5922111685801352
+        },
+        {
+          "left_record_id": "TS-F221-DW-007",
+          "right_record_id": "TS-F221-DW-008",
+          "left_thickness_um": 301.786,
+          "right_thickness_um": 402.232,
+          "thickness_ratio": 1.3328385014546733,
+          "log_gap_decades": 0.12477752962678768,
+          "coverage_candidate_thickness_um": 348.40778744454036,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.4158353513319533
+        },
+        {
+          "left_record_id": "TS-F221-DW-008",
+          "right_record_id": "TS-F221-DW-009",
+          "left_thickness_um": 402.232,
+          "right_thickness_um": 748.808,
+          "thickness_ratio": 1.861632092921498,
+          "log_gap_decades": 0.2698938572031344,
+          "coverage_candidate_thickness_um": 548.8119345058013,
+          "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+          "relative_gap_score": 0.8994520669553888
+        }
+      ],
+      "largest_internal_gap": {
+        "left_record_id": "TS-F221-DW-005",
+        "right_record_id": "TS-F221-DW-006",
+        "left_thickness_um": 100.446,
+        "right_thickness_um": 200.446,
+        "thickness_ratio": 1.995559803277383,
+        "log_gap_decades": 0.3000647473263527,
+        "coverage_candidate_thickness_um": 141.89432305768966,
+        "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+        "relative_gap_score": 1.0
+      },
+      "coverage_candidate": {
+        "thickness_um": 141.89432305768966,
+        "left_record_id": "TS-F221-DW-005",
+        "right_record_id": "TS-F221-DW-006",
+        "basis": "largest unsampled internal interval in log-thickness space",
+        "status": "coverage_heuristic_only"
+      }
+    }
+  },
+  "global_internal_gap_ranking": [
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-005",
+      "right_record_id": "TS-F221-DW-006",
+      "left_thickness_um": 100.446,
+      "right_thickness_um": 200.446,
+      "thickness_ratio": 1.995559803277383,
+      "log_gap_decades": 0.3000647473263527,
+      "coverage_candidate_thickness_um": 141.89432305768966,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 1.0
+    },
+    {
+      "gravity_regime": "microgravity",
+      "left_record_id": "TS-F221-MG-001",
+      "right_record_id": "TS-F221-MG-002",
+      "left_thickness_um": 101.933,
+      "right_thickness_um": 201.237,
+      "thickness_ratio": 1.9742085487526118,
+      "log_gap_decades": 0.2953930281656647,
+      "coverage_candidate_thickness_um": 143.2225230925639,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 1.0
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-008",
+      "right_record_id": "TS-F221-DW-009",
+      "left_thickness_um": 402.232,
+      "right_thickness_um": 748.808,
+      "thickness_ratio": 1.861632092921498,
+      "log_gap_decades": 0.2698938572031344,
+      "coverage_candidate_thickness_um": 548.8119345058013,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.8994520669553888
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-001",
+      "right_record_id": "TS-F221-DW-002",
+      "left_thickness_um": 25.147,
+      "right_thickness_um": 45.237,
+      "thickness_ratio": 1.798902453572991,
+      "log_gap_decades": 0.2550076141384583,
+      "coverage_candidate_thickness_um": 33.727953376983905,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.8498419638115973
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-006",
+      "right_record_id": "TS-F221-DW-007",
+      "left_thickness_um": 200.446,
+      "right_thickness_um": 301.786,
+      "thickness_ratio": 1.505572573161849,
+      "log_gap_decades": 0.17770169466384234,
+      "coverage_candidate_thickness_um": 245.95080108834776,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.5922111685801352
+    },
+    {
+      "gravity_regime": "microgravity",
+      "left_record_id": "TS-F221-MG-002",
+      "right_record_id": "TS-F221-MG-003",
+      "left_thickness_um": 201.237,
+      "right_thickness_um": 301.732,
+      "thickness_ratio": 1.49938629576072,
+      "log_gap_decades": 0.17591353712054003,
+      "coverage_candidate_thickness_um": 246.41355986227705,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.595523659488276
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-003",
+      "right_record_id": "TS-F221-DW-004",
+      "left_thickness_um": 51.933,
+      "right_thickness_um": 76.933,
+      "thickness_ratio": 1.4813894826025842,
+      "log_gap_decades": 0.1706692569728756,
+      "coverage_candidate_thickness_um": 63.20887191684408,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.568774767757888
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-007",
+      "right_record_id": "TS-F221-DW-008",
+      "left_thickness_um": 301.786,
+      "right_thickness_um": 402.232,
+      "thickness_ratio": 1.3328385014546733,
+      "log_gap_decades": 0.12477752962678768,
+      "coverage_candidate_thickness_um": 348.40778744454036,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.4158353513319533
+    },
+    {
+      "gravity_regime": "microgravity",
+      "left_record_id": "TS-F221-MG-003",
+      "right_record_id": "TS-F221-MG-004",
+      "left_thickness_um": 301.732,
+      "right_thickness_um": 400.433,
+      "thickness_ratio": 1.3271147906088845,
+      "log_gap_decades": 0.12290848938433152,
+      "coverage_candidate_thickness_um": 347.59667713601635,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.4160845980271443
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-004",
+      "right_record_id": "TS-F221-DW-005",
+      "left_thickness_um": 76.933,
+      "right_thickness_um": 100.446,
+      "thickness_ratio": 1.3056295737849817,
+      "log_gap_decades": 0.11581997871536487,
+      "coverage_candidate_thickness_um": 87.9068377203958,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.3859832910974983
+    },
+    {
+      "gravity_regime": "normal_gravity",
+      "left_record_id": "TS-F221-DW-002",
+      "right_record_id": "TS-F221-DW-003",
+      "left_thickness_um": 45.237,
+      "right_thickness_um": 51.933,
+      "thickness_ratio": 1.1480204257576763,
+      "log_gap_decades": 0.05994961516555386,
+      "coverage_candidate_thickness_um": 48.469507125614555,
+      "candidate_method": "geometric_midpoint_of_adjacent_observed_log_thickness_gap",
+      "relative_gap_score": 0.19978893122140803
+    }
+  ],
+  "paired_candidate_hint": {
+    "microgravity_candidate_um": 143.2225230925639,
+    "normal_gravity_candidate_um": 141.89432305768966,
+    "relative_difference": 0.009316882203265504,
+    "similar_thickness_candidate": true,
+    "interpretation": "If true, both gravity groups independently show their largest internal coverage gap at similar thickness. This is only a coverage heuristic, not an optimal-experiment claim."
+  },
+  "scope_policy": {
+    "inside_empirical_domain_only": true,
+    "outside_domain_behavior": "not_ranked_as_gap; prediction system abstains",
+    "uses_model_uncertainty": false,
+    "uses_experimental_uncertainty": false,
+    "uses_digitization_uncertainty": false,
+    "uses_external_figure_2_22_data": false,
+    "uses_theoretical_curves": false
+  },
+  "scientific_limitations": [
+    "Gap score measures only spacing between verified observations in log-thickness space.",
+    "A large spacing gap is not the same as high epistemic uncertainty.",
+    "This map does not yet optimize expected information gain.",
+    "This map does not yet use BoTorch or Bayesian experimental design.",
+    "No extrapolation outside the empirical thickness domain is recommended."
+  ],
+  "status": "empirical_coverage_gap_map_complete"
+}

@@ -1,0 +1,385 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "record_count": 15,
+  "training_ready_count": 0,
+  "candidate_needs_review_count": 11,
+  "not_training_ready_count": 4,
+  "possible_cross_figure_duplicates": {
+    "TS-F219-0G-001": [
+      "TS-F221-MG-001"
+    ],
+    "TS-F219-1G-001": [
+      "TS-F221-DW-005"
+    ],
+    "TS-F221-MG-001": [
+      "TS-F219-0G-001"
+    ],
+    "TS-F221-DW-005": [
+      "TS-F219-1G-001"
+    ]
+  },
+  "records": [
+    {
+      "record_id": "TS-F219-0G-001",
+      "figure_ref": "2.19",
+      "gravity_regime": "microgravity",
+      "thickness_um": 100.0,
+      "spread_rate_mm_s": 2.2320884057971013,
+      "status": "not_training_ready",
+      "blockers": [
+        "figure_2_19_run_linkage_not_resolved",
+        "possible_cross_figure_duplicate"
+      ],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "oxygen_condition_missing",
+        "pressure_condition_missing",
+        "run_identity_unresolved",
+        "time_series_summary_not_independent_point_series"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified"
+      ],
+      "possible_duplicate_records": [
+        "TS-F221-MG-001"
+      ]
+    },
+    {
+      "record_id": "TS-F219-1G-001",
+      "figure_ref": "2.19",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 100.0,
+      "spread_rate_mm_s": 2.013428125,
+      "status": "not_training_ready",
+      "blockers": [
+        "figure_2_19_run_linkage_not_resolved",
+        "possible_cross_figure_duplicate"
+      ],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "oxygen_condition_missing",
+        "pressure_condition_missing",
+        "run_identity_unresolved",
+        "time_series_summary_not_independent_point_series"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified"
+      ],
+      "possible_duplicate_records": [
+        "TS-F221-DW-005"
+      ]
+    },
+    {
+      "record_id": "TS-F221-MG-001",
+      "figure_ref": "2.21",
+      "gravity_regime": "microgravity",
+      "thickness_um": 101.933,
+      "spread_rate_mm_s": 2.3067,
+      "status": "not_training_ready",
+      "blockers": [
+        "possible_cross_figure_duplicate"
+      ],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": [
+        "TS-F219-0G-001"
+      ]
+    },
+    {
+      "record_id": "TS-F221-MG-002",
+      "figure_ref": "2.21",
+      "gravity_regime": "microgravity",
+      "thickness_um": 201.237,
+      "spread_rate_mm_s": 1.1456,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-MG-003",
+      "figure_ref": "2.21",
+      "gravity_regime": "microgravity",
+      "thickness_um": 301.732,
+      "spread_rate_mm_s": 0.8042,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-MG-004",
+      "figure_ref": "2.21",
+      "gravity_regime": "microgravity",
+      "thickness_um": 400.433,
+      "spread_rate_mm_s": 0.3304,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-001",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 25.147,
+      "spread_rate_mm_s": 8.9601,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-002",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 45.237,
+      "spread_rate_mm_s": 6.5175,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-003",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 51.933,
+      "spread_rate_mm_s": 5.925,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-004",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 76.933,
+      "spread_rate_mm_s": 3.8815,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-005",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 100.446,
+      "spread_rate_mm_s": 2.0556,
+      "status": "not_training_ready",
+      "blockers": [
+        "possible_cross_figure_duplicate"
+      ],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": [
+        "TS-F219-1G-001"
+      ]
+    },
+    {
+      "record_id": "TS-F221-DW-006",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 200.446,
+      "spread_rate_mm_s": 0.8827,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-007",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 301.786,
+      "spread_rate_mm_s": 0.5804,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-008",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 402.232,
+      "spread_rate_mm_s": 0.4353,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    },
+    {
+      "record_id": "TS-F221-DW-009",
+      "figure_ref": "2.21",
+      "gravity_regime": "normal_gravity",
+      "thickness_um": 748.808,
+      "spread_rate_mm_s": 0.1814,
+      "status": "candidate_needs_review",
+      "blockers": [],
+      "warnings": [
+        "digitization_uncertainty_not_quantified",
+        "figure_2_21_run_id_not_proven",
+        "run_identity_unresolved"
+      ],
+      "passes": [
+        "accepted_evidence",
+        "figure_overlay_verified",
+        "human_verified",
+        "multi_thickness_experimental_figure",
+        "oxygen_condition_present",
+        "pressure_condition_present"
+      ],
+      "possible_duplicate_records": []
+    }
+  ],
+  "important_note": "This audit does not mutate experiment_evidence.jsonl."
+}

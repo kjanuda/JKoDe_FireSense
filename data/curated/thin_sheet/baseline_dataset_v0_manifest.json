@@ -1,0 +1,43 @@
+{
+  "dataset_name": "FireSense PMMA Thin-Sheet Baseline Dataset v0",
+  "dataset_version": "v0",
+  "status": "frozen_for_exploratory_physics_baseline",
+  "source_id": "SRC-NASA-20210011385",
+  "canonical_evidence_figure": "2.21",
+  "record_count": 13,
+  "gravity_groups": {
+    "microgravity": 4,
+    "normal_gravity": 9
+  },
+  "fixed_conditions": {
+    "material": "PMMA",
+    "geometry": "thin_sheet",
+    "oxygen_fraction": 0.21,
+    "pressure_kpa": 101.325
+  },
+  "outcome": "flame_spread_rate_mm_s",
+  "primary_input_for_v0": "thickness_um",
+  "secondary_grouping_input": "gravity_regime",
+  "digitization_uncertainty": {
+    "included": true,
+    "field": "digitization_uncertainty_mm_s",
+    "experimental_uncertainty": "not yet available"
+  },
+  "excluded_evidence": {
+    "figure_2_19": "validation/context only; overlap risk",
+    "figure_2_22_bass": "comparison/validation only",
+    "figure_2_22_nasa": "comparison/validation only",
+    "figure_2_22_astra": "comparison/validation only",
+    "figure_2_22_external_series": "blocked pending provenance resolution",
+    "theoretical_curves": "never experimental training rows"
+  },
+  "validation_policy": [
+    "Do not claim cross-study generalization from this dataset.",
+    "Do not use random row splitting as evidence of independent validation.",
+    "Use this dataset only to develop and sanity-check the first physics baseline.",
+    "Figure 2.22 external literature will later provide independent validation if provenance can be resolved."
+  ],
+  "production_training_ready": false,
+  "dataset_file": "E:\\Nasa\\FireSense\\data\\curated\\thin_sheet\\baseline_dataset_v0.jsonl",
+  "dataset_sha256": "4024475ca9f0bf5d703ce1cb375e6d9e11897ead4dfc3f5e0fe6369879798ab4"
+}

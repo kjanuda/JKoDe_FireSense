@@ -1,0 +1,59 @@
+{
+  "assessment_id": "EXTVAL-RIES-FLOW-TRANSPORT-V0",
+  "version": "v0",
+  "source_artifacts": {
+    "compatibility_v1_sha256": "39594b51280db4e8ee8d98b43f601804e92492663fc447205b7dee7d6aa0cc24",
+    "numeric_comparison_sha256": "704388a360a592cb304511f29efb046bab4c571d013766ae17b33c4e3040036f"
+  },
+  "microgravity": {
+    "bass_ii_reference_flow_mm_s": 50.0,
+    "ries_figure4_flow_mm_s": 100.0,
+    "absolute_difference_mm_s": 50.0,
+    "relative_difference_percent": 100.0,
+    "flow_ratio_ries_to_bass": 2.0,
+    "condition_match": false,
+    "blocking": true
+  },
+  "ries_flow_sensitivity_evidence": {
+    "gravity_context": "microgravity_only",
+    "oxygen_percent": 35.4,
+    "pressure_kpa": 60.0,
+    "flow_range_mm_s": [
+      30.0,
+      200.0
+    ],
+    "source_reports_flow_effect": true,
+    "transferable_to_21_percent_101_3_kpa": false,
+    "reason": "The available Ries flow-sensitivity series was measured at 35.4% O2 and 60 kPa. Applying that relationship as a correction at 21% O2 and approximately 101.3 kPa would require an unsupported cross-condition extrapolation."
+  },
+  "normal_gravity": {
+    "ries_transport": "natural_convection",
+    "forced_flow_value_assignable": false,
+    "direct_transport_match_established": false,
+    "blocking": true,
+    "reason": "The source states that 1g experiments are governed by natural convection and that a directly comparable imposed-flow velocity cannot be assigned."
+  },
+  "firesense_v0": {
+    "flow_velocity_is_model_input": false,
+    "can_condition_prediction_on_flow": false
+  },
+  "correction_policy": {
+    "apply_flow_correction_to_ries_21_percent": false,
+    "apply_flow_correction_to_firesense_prediction": false,
+    "reason": "No source-supported transfer function exists for converting the 100 mm/s Ries Figure 4 result to the 50 mm/s BASS-II reference condition at 21% O2 and approximately 101.3 kPa."
+  },
+  "validation_decision": {
+    "independent_external_numeric_comparison": true,
+    "direct_external_validation_with_ries_figure4": false,
+    "ries_figure4_role": "independent_external_comparison_only",
+    "flow_transport_blocker_resolved_as": "confirmed_material_mismatch_not_correctable_with_available_evidence"
+  },
+  "allowed_claim": "Ries Figure 4 provides independent external comparison evidence, but its flow and transport conditions are not sufficiently matched for direct FireSense validation.",
+  "prohibited_claims": [
+    "50_mm_s_equivalent_to_100_mm_s",
+    "flow_corrected_ries_validation",
+    "transport_conditions_matched",
+    "external_validation_completed",
+    "firesense_validated_against_ries_2024"
+  ]
+}

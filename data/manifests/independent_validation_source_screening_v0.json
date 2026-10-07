@@ -1,0 +1,129 @@
+{
+  "screening_id": "FIRESENSE-INDEPENDENT-SOURCE-SCREENING-V0",
+  "version": "v0",
+  "target": {
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "thickness_um": 200.0,
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.325,
+    "microgravity_configuration": "opposed_flow",
+    "microgravity_flow_mm_s": 50.0,
+    "independent_campaign_required": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "RIES-2024",
+      "source": "Ries, Eigenbrod, Meyer 2024",
+      "doi": "10.1016/j.proci.2024.105358",
+      "independent_campaign": true,
+      "material_match": true,
+      "thin_sheet_match": true,
+      "thickness_200_um_match": true,
+      "oxygen_21_percent_available": true,
+      "pressure_101_3_kpa_available": true,
+      "microgravity_flow_mm_s": 100.0,
+      "exact_validation_eligible": false,
+      "classification": "independent_external_comparison",
+      "blockers": [
+        "100 mm/s opposed flow versus 50 mm/s FireSense/BASS-II reference",
+        "operational measurement definition differs"
+      ]
+    },
+    {
+      "candidate_id": "SDSU-NCA-2013",
+      "source": "Opposed-Flow Flame Spread in a Narrow Channel Apparatus over Thin PMMA Sheets",
+      "ntrs_id": "20140004923",
+      "independent_campaign": true,
+      "material_match": true,
+      "thin_sheet_match": true,
+      "reported_thickness_um": [
+        50.0,
+        75.0
+      ],
+      "oxygen_21_percent_available": true,
+      "pressure_1_atm_available": true,
+      "configuration": "narrow_channel_simulated_microgravity",
+      "exact_validation_eligible": false,
+      "classification": "supporting_external_comparison",
+      "blockers": [
+        "200 um thickness not matched",
+        "Narrow Channel simulated microgravity is not the same experimental gravity condition as the target holdout"
+      ]
+    },
+    {
+      "candidate_id": "MINITEXUS6",
+      "source": "MiniTexus 6 sounding rocket microgravity PMMA experiment",
+      "independent_campaign": true,
+      "material_match": true,
+      "true_microgravity": true,
+      "opposed_flow_mm_s_available": [
+        50.0,
+        100.0,
+        150.0
+      ],
+      "oxygen_percent": 40.0,
+      "exact_validation_eligible": false,
+      "classification": "supporting_external_comparison",
+      "blockers": [
+        "40 percent oxygen does not match the 21 percent target"
+      ]
+    },
+    {
+      "candidate_id": "MANU-KUMAR-2025",
+      "source": "Flame Spread Over Thin Circular PMMA Rods: Experiments",
+      "doi": "10.1080/00102202.2025.2465790",
+      "independent_campaign": true,
+      "material_match": true,
+      "oxygen_21_percent_available": true,
+      "pressure_1_atm_available": true,
+      "opposed_flow_range_cm_s": [
+        0.0,
+        25.0
+      ],
+      "geometry_family": "cylindrical_rods",
+      "diameters_mm": [
+        0.5,
+        1.0
+      ],
+      "exact_validation_eligible": false,
+      "classification": "independent_external_geometry_mismatch",
+      "blockers": [
+        "Cylindrical rod geometry does not match the FireSense thin-sheet geometry family",
+        "Fuel dimensions do not match 200 um sheet thickness"
+      ]
+    },
+    {
+      "candidate_id": "BHATTACHARJEE-2016",
+      "source": "Opposed-flow flame spread: comparison of microgravity and normal-gravity experiments",
+      "doi": "10.1016/j.firesaf.2015.11.011",
+      "uses_bass_ii_apparatus": true,
+      "independent_campaign": false,
+      "exact_validation_eligible": false,
+      "classification": "same_campaign_non_independent",
+      "blockers": [
+        "Microgravity data originate from the BASS-II ISS campaign already used by FireSense"
+      ]
+    }
+  ],
+  "screening_summary": {
+    "candidate_count": 5,
+    "exact_independent_validation_sources": 0,
+    "independent_comparison_sources": 4,
+    "same_campaign_sources_rejected": 1,
+    "exact_source_found_in_current_screening": false
+  },
+  "decision": {
+    "continue_unbounded_source_search": false,
+    "current_release_validation_status": "independent_external_validation_not_yet_available",
+    "current_release_comparison_status": "independent_external_comparison_available",
+    "ries_2024_role": "primary_independent_external_comparison",
+    "next_action": "Proceed with backend/frontend integration while explicitly disclosing that exact independent external validation is not yet available."
+  },
+  "guardrails": [
+    "A literature search failure does not prove that no compatible experiment exists.",
+    "Current screening means no suitable source was identified in the screened candidate set.",
+    "Comparison evidence must not be labelled independent validation.",
+    "Future compatible holdout evidence may upgrade validation status."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "protocol_id": "FIRESENSE-INDEPENDENT-VALIDATION-PERFORMANCE-ACCEPTANCE-V0",
+  "version": "v0",
+  "purpose": "Pre-register FireSense v0 project-policy performance thresholds for a compatible independent external holdout dataset.",
+  "scope": {
+    "model": "Physics Baseline v0",
+    "material": "PMMA",
+    "geometry_family": "thin_sheet",
+    "oxygen_percent": 21.0,
+    "pressure_kpa": 101.325,
+    "minimum_independent_numeric_points": 3,
+    "all_rows_must_be_inside_model_domain": true,
+    "all_rows_must_remain_holdout": true
+  },
+  "required_thresholds": {
+    "mae_mm_s_max": 0.2,
+    "rmse_mm_s_max": 0.25,
+    "absolute_mean_bias_mm_s_max": 0.1,
+    "mape_percent_max": 20.0,
+    "max_absolute_error_mm_s_max": 0.35,
+    "prediction_coverage_fraction_min": 1.0
+  },
+  "decision_policy": {
+    "all_thresholds_must_pass": true,
+    "compatibility_gate_must_pass": true,
+    "scientific_review_still_required": true,
+    "automatic_external_validation_promotion_allowed": false,
+    "production_ready_claim_allowed": false,
+    "certification_claim_allowed": false
+  },
+  "interpretation": [
+    "These are FireSense project release-policy thresholds, not universal combustion-science acceptance limits.",
+    "The thresholds are frozen before evaluating future real independent validation evidence.",
+    "Passing quantitative thresholds does not replace source-provenance review.",
+    "Passing validation does not imply certification or production readiness."
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "audit_version": "v0",
+  "figure_validation_status": "human_overlay_verified",
+  "total_experimental_points": 33,
+  "theoretical_curves_included": false,
+  "series": {
+    "mrc": {
+      "label": "MRC",
+      "point_count": 2,
+      "marker": "red open circle",
+      "evidence_type": "experimental",
+      "identity_status": "unresolved",
+      "gravity_status": "unresolved",
+      "source_family_status": "unresolved",
+      "possible_duplicate_with_existing_evidence": false,
+      "training_safe": false,
+      "notes": [
+        "Series label is visible in Figure 2.22, but exact original study identity and experimental conditions are not yet proven from the current source audit.",
+        "Do not infer gravity, oxygen, pressure, or flow conditions from marker position."
+      ],
+      "points": [
+        {
+          "pixel_x": 362,
+          "pixel_y": 37,
+          "thickness_um": 24.923,
+          "spread_rate_mm_s": 11.10678
+        },
+        {
+          "pixel_x": 498,
+          "pixel_y": 100,
+          "thickness_um": 50.746,
+          "spread_rate_mm_s": 6.5437
+        }
+      ]
+    },
+    "vcf": {
+      "label": "VCF",
+      "point_count": 5,
+      "marker": "green open circle",
+      "evidence_type": "experimental",
+      "identity_status": "unresolved",
+      "gravity_status": "unresolved",
+      "source_family_status": "unresolved",
+      "possible_duplicate_with_existing_evidence": false,
+      "training_safe": false,
+      "notes": [
+        "Series label is visible in Figure 2.22, but exact original study identity and experimental conditions remain unresolved.",
+        "Do not propagate conditions from BASS-II or another series."
+      ],
+      "points": [
+        {
+          "pixel_x": 363,
+          "pixel_y": 49,
+          "thickness_um": 25.054,
+          "spread_rate_mm_s": 10.04208
+        },
+        {
+          "pixel_x": 469,
+          "pixel_y": 98,
+          "thickness_um": 43.607,
+          "spread_rate_mm_s": 6.65453
+        },
+        {
+          "pixel_x": 496,
+          "pixel_y": 139,
+          "thickness_um": 50.218,
+          "spread_rate_mm_s": 4.71615
+        },
+        {
+          "pixel_x": 575,
+          "pixel_y": 165,
+          "thickness_um": 75.898,
+          "spread_rate_mm_s": 3.79109
+        },
+        {
+          "pixel_x": 576,
+          "pixel_y": 143,
+          "thickness_um": 76.296,
+          "spread_rate_mm_s": 4.56037
+        }
+      ]
+    },
+    "astra": {
+      "label": "Astra",
+      "point_count": 1,
+      "marker": "blue open circle",
+      "evidence_type": "experimental",
+      "identity_status": "partially_resolved",
+      "gravity_status": "probable_normal_gravity",
+      "source_family_status": "surrounding_report_context",
+      "possible_duplicate_with_existing_evidence": true,
+      "training_safe": false,
+      "notes": [
+        "The surrounding report section identifies Astra PMMA data in normal gravity at San Diego State University.",
+        "Figure-level linkage must still be checked before assigning exact atmosphere or run-specific conditions to this Figure 2.22 point.",
+        "May overlap with data already represented elsewhere in Figures 2.20/2.21."
+      ],
+      "points": [
+        {
+          "pixel_x": 761,
+          "pixel_y": 334,
+          "thickness_um": 200.706,
+          "spread_rate_mm_s": 0.91709
+        }
+      ]
+    },
+    "nasa": {
+      "label": "NASA",
+      "point_count": 3,
+      "marker": "black open circle",
+      "evidence_type": "experimental",
+      "identity_status": "partially_resolved",
+      "gravity_status": "probable_normal_gravity",
+      "source_family_status": "surrounding_report_context",
+      "possible_duplicate_with_existing_evidence": true,
+      "training_safe": false,
+      "notes": [
+        "The surrounding report section identifies NASA PMMA comparison data in normal gravity.",
+        "Exact point-to-run identity is not proven.",
+        "May overlap with downward evidence already represented in the FireSense evidence store."
+      ],
+      "points": [
+        {
+          "pixel_x": 628,
+          "pixel_y": 242,
+          "thickness_um": 100.132,
+          "spread_rate_mm_s": 1.98582
+        },
+        {
+          "pixel_x": 842,
+          "pixel_y": 386,
+          "thickness_um": 306.532,
+          "spread_rate_mm_s": 0.5926
+        },
+        {
+          "pixel_x": 898,
+          "pixel_y": 403,
+          "thickness_um": 410.798,
+          "spread_rate_mm_s": 0.51376
+        }
+      ]
+    },
+    "bass": {
+      "label": "BASS",
+      "point_count": 4,
+      "marker": "red filled circle",
+      "evidence_type": "experimental",
+      "identity_status": "partially_resolved",
+      "gravity_status": "probable_microgravity",
+      "source_family_status": "BASS-II",
+      "possible_duplicate_with_existing_evidence": true,
+      "training_safe": false,
+      "notes": [
+        "BASS/BASS-II is part of the microgravity PMMA study family in the surrounding section.",
+        "The four Figure 2.22 BASS thicknesses are close to the 100/200/300/400 µm family already represented by Figure 2.21.",
+        "Treat as possible duplicate/derived representation until explicitly linked."
+      ],
+      "points": [
+        {
+          "pixel_x": 629,
+          "pixel_y": 228,
+          "thickness_um": 100.657,
+          "spread_rate_mm_s": 2.23357
+        },
+        {
+          "pixel_x": 762,
+          "pixel_y": 315,
+          "thickness_um": 201.758,
+          "spread_rate_mm_s": 1.07573
+        },
+        {
+          "pixel_x": 840,
+          "pixel_y": 371,
+          "thickness_um": 303.344,
+          "spread_rate_mm_s": 0.67216
+        },
+        {
+          "pixel_x": 897,
+          "pixel_y": 423,
+          "thickness_um": 408.656,
+          "spread_rate_mm_s": 0.43433
+        }
+      ]
+    },
+    "ridout": {
+      "label": "Ridout",
+      "point_count": 4,
+      "marker": "red filled triangle",
+      "evidence_type": "experimental",
+      "identity_status": "label_known_source_unresolved",
+      "gravity_status": "unresolved",
+      "source_family_status": "external_literature",
+      "possible_duplicate_with_existing_evidence": false,
+      "training_safe": false,
+      "notes": [
+        "Figure label identifies Ridout, but the original publication and full conditions must be recovered before modeling.",
+        "Large-thickness data must not automatically be assumed to share BASS-II conditions."
+      ],
+      "points": [
+        {
+          "pixel_x": 1069,
+          "pixel_y": 572,
+          "thickness_um": 1004.375,
+          "spread_rate_mm_s": 0.12428
+        },
+        {
+          "pixel_x": 1289.33,
+          "pixel_y": 661,
+          "thickness_um": 3178.183,
+          "spread_rate_mm_s": 0.05886
+        },
+        {
+          "pixel_x": 1422.33,
+          "pixel_y": 674,
+          "thickness_um": 6370.376,
+          "spread_rate_mm_s": 0.05277
+        },
+        {
+          "pixel_x": 1555.33,
+          "pixel_y": 701,
+          "thickness_um": 12768.835,
+          "spread_rate_mm_s": 0.04207
+        }
+      ]
+    },
+    "fernandez_pello_williams": {
+      "label": "Fernandez-Pello and Williams",
+      "point_count": 14,
+      "marker": "blue filled triangle",
+      "evidence_type": "experimental",
+      "identity_status": "named_external_literature",
+      "gravity_status": "unresolved_until_reference_review",
+      "source_family_status": "external_literature",
+      "possible_duplicate_with_existing_evidence": false,
+      "training_safe": false,
+      "notes": [
+        "Figure 2.22 explicitly labels this as Fernandez-Pello and Williams experimental data.",
+        "Original publication and experimental conditions must be checked before training."
+      ],
+      "points": [
+        {
+          "pixel_x": 841.33,
+          "pixel_y": 369,
+          "thickness_um": 305.466,
+          "spread_rate_mm_s": 0.68354
+        },
+        {
+          "pixel_x": 859.33,
+          "pixel_y": 386,
+          "thickness_um": 335.608,
+          "spread_rate_mm_s": 0.5926
+        },
+        {
+          "pixel_x": 883.33,
+          "pixel_y": 419,
+          "thickness_um": 380.475,
+          "spread_rate_mm_s": 0.44917
+        },
+        {
+          "pixel_x": 905.33,
+          "pixel_y": 436,
+          "thickness_um": 426.854,
+          "spread_rate_mm_s": 0.38941
+        },
+        {
+          "pixel_x": 916.33,
+          "pixel_y": 441,
+          "thickness_um": 452.122,
+          "spread_rate_mm_s": 0.3734
+        },
+        {
+          "pixel_x": 1032.33,
+          "pixel_y": 548,
+          "thickness_um": 829.166,
+          "spread_rate_mm_s": 0.15203
+        },
+        {
+          "pixel_x": 1138.33,
+          "pixel_y": 596,
+          "thickness_um": 1443.186,
+          "spread_rate_mm_s": 0.1016
+        },
+        {
+          "pixel_x": 1244.33,
+          "pixel_y": 634,
+          "thickness_um": 2511.904,
+          "spread_rate_mm_s": 0.07384
+        },
+        {
+          "pixel_x": 1359.33,
+          "pixel_y": 673,
+          "thickness_um": 4582.674,
+          "spread_rate_mm_s": 0.05322
+        },
+        {
+          "pixel_x": 1439.33,
+          "pixel_y": 682,
+          "thickness_um": 6962.494,
+          "spread_rate_mm_s": 0.04934
+        },
+        {
+          "pixel_x": 1543.33,
+          "pixel_y": 694,
+          "thickness_um": 11992.353,
+          "spread_rate_mm_s": 0.04461
+        },
+        {
+          "pixel_x": 1678.33,
+          "pixel_y": 703,
+          "thickness_um": 24290.235,
+          "spread_rate_mm_s": 0.04137
+        },
+        {
+          "pixel_x": 1755.33,
+          "pixel_y": 710,
+          "thickness_um": 36330.036,
+          "spread_rate_mm_s": 0.039
+        },
+        {
+          "pixel_x": 1895.33,
+          "pixel_y": 705,
+          "thickness_um": 75534.615,
+          "spread_rate_mm_s": 0.04068
+        }
+      ]
+    }
+  },
+  "summary": {
+    "series_count": 7,
+    "possible_duplicate_series": [
+      "astra",
+      "nasa",
+      "bass"
+    ],
+    "unresolved_identity_series": [
+      "mrc",
+      "vcf",
+      "ridout"
+    ],
+    "training_safe_series": [],
+    "training_safe_point_count": 0
+  },
+  "global_policy": [
+    "Figure 2.22 is a cross-study comparison figure.",
+    "A plotted series label is not sufficient proof of complete experimental conditions.",
+    "No Figure 2.22 point may be marked training-ready until its original-study provenance and duplicate status are audited.",
+    "Theoretical thin/thick limits must remain separate from experimental evidence.",
+    "No run-specific BASS-II conditions may be propagated without an explicit evidence link."
+  ],
+  "next_required_actions": [
+    "Resolve MRC original study/reference.",
+    "Resolve VCF original study/reference.",
+    "Confirm NASA/Astra Figure 2.22 relationship to normal-gravity comparison experiments.",
+    "Audit BASS Figure 2.22 points against Figure 2.21 and BASS-II run-condition evidence.",
+    "Resolve Ridout original publication and conditions.",
+    "Resolve Fernandez-Pello and Williams original publication and conditions."
+  ]
+}

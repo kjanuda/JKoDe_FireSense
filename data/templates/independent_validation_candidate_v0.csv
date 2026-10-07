@@ -1,0 +1,1 @@
+﻿record_id,source_id,experiment_id,material,geometry_family,thickness_um,oxygen_percent,pressure_kpa,gravity_regime,transport_configuration,flow_mm_s,observed_spread_rate_mm_s,experimental_uncertainty_mm_s,digitization_uncertainty_mm_s,measurement_method,source_reference

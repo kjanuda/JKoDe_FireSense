@@ -1,0 +1,21 @@
+{
+  "policy_version": "v0",
+  "decision": "interpolation_only",
+  "predict_only_when_all_true": [
+    "material == PMMA",
+    "geometry == thin_sheet",
+    "oxygen_fraction == 0.21",
+    "pressure_kpa == 101.325",
+    "gravity_regime is exactly microgravity or normal_gravity",
+    "thickness_um is inside the observed range for the selected gravity group"
+  ],
+  "abstain_when_any_true": [
+    "thickness is outside the empirical group range",
+    "material or geometry differs",
+    "oxygen fraction differs",
+    "pressure differs",
+    "gravity regime is unknown or intermediate",
+    "requested output is not flame spread rate"
+  ],
+  "important_note": "This abstention policy is a scientific scope guardrail, not a calibrated uncertainty-based selective prediction threshold."
+}

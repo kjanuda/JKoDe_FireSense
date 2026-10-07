@@ -1,0 +1,52 @@
+{
+  "uncertainty_id": "EXTVAL-RIES-FIG4-EXTRACTION-UNC-V0",
+  "version": "v0",
+  "source": {
+    "dataset_id": "RIES-2024-FIG4-VECTOR-POINTS-V1",
+    "dataset_sha256": "8d31ad600a5b933a4b5756978617384d2c78e4d5697e34a8cb6f8121682ac34c",
+    "dataset_manifest_sha256": "66ec91a2aa0ff6bcd9d83f6862a9055e36b1a4c083165d482838ce8e71338aad",
+    "vector_calibration_sha256": "c6b9cda5340fb8a1c36ff748d3de00a3c2e15540ef10a3ec2851e445a409ab13"
+  },
+  "components": {
+    "axis_calibration": {
+      "rmse_mm_s": 8.752409279355932e-06,
+      "max_absolute_residual_mm_s": 1.651641009603466e-05,
+      "interpretation": "Consistency residual from fitting published vector gridline centers.",
+      "experimental_uncertainty": false
+    },
+    "method_sensitivity": {
+      "value_mm_s": 0.0026991706273049587,
+      "basis": "Maximum absolute change among all eight marker-derived rates when replacing the earlier manual plot-frame calibration with vector-native gridline calibration.",
+      "experimental_uncertainty": false
+    }
+  },
+  "adopted_extraction_uncertainty": {
+    "type": "symmetric_conservative_method_sensitivity_bound",
+    "plus_minus_mm_s": 0.0026991706273049587,
+    "reason": "The vector-axis fit residual is much smaller than the observed calibration-method sensitivity. FireSense therefore uses the larger method-sensitivity value as a conservative v0 figure-extraction uncertainty bound."
+  },
+  "separation_policy": {
+    "digitization_or_extraction_uncertainty": "Represents uncertainty introduced by recovering numerical values from the published figure representation.",
+    "experimental_uncertainty": "Represents variability or uncertainty reported for the physical experiment.",
+    "model_uncertainty": "Represents predictive/model uncertainty.",
+    "must_remain_separate": true
+  },
+  "experimental_error_bars": {
+    "present_in_source": true,
+    "extracted": false,
+    "status": "not_yet_extracted",
+    "rule": "Source error bars must not be added to, substituted for, or described as Figure 4 extraction uncertainty."
+  },
+  "scientific_status": {
+    "training_eligible": false,
+    "independent_validation_eligible": false,
+    "direct_external_validation_ready": false
+  },
+  "guardrails": [
+    "The adopted bound is not a confidence interval.",
+    "The adopted bound is not experimental uncertainty.",
+    "The adopted bound is not model uncertainty.",
+    "The v0-to-v1 calibration shift is used only as a conservative extraction-method sensitivity bound.",
+    "Figure 2.21 digitization uncertainty is not reused."
+  ]
+}
