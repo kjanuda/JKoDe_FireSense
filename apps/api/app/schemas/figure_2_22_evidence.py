@@ -1,0 +1,85 @@
+from typing import Any, Literal
+
+from pydantic import BaseModel
+
+
+class Figure222DuplicateLinkage(BaseModel):
+    matched_figure_2_21_record_id: str | None = None
+    classification: str | None = None
+    relationship_status: str | None = None
+    same_run_confirmed: bool = False
+    safe_for_training_join: bool = False
+
+
+class Figure222EvidenceRecord(BaseModel):
+    record_id: str
+    source_id: str
+    figure_ref: Literal["2.22"]
+    dataset_version: Literal["v0"]
+
+    series_key: str
+    series_label: str
+    series_role: str | None = None
+    series_identity: str | None = None
+    identity_status: str | None = None
+    publication_identity: str | dict[str, Any] | None = None
+
+    gravity_context: str | None = None
+    gravity_status: str | None = None
+    source_family_status: str | None = None
+
+    evidence_type: Literal["experimental"]
+
+    thickness_um: float
+    observed_spread_rate_mm_s: float
+
+    digitization_uncertainty_mm_s: float | None = None
+    digitization_uncertainty_status: str
+
+    figure_validation_status: str
+
+    training_policy: str
+    training_eligible: Literal[False]
+
+    evaluation_role: Literal["comparison_only"]
+
+    independent_validation_eligible: Literal[False]
+
+    possible_duplicate_with_existing_evidence: bool
+
+    duplicate_linkage: Figure222DuplicateLinkage | None = None
+
+
+class Figure222EvidenceResponse(BaseModel):
+    dataset_name: str
+    dataset_version: Literal["v0"]
+
+    source_id: str
+    figure_ref: Literal["2.22"]
+
+    purpose: Literal["comparison_only"]
+
+    scientific_status: Literal[
+        "comparison_evidence_not_independent_external_validation"
+    ]
+
+    figure_validation_status: str
+
+    experimental_point_count: int
+    theoretical_curves_included: Literal[False]
+
+    training_eligible_count: Literal[0]
+    independent_validation_eligible_count: Literal[0]
+
+    digitization_uncertainty_status: str
+
+    dataset_sha256: str
+    dataset_sha256_verified: bool
+
+    series_counts: dict[str, int]
+    gravity_context_counts: dict[str, int]
+    duplicate_linkage_class_counts: dict[str, int]
+
+    guardrails: list[str]
+
+    records: list[Figure222EvidenceRecord]
