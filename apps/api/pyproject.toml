@@ -1,0 +1,26 @@
+[project]
+name = "api"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "botorch>=0.18.1; sys_platform == 'linux'",
+    "docling>=2.129.0",
+    "fastapi[standard]>=0.141.1",
+    "matplotlib>=3.11.2",
+    "pillow>=12.3.0",
+    "pydantic-settings>=2.15.0",
+    "pymupdf>=1.28.2",
+    "python-dotenv>=1.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
