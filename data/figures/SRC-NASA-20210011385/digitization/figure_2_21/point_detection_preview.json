@@ -1,0 +1,219 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.21",
+  "detector_version": "2.0",
+  "status": "needs_overlay_review",
+  "important_note": "Detected points remain preview evidence until human overlay verification passes.",
+  "calibration": {
+    "pixel_bounds": {
+      "left_px": 140,
+      "right_px": 1932,
+      "top_px": 28,
+      "bottom_px": 855
+    },
+    "x_axis": {
+      "label": "Fuel thickness",
+      "unit": "µm",
+      "scale": "linear",
+      "pixel_min": 140,
+      "pixel_max": 1932,
+      "value_min": 0.0,
+      "value_max": 800.0
+    },
+    "y_axis": {
+      "label": "Spread rate",
+      "unit": "mm/s",
+      "scale": "linear",
+      "pixel_min": 855,
+      "pixel_max": 28,
+      "value_min": 0.0,
+      "value_max": 10.0
+    }
+  },
+  "series": {
+    "microgravity": {
+      "evidence_type": "experimental",
+      "training_eligible": false,
+      "marker": "blue filled circle",
+      "point_count": 2,
+      "points": [
+        {
+          "pixel_x": 356.98,
+          "pixel_y": 666.84,
+          "thickness_um": 96.87,
+          "spread_rate_mm_s": 2.2752,
+          "component_width_px": 9,
+          "component_height_px": 13,
+          "component_size_px": 64
+        },
+        {
+          "pixel_x": 372.56,
+          "pixel_y": 663.24,
+          "thickness_um": 103.82,
+          "spread_rate_mm_s": 2.3188,
+          "component_width_px": 20,
+          "component_height_px": 19,
+          "component_size_px": 174
+        }
+      ]
+    },
+    "downward": {
+      "evidence_type": "experimental",
+      "training_eligible": false,
+      "marker": "red open circle",
+      "point_count": 20,
+      "points": [
+        {
+          "pixel_x": 194.0,
+          "pixel_y": 132.0,
+          "thickness_um": 24.11,
+          "spread_rate_mm_s": 8.7424,
+          "ring_coverage": 0.5938
+        },
+        {
+          "pixel_x": 198.0,
+          "pixel_y": 104.0,
+          "thickness_um": 25.89,
+          "spread_rate_mm_s": 9.081,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 234.0,
+          "pixel_y": 369.0,
+          "thickness_um": 41.96,
+          "spread_rate_mm_s": 5.8767,
+          "ring_coverage": 0.75
+        },
+        {
+          "pixel_x": 235.0,
+          "pixel_y": 337.0,
+          "thickness_um": 42.41,
+          "spread_rate_mm_s": 6.2636,
+          "ring_coverage": 0.75
+        },
+        {
+          "pixel_x": 239.0,
+          "pixel_y": 308.0,
+          "thickness_um": 44.2,
+          "spread_rate_mm_s": 6.6143,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 254.0,
+          "pixel_y": 354.0,
+          "thickness_um": 50.89,
+          "spread_rate_mm_s": 6.058,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 283.0,
+          "pixel_y": 540.0,
+          "thickness_um": 63.84,
+          "spread_rate_mm_s": 3.8089,
+          "ring_coverage": 0.6875
+        },
+        {
+          "pixel_x": 307.0,
+          "pixel_y": 526.0,
+          "thickness_um": 74.55,
+          "spread_rate_mm_s": 3.9782,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 366.0,
+          "pixel_y": 675.0,
+          "thickness_um": 100.89,
+          "spread_rate_mm_s": 2.1765,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 385.0,
+          "pixel_y": 692.0,
+          "thickness_um": 109.38,
+          "spread_rate_mm_s": 1.971,
+          "ring_coverage": 0.625
+        },
+        {
+          "pixel_x": 563.0,
+          "pixel_y": 765.0,
+          "thickness_um": 188.84,
+          "spread_rate_mm_s": 1.0883,
+          "ring_coverage": 0.625
+        },
+        {
+          "pixel_x": 587.0,
+          "pixel_y": 775.0,
+          "thickness_um": 199.55,
+          "spread_rate_mm_s": 0.9674,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 612.0,
+          "pixel_y": 774.0,
+          "thickness_um": 210.71,
+          "spread_rate_mm_s": 0.9794,
+          "ring_coverage": 0.6875
+        },
+        {
+          "pixel_x": 810.0,
+          "pixel_y": 801.0,
+          "thickness_um": 299.11,
+          "spread_rate_mm_s": 0.653,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 836.0,
+          "pixel_y": 804.0,
+          "thickness_um": 310.71,
+          "spread_rate_mm_s": 0.6167,
+          "ring_coverage": 0.625
+        },
+        {
+          "pixel_x": 1034.0,
+          "pixel_y": 809.0,
+          "thickness_um": 399.11,
+          "spread_rate_mm_s": 0.5562,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 1058.0,
+          "pixel_y": 817.0,
+          "thickness_um": 409.82,
+          "spread_rate_mm_s": 0.4595,
+          "ring_coverage": 0.5938
+        },
+        {
+          "pixel_x": 1793.0,
+          "pixel_y": 838.0,
+          "thickness_um": 737.95,
+          "spread_rate_mm_s": 0.2056,
+          "ring_coverage": 0.5938
+        },
+        {
+          "pixel_x": 1817.0,
+          "pixel_y": 831.0,
+          "thickness_um": 748.66,
+          "spread_rate_mm_s": 0.2902,
+          "ring_coverage": 1.0
+        },
+        {
+          "pixel_x": 1841.0,
+          "pixel_y": 839.0,
+          "thickness_um": 759.38,
+          "spread_rate_mm_s": 0.1935,
+          "ring_coverage": 0.5938
+        }
+      ]
+    },
+    "thin_behavior_curve": {
+      "evidence_type": "theoretical",
+      "training_eligible": false,
+      "digitized": false,
+      "reason": "Continuous theoretical curve must remain separate from experimental markers."
+    }
+  },
+  "review_warnings": [
+    "Blue experimental marker count is outside the visually expected review range of 3-6.",
+    "Red open-circle count is outside the visually expected review range of 7-12."
+  ]
+}

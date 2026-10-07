@@ -1,0 +1,452 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "mapping_count": 7,
+  "figure_groups": {
+    "2.8": [
+      "page_031_image_01.jpeg"
+    ],
+    "2.9": [
+      "page_032_image_01.jpeg"
+    ],
+    "2.10": [
+      "page_032_image_02.jpeg"
+    ],
+    "2.17": [
+      "page_047_image_01.jpeg"
+    ],
+    "2.18": [
+      "page_048_image_01.jpeg"
+    ],
+    "2.19": [
+      "page_048_image_02.jpeg"
+    ],
+    "2.20": [
+      "page_049_image_01.jpeg"
+    ]
+  },
+  "mappings": [
+    {
+      "page": 31,
+      "image_file": "page_031_image_01.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_031_image_01.jpeg",
+      "image_bbox": [
+        139.5,
+        72.0,
+        472.0820007324219,
+        244.04998779296875
+      ],
+      "width": 1848,
+      "height": 956,
+      "figure_ref": "2.8",
+      "caption": "Figure 2.8.—Flame spread rate obtained by tracking leading edge and location of",
+      "caption_bbox": [
+        136.8000030517578,
+        247.7999725341797,
+        462.4813232421875,
+        260.0849609375
+      ],
+      "direction": "below",
+      "vertical_gap": 3.75,
+      "score": 5.19,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.8",
+          "caption": "Figure 2.8.—Flame spread rate obtained by tracking leading edge and location of",
+          "bbox": [
+            136.8000030517578,
+            247.7999725341797,
+            462.4813232421875,
+            260.0849609375
+          ],
+          "score": 5.19,
+          "vertical_gap": 3.75,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.8",
+          "caption": "Each test is started by establishing a steady flame spread in the presence of a forced flow and then  reducing the flow velocity in a gradual manner. In the first test, a steady flame was established over a  100- µ m sample. After the flame propagated across half the sample length at a steady spread rate of  2.2 mm/s, the flow was abruptly cut off and the flame was observed to extinguish within 2 s. To pin down  the extinction flow velocity, a second test was done under the same conditions except the flow velocity  was set at 3 cm/s and after the flame propagated about half the sample length, the flow was gradually  reduced. The flame spread rate of the leading edge, as plotted in Figure 2.8, shows that the flame  extinguishes at about 30 s after ignition. The fan voltage at that time indicates a flow velocity of about  1.1 cm/s. The sequence of images in Figure 2.9 shows the pathway to radiative extinction. As the flow  speed is gradually reduced from about  t  = 27 s, the flame size starts shrinking and the orange color  disappears and the flame becomes completely blue, most possibly because of the temperature drop  brought about by radiative losses, which is enhanced by the increased residence time at low flow velocity.  The signal from the radiometer, shown in Figure 2.10, is also consistent with a cooling and shrinking  flame as the signal starts decreasing from right about  t  = 27 s. After  t  = 30 s, there is no visible flame and  the radiometer data (Figure 2.10) indicate a sudden change in slope at that time, possibly because the  radiation is emitted mostly by the sample holder with the combustion products swept away by the flow.",
+          "bbox": [
+            72.01103210449219,
+            323.8013000488281,
+            541.702392578125,
+            548.3328857421875
+          ],
+          "score": 79.75,
+          "vertical_gap": 79.75,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.9",
+          "caption": "Each test is started by establishing a steady flame spread in the presence of a forced flow and then  reducing the flow velocity in a gradual manner. In the first test, a steady flame was established over a  100- µ m sample. After the flame propagated across half the sample length at a steady spread rate of  2.2 mm/s, the flow was abruptly cut off and the flame was observed to extinguish within 2 s. To pin down  the extinction flow velocity, a second test was done under the same conditions except the flow velocity  was set at 3 cm/s and after the flame propagated about half the sample length, the flow was gradually  reduced. The flame spread rate of the leading edge, as plotted in Figure 2.8, shows that the flame  extinguishes at about 30 s after ignition. The fan voltage at that time indicates a flow velocity of about  1.1 cm/s. The sequence of images in Figure 2.9 shows the pathway to radiative extinction. As the flow  speed is gradually reduced from about  t  = 27 s, the flame size starts shrinking and the orange color  disappears and the flame becomes completely blue, most possibly because of the temperature drop  brought about by radiative losses, which is enhanced by the increased residence time at low flow velocity.  The signal from the radiometer, shown in Figure 2.10, is also consistent with a cooling and shrinking  flame as the signal starts decreasing from right about  t  = 27 s. After  t  = 30 s, there is no visible flame and  the radiometer data (Figure 2.10) indicate a sudden change in slope at that time, possibly because the  radiation is emitted mostly by the sample holder with the combustion products swept away by the flow.",
+          "bbox": [
+            72.01103210449219,
+            323.8013000488281,
+            541.702392578125,
+            548.3328857421875
+          ],
+          "score": 79.75,
+          "vertical_gap": 79.75,
+          "direction": "below"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "image_file": "page_032_image_01.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_032_image_01.jpeg",
+      "image_bbox": [
+        203.77499389648438,
+        72.0,
+        408.2239990234375,
+        381.7340087890625
+      ],
+      "width": 1136,
+      "height": 1721,
+      "figure_ref": "2.9",
+      "caption": "Figure 2.9.—Flame images as function of opposed-",
+      "caption_bbox": [
+        204.36000061035156,
+        385.08001708984375,
+        409.20098876953125,
+        397.364990234375
+      ],
+      "direction": "below",
+      "vertical_gap": 3.35,
+      "score": 3.49,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.9",
+          "caption": "Figure 2.9.—Flame images as function of opposed-",
+          "bbox": [
+            204.36000061035156,
+            385.08001708984375,
+            409.20098876953125,
+            397.364990234375
+          ],
+          "score": 3.49,
+          "vertical_gap": 3.35,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.10",
+          "caption": "Figure 2.10.—Radiometer signal for entire duration of test. Discontinuity at time",
+          "bbox": [
+            150.36000061035156,
+            686.6400146484375,
+            468.1058044433594,
+            698.9249877929688
+          ],
+          "score": 304.91,
+          "vertical_gap": 304.91,
+          "direction": "below"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "image_file": "page_032_image_02.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_032_image_02.jpeg",
+      "image_bbox": [
+        150.75,
+        451.8330078125,
+        460.66900634765625,
+        683.282470703125
+      ],
+      "width": 1722,
+      "height": 1286,
+      "figure_ref": "2.10",
+      "caption": "Figure 2.10.—Radiometer signal for entire duration of test. Discontinuity at time",
+      "caption_bbox": [
+        150.36000061035156,
+        686.6400146484375,
+        468.1058044433594,
+        698.9249877929688
+      ],
+      "direction": "below",
+      "vertical_gap": 3.36,
+      "score": 3.36,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.10",
+          "caption": "Figure 2.10.—Radiometer signal for entire duration of test. Discontinuity at time",
+          "bbox": [
+            150.36000061035156,
+            686.6400146484375,
+            468.1058044433594,
+            698.9249877929688
+          ],
+          "score": 3.36,
+          "vertical_gap": 3.36,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.9",
+          "caption": "Figure 2.9.—Flame images as function of opposed-",
+          "bbox": [
+            204.36000061035156,
+            385.08001708984375,
+            409.20098876953125,
+            397.364990234375
+          ],
+          "score": 111.42,
+          "vertical_gap": 54.47,
+          "direction": "above"
+        }
+      ]
+    },
+    {
+      "page": 47,
+      "image_file": "page_047_image_01.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_047_image_01.jpeg",
+      "image_bbox": [
+        126.0,
+        72.0,
+        485.909912109375,
+        296.6000061035156
+      ],
+      "width": 1319,
+      "height": 824,
+      "figure_ref": "2.17",
+      "caption": "Figure 2.17.—Sample holder used for downward (left) and microgravity Burning and",
+      "caption_bbox": [
+        127.80000305175781,
+        300.3600158691406,
+        464.0264587402344,
+        312.6449890136719
+      ],
+      "direction": "below",
+      "vertical_gap": 3.76,
+      "score": 7.05,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.17",
+          "caption": "Figure 2.17.—Sample holder used for downward (left) and microgravity Burning and",
+          "bbox": [
+            127.80000305175781,
+            300.3600158691406,
+            464.0264587402344,
+            312.6449890136719
+          ],
+          "score": 7.05,
+          "vertical_gap": 3.76,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.18",
+          "caption": "A typical color image of the top view 18 s after ignition is shown in Figure 2.18(a) for downward  flame spread over a 75- µ m-thick sample. The dots along the axis, 6 mm apart, are superimposed on the  image to help display the spatial resolution of the image. The red green blue (RGB) values of each pixel  of the central slice are then converted to an intensity value using built-in MATLAB ®  tools. Across the  width of the section, these intensity values are averaged, producing a 2D representation of the flame as  shown in Figure 2.18(b). The variation of the width-averaged intensity along the x direction (axis) is  shown in Figure 2.18(c). The leading edge of the flame is determined by deciding on a fixed threshold  intensity. A value of 70 for the threshold value was found to work well for tracking the flame leading  edge for this test.",
+          "bbox": [
+            71.98745727539062,
+            445.8470764160156,
+            532.8128662109375,
+            572.9150390625
+          ],
+          "score": 149.25,
+          "vertical_gap": 149.25,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.18",
+          "caption": "A typical color image of the top view 18 s after ignition is shown in Figure 2.18(a) for downward  flame spread over a 75- µ m-thick sample. The dots along the axis, 6 mm apart, are superimposed on the  image to help display the spatial resolution of the image. The red green blue (RGB) values of each pixel  of the central slice are then converted to an intensity value using built-in MATLAB ®  tools. Across the  width of the section, these intensity values are averaged, producing a 2D representation of the flame as  shown in Figure 2.18(b). The variation of the width-averaged intensity along the x direction (axis) is  shown in Figure 2.18(c). The leading edge of the flame is determined by deciding on a fixed threshold  intensity. A value of 70 for the threshold value was found to work well for tracking the flame leading  edge for this test.",
+          "bbox": [
+            71.98745727539062,
+            445.8470764160156,
+            532.8128662109375,
+            572.9150390625
+          ],
+          "score": 149.25,
+          "vertical_gap": 149.25,
+          "direction": "below"
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "image_file": "page_048_image_01.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_048_image_01.jpeg",
+      "image_bbox": [
+        103.42503356933594,
+        72.0,
+        508.573974609375,
+        346.8389892578125
+      ],
+      "width": 2251,
+      "height": 1527,
+      "figure_ref": "2.18",
+      "caption": "Figure 2.18.—Flame data. (a) Top view of flame 18 s into video, (b) two-dimensional representation of",
+      "caption_bbox": [
+        105.36000061035156,
+        350.1600036621094,
+        513.2246704101562,
+        362.4449768066406
+      ],
+      "direction": "below",
+      "vertical_gap": 3.32,
+      "score": 3.56,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.18",
+          "caption": "Figure 2.18.—Flame data. (a) Top view of flame 18 s into video, (b) two-dimensional representation of",
+          "bbox": [
+            105.36000061035156,
+            350.1600036621094,
+            513.2246704101562,
+            362.4449768066406
+          ],
+          "score": 3.56,
+          "vertical_gap": 3.32,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.19",
+          "caption": "Figure 2.19.—Microgravity and downward configuration results. (a) Leading edge location versus time in microgravity",
+          "bbox": [
+            72.0,
+            536.6400146484375,
+            539.9872436523438,
+            548.9249877929688
+          ],
+          "score": 189.8,
+          "vertical_gap": 189.8,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.19",
+          "caption": "The average spread rate over the 100- µ m-thick sample in the normal-gravity experiments is found to  be 2.0 mm/s (see Figure 2.19(b)). Although the instantaneous spread rate fluctuates slightly, the average  spread rate and the flame shape remain relatively steady throughout the experiment. The opposed flow  being generated by buoyancy, a steady spread is expected. Any variation is probably due to surface  irregularities and other random factors. In a microgravity environment, the opposed flow is much lower  with experiments conducted mostly at very mild opposed-flow velocities. For the same fuel thickness, the  highest spread rate obtained is about 2.2 mm/s even though the opposing flow velocity was varied from",
+          "bbox": [
+            72.0,
+            609.8788452148438,
+            540.6221313476562,
+            708.2783813476562
+          ],
+          "score": 263.04,
+          "vertical_gap": 263.04,
+          "direction": "below"
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "image_file": "page_048_image_02.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_048_image_02.jpeg",
+      "image_bbox": [
+        72.0,
+        385.72711181640625,
+        539.25,
+        533.3170166015625
+      ],
+      "width": 2596,
+      "height": 820,
+      "figure_ref": "2.19",
+      "caption": "Figure 2.19.—Microgravity and downward configuration results. (a) Leading edge location versus time in microgravity",
+      "caption_bbox": [
+        72.0,
+        536.6400146484375,
+        539.9872436523438,
+        548.9249877929688
+      ],
+      "direction": "below",
+      "vertical_gap": 3.32,
+      "score": 3.32,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.19",
+          "caption": "Figure 2.19.—Microgravity and downward configuration results. (a) Leading edge location versus time in microgravity",
+          "bbox": [
+            72.0,
+            536.6400146484375,
+            539.9872436523438,
+            548.9249877929688
+          ],
+          "score": 3.32,
+          "vertical_gap": 3.32,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.18",
+          "caption": "Figure 2.18.—Flame data. (a) Top view of flame 18 s into video, (b) two-dimensional representation of",
+          "bbox": [
+            105.36000061035156,
+            350.1600036621094,
+            513.2246704101562,
+            362.4449768066406
+          ],
+          "score": 69.64,
+          "vertical_gap": 23.28,
+          "direction": "above"
+        },
+        {
+          "figure_ref": "2.19",
+          "caption": "The average spread rate over the 100- µ m-thick sample in the normal-gravity experiments is found to  be 2.0 mm/s (see Figure 2.19(b)). Although the instantaneous spread rate fluctuates slightly, the average  spread rate and the flame shape remain relatively steady throughout the experiment. The opposed flow  being generated by buoyancy, a steady spread is expected. Any variation is probably due to surface  irregularities and other random factors. In a microgravity environment, the opposed flow is much lower  with experiments conducted mostly at very mild opposed-flow velocities. For the same fuel thickness, the  highest spread rate obtained is about 2.2 mm/s even though the opposing flow velocity was varied from",
+          "bbox": [
+            72.0,
+            609.8788452148438,
+            540.6221313476562,
+            708.2783813476562
+          ],
+          "score": 76.56,
+          "vertical_gap": 76.56,
+          "direction": "below"
+        }
+      ]
+    },
+    {
+      "page": 49,
+      "image_file": "page_049_image_01.jpeg",
+      "image_path": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\page_049_image_01.jpeg",
+      "image_bbox": [
+        131.67503356933594,
+        287.4169921875,
+        480.322021484375,
+        577.5665283203125
+      ],
+      "width": 1937,
+      "height": 1612,
+      "figure_ref": "2.20",
+      "caption": "Figure 2.20.—Image array comparing microgravity and downward flame spread for",
+      "caption_bbox": [
+        132.36000061035156,
+        580.9200439453125,
+        464.14593505859375,
+        593.2050170898438
+      ],
+      "direction": "below",
+      "vertical_gap": 3.35,
+      "score": 5.77,
+      "confidence": "high",
+      "candidate_captions": [
+        {
+          "figure_ref": "2.20",
+          "caption": "Figure 2.20.—Image array comparing microgravity and downward flame spread for",
+          "bbox": [
+            132.36000061035156,
+            580.9200439453125,
+            464.14593505859375,
+            593.2050170898438
+          ],
+          "score": 5.77,
+          "vertical_gap": 3.35,
+          "direction": "below"
+        },
+        {
+          "figure_ref": "2.20",
+          "caption": "about 40 cm/s to about 1 cm/s. At very high flow velocity, kinetically driven blowoff extinction was  observed and at very low velocity (at about 1 cm/s) radiative extinction was observed. The highest spread  rate in the microgravity environment, 2.2 mm/s, is about the same as the downward spread rate. The  overall flame shapes are also quite similar as shown in Figure 2.20(a) and (b) where flame images for  spread over samples of different thicknesses are compared. The leading edges in the downward spread  show slight dripping effect and the flame is sootier, but the overall shape and size are quite similar as are  the spread rates. This indicates that at 21 percent O 2  level, downward spread over PMMA can be  considered thermally controlled with minimal kinetic effect.",
+          "bbox": [
+            71.99758911132812,
+            70.83840942382812,
+            539.405029296875,
+            183.1507568359375
+          ],
+          "score": 144.27,
+          "vertical_gap": 104.27,
+          "direction": "above"
+        }
+      ]
+    }
+  ]
+}

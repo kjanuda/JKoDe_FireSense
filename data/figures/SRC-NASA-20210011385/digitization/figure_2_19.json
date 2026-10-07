@@ -1,0 +1,108 @@
+{
+  "digitization_id": "DIG-SRC-NASA-20210011385-FIG-2-19",
+  "source_id": "SRC-NASA-20210011385",
+  "source_page": 48,
+  "figure_ref": "2.19",
+  "image_path": "E:/Nasa/FireSense/data/figures/SRC-NASA-20210011385/embedded/page_048_image_02.jpeg",
+  "image_sha256": "11a5340d9b59155715f21eb7783d274ad55a1ffa316acb599d3e0da223ed8966",
+  "image_width_px": 2596,
+  "image_height_px": 820,
+  "figure_role": "experimental",
+  "panels": [
+    {
+      "panel_id": "A",
+      "label": "Leading edge position versus time",
+      "pixel_bounds": {
+        "left_px": 175.0,
+        "right_px": 1262.0,
+        "top_px": 18.0,
+        "bottom_px": 674.0
+      },
+      "x_axis": {
+        "axis": "x",
+        "scale": "linear",
+        "pixel_min": 175.0,
+        "pixel_max": 1262.0,
+        "value_min": 0.0,
+        "value_max": 20.0,
+        "unit": "s",
+        "label": "Time"
+      },
+      "y_axis": {
+        "axis": "y",
+        "scale": "linear",
+        "pixel_min": 674.0,
+        "pixel_max": 18.0,
+        "value_min": 0.0,
+        "value_max": 120.0,
+        "unit": "mm",
+        "label": "Leading edge position"
+      },
+      "series": [
+        {
+          "series_id": "microgravity",
+          "label": "Microgravity",
+          "interpretation": null,
+          "gravity_regime": "microgravity",
+          "points": []
+        },
+        {
+          "series_id": "downward",
+          "label": "Downward / normal gravity",
+          "interpretation": null,
+          "gravity_regime": "normal_gravity",
+          "points": []
+        }
+      ]
+    },
+    {
+      "panel_id": "B",
+      "label": "Spread rate versus time",
+      "pixel_bounds": {
+        "left_px": 1482.0,
+        "right_px": 2570.0,
+        "top_px": 19.0,
+        "bottom_px": 674.0
+      },
+      "x_axis": {
+        "axis": "x",
+        "scale": "linear",
+        "pixel_min": 1482.0,
+        "pixel_max": 2570.0,
+        "value_min": 0.0,
+        "value_max": 20.0,
+        "unit": "s",
+        "label": "Time"
+      },
+      "y_axis": {
+        "axis": "y",
+        "scale": "linear",
+        "pixel_min": 674.0,
+        "pixel_max": 19.0,
+        "value_min": 0.0,
+        "value_max": 3.0,
+        "unit": "mm/s",
+        "label": "Flame spread rate"
+      },
+      "series": [
+        {
+          "series_id": "microgravity",
+          "label": "Microgravity",
+          "interpretation": null,
+          "gravity_regime": "microgravity",
+          "points": []
+        },
+        {
+          "series_id": "downward",
+          "label": "Downward / normal gravity",
+          "interpretation": null,
+          "gravity_regime": "normal_gravity",
+          "points": []
+        }
+      ]
+    }
+  ],
+  "status": "needs_series_mapping",
+  "extraction_method": "hybrid",
+  "notes": "Pixel plot bounds and linear scientific axis calibrations were manually assigned from the embedded Figure 2.19 raster. Series mapping remains to be verified."
+}

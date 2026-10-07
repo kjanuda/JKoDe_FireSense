@@ -1,0 +1,78 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.21",
+  "image": "E:\\Nasa\\FireSense\\data\\figures\\SRC-NASA-20210011385\\embedded\\figures_2_21_2_22\\page_050_image_01.jpeg",
+  "image_width": 1973,
+  "image_height": 990,
+  "sha256": "39b56d57117cd3d03a1cce2414f122a910c738a28e6a6f308c3231313cc52b30",
+  "x_axis": {
+    "label": "Fuel thickness",
+    "unit": "µm",
+    "scale": "linear",
+    "pixel_min": 140,
+    "pixel_max": 1932,
+    "value_min": 0.0,
+    "value_max": 800.0
+  },
+  "y_axis": {
+    "label": "Spread rate",
+    "unit": "mm/s",
+    "scale": "linear",
+    "pixel_min": 855,
+    "pixel_max": 28,
+    "value_min": 0.0,
+    "value_max": 10.0
+  },
+  "series": [
+    {
+      "id": "microgravity",
+      "label": "21 percent O2, 1 atm: microgravity",
+      "evidence_type": "experimental",
+      "marker": "blue filled circle",
+      "training_eligible": true
+    },
+    {
+      "id": "downward",
+      "label": "21 percent O2, 1 atm: downward",
+      "evidence_type": "experimental",
+      "marker": "red open circle",
+      "training_eligible": true
+    },
+    {
+      "id": "thin_behavior",
+      "label": "Thin behavior: Vf = 223 / tau",
+      "evidence_type": "theoretical",
+      "marker": "red solid line",
+      "training_eligible": false
+    }
+  ],
+  "status": "axis_calibrated",
+  "pixel_bounds": {
+    "left_px": 140,
+    "right_px": 1932,
+    "top_px": 28,
+    "bottom_px": 855
+  },
+  "manual_calibration_clicks": {
+    "x_left": {
+      "x": 140,
+      "y": 854
+    },
+    "x_right": {
+      "x": 1932,
+      "y": 835
+    },
+    "y_top": {
+      "x": 139,
+      "y": 28
+    },
+    "y_bottom": {
+      "x": 139,
+      "y": 856
+    }
+  },
+  "calibration_notes": [
+    "X-axis uses x coordinates only; x_right vertical click offset does not affect x calibration.",
+    "Bottom plot boundary standardized to 855 px from manual clicks at 854 and 856 px."
+  ]
+}

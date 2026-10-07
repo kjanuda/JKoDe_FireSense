@@ -1,0 +1,65 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "source_image": "page_051_image_01.jpeg",
+  "source_image_sha256": "9f131ab1bc34c0bf083fa48d145e80d204192329bec15aa47f7c6f79e065c7f7",
+  "image_width": 1988,
+  "image_height": 1015,
+  "calibration_method": "manual_frame_clicks_plus_major_tick_reference",
+  "clicks": {
+    "x_left": {
+      "x": 187.33,
+      "y": 869.08
+    },
+    "x_right": {
+      "x": 1949.0,
+      "y": 873.08
+    },
+    "y_top": {
+      "x": 188.33,
+      "y": 2.08
+    },
+    "y_bottom": {
+      "x": 187.33,
+      "y": 872.08
+    }
+  },
+  "plot_bounds": {
+    "left": 187.33,
+    "right": 1949.0,
+    "top": 2.08,
+    "bottom": 872.08
+  },
+  "x_axis": {
+    "label": "Fuel thickness",
+    "unit": "µm",
+    "scale": "log10",
+    "value_min": 10.0,
+    "value_max": 100000.0,
+    "pixel_left": 187.33,
+    "pixel_right": 1949.0,
+    "calibration_basis": "visible decade endpoints"
+  },
+  "y_axis": {
+    "label": "Spread rate",
+    "unit": "mm/s",
+    "scale": "log10",
+    "reference_value_high": 10.0,
+    "reference_pixel_high": 49.5,
+    "reference_value_low": 0.01,
+    "reference_pixel_low": 872.08,
+    "plot_pixel_top": 2.08,
+    "plot_pixel_bottom": 872.08,
+    "plot_top_extrapolated_value_mm_s": 14.891679,
+    "plot_bottom_value_mm_s": 0.01,
+    "allows_extrapolation_above_10_mm_s": true,
+    "calibration_basis": "major log-decade tick references"
+  },
+  "important_notes": [
+    "The physical plot top is not the 10 mm/s tick.",
+    "The 10 mm/s major tick is located approximately at pixel y=49.50.",
+    "Scientific y values above 10 mm/s are therefore valid within the visible plot area.",
+    "Theoretical curves must remain separate from experimental points."
+  ],
+  "status": "axis_calibrated_needs_visual_review"
+}

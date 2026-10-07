@@ -1,0 +1,119 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.21",
+  "source_image": "page_050_image_01.jpeg",
+  "source_image_sha256": "39b56d57117cd3d03a1cce2414f122a910c738a28e6a6f308c3231313cc52b30",
+  "extraction_method": "human_reviewed_figure_digitization",
+  "calibration_status": "axis_calibrated_visual_pass",
+  "verification_status": "needs_final_overlay_review",
+  "theoretical_curve_included": false,
+  "series": {
+    "microgravity": {
+      "gravity_regime": "microgravity",
+      "evidence_type": "experimental",
+      "marker": "blue filled circle",
+      "point_count": 4,
+      "points": [
+        {
+          "pixel_x": 368.33,
+          "pixel_y": 664.24,
+          "thickness_um": 101.933,
+          "spread_rate_mm_s": 2.3067
+        },
+        {
+          "pixel_x": 590.77,
+          "pixel_y": 760.26,
+          "thickness_um": 201.237,
+          "spread_rate_mm_s": 1.1456
+        },
+        {
+          "pixel_x": 815.88,
+          "pixel_y": 788.49,
+          "thickness_um": 301.732,
+          "spread_rate_mm_s": 0.8042
+        },
+        {
+          "pixel_x": 1036.97,
+          "pixel_y": 827.68,
+          "thickness_um": 400.433,
+          "spread_rate_mm_s": 0.3304
+        }
+      ]
+    },
+    "downward": {
+      "gravity_regime": "normal_gravity",
+      "evidence_type": "experimental",
+      "marker": "red open circle",
+      "point_count": 9,
+      "points": [
+        {
+          "pixel_x": 196.33,
+          "pixel_y": 114.0,
+          "thickness_um": 25.147,
+          "spread_rate_mm_s": 8.9601
+        },
+        {
+          "pixel_x": 241.33,
+          "pixel_y": 316.0,
+          "thickness_um": 45.237,
+          "spread_rate_mm_s": 6.5175
+        },
+        {
+          "pixel_x": 256.33,
+          "pixel_y": 365.0,
+          "thickness_um": 51.933,
+          "spread_rate_mm_s": 5.925
+        },
+        {
+          "pixel_x": 312.33,
+          "pixel_y": 534.0,
+          "thickness_um": 76.933,
+          "spread_rate_mm_s": 3.8815
+        },
+        {
+          "pixel_x": 365.0,
+          "pixel_y": 685.0,
+          "thickness_um": 100.446,
+          "spread_rate_mm_s": 2.0556
+        },
+        {
+          "pixel_x": 589.0,
+          "pixel_y": 782.0,
+          "thickness_um": 200.446,
+          "spread_rate_mm_s": 0.8827
+        },
+        {
+          "pixel_x": 816.0,
+          "pixel_y": 807.0,
+          "thickness_um": 301.786,
+          "spread_rate_mm_s": 0.5804
+        },
+        {
+          "pixel_x": 1041.0,
+          "pixel_y": 819.0,
+          "thickness_um": 402.232,
+          "spread_rate_mm_s": 0.4353
+        },
+        {
+          "pixel_x": 1817.33,
+          "pixel_y": 840.0,
+          "thickness_um": 748.808,
+          "spread_rate_mm_s": 0.1814
+        }
+      ]
+    },
+    "thin_behavior_curve": {
+      "evidence_type": "theoretical",
+      "included_in_experimental_data": false
+    }
+  },
+  "source_reported_context": {
+    "note": "The report also explicitly states an experimental thin-fuel value of 2.2 mm/s for tau = 50 µm. Keep that source-reported evidence separate from the Figure 2.21 digitized values."
+  },
+  "review_notes": [
+    "Figure calibration was visually validated before point extraction.",
+    "Microgravity markers were recovered from blue filled-circle pixel regions.",
+    "Downward points are red open-circle experimental markers.",
+    "The continuous red theoretical curve is explicitly excluded."
+  ]
+}

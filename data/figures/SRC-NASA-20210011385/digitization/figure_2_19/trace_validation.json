@@ -1,0 +1,35 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.19",
+  "panel_id": "B",
+  "expected_sample_positions": 71,
+  "series": {
+    "0g": {
+      "count": 69,
+      "mean_mm_s": 2.2320884057971013,
+      "median_mm_s": 2.2282,
+      "min_mm_s": 2.1824,
+      "max_mm_s": 2.3336,
+      "std_mm_s": 0.03554531712448159,
+      "coverage_fraction": 0.971830985915493
+    },
+    "1g": {
+      "count": 64,
+      "mean_mm_s": 2.013428125,
+      "median_mm_s": 2.0084,
+      "min_mm_s": 1.8069,
+      "max_mm_s": 2.258,
+      "std_mm_s": 0.12618375422909722,
+      "coverage_fraction": 0.9014084507042254
+    }
+  },
+  "automated_checks": {
+    "0g_coverage_pass": true,
+    "1g_coverage_pass": true,
+    "0g_plausible_range_pass": true,
+    "1g_plausible_range_pass": true
+  },
+  "automated_validation": "pass",
+  "visual_overlay_status": "pending_human_acceptance",
+  "important_note": "Digitized time-series points are not independent experimental runs and must not be treated as independent GP training rows."
+}

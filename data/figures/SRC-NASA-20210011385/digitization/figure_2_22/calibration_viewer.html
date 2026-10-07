@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Figure 2.22 Log Calibration
+</title>
+
+<style>
+
+body {
+    font-family:
+        Arial,
+        sans-serif;
+
+    margin: 20px;
+
+    background:
+        #f5f5f5;
+}
+
+.instructions {
+    padding: 14px;
+
+    background: white;
+
+    border:
+        1px solid #ccc;
+
+    max-width: 1100px;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.viewer {
+    position: relative;
+
+    display: inline-block;
+
+    border:
+        1px solid #444;
+}
+
+#figure {
+    display: block;
+
+    width:
+        1988px;
+
+    height:
+        1015px;
+}
+
+.marker {
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    border:
+        3px solid limegreen;
+
+    border-radius: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    pointer-events: none;
+}
+
+.label {
+    position: absolute;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+
+    transform:
+        translate(
+            10px,
+            -18px
+        );
+
+    pointer-events: none;
+}
+
+button {
+    padding:
+        8px 14px;
+
+    margin:
+        10px 5px 10px 0;
+}
+
+pre {
+    background: white;
+
+    border:
+        1px solid #ccc;
+
+    padding: 14px;
+
+    max-width: 1100px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>
+Figure 2.22 Log-Log Axis Calibration
+</h2>
+
+<div class="instructions">
+
+Click exactly four axis points in this order:
+
+<br><br>
+
+1. <strong>x_left</strong>
+— lower-left plot intersection
+(10¹ µm)
+
+<br>
+
+2. <strong>x_right</strong>
+— lower-right plot intersection
+(10⁵ µm)
+
+<br>
+
+3. <strong>y_top</strong>
+— upper-left plot intersection
+(10¹ mm/s)
+
+<br>
+
+4. <strong>y_bottom</strong>
+— lower-left plot intersection
+(10⁻² mm/s)
+
+<br><br>
+
+This figure uses:
+
+<br>
+
+x-axis:
+10¹ → 10⁵ µm, log10
+
+<br>
+
+y-axis:
+10⁻² → 10¹ mm/s, log10
+
+</div>
+
+
+<button
+    onclick="undoPoint()"
+>
+Undo
+</button>
+
+<button
+    onclick="resetAll()"
+>
+Reset
+</button>
+
+
+<div
+    id="viewer"
+    class="viewer"
+>
+
+<img
+    id="figure"
+    src="file:///E:/Nasa/FireSense/data/figures/SRC-NASA-20210011385/embedded/figures_2_21_2_22/page_051_image_01.jpeg"
+    alt="Figure 2.22"
+>
+
+</div>
+
+
+<pre id="output"></pre>
+
+
+<script>
+
+const labels = [
+    "x_left",
+    "x_right",
+    "y_top",
+    "y_bottom"
+];
+
+let clicks = [];
+
+const image =
+    document.getElementById(
+        "figure"
+    );
+
+const viewer =
+    document.getElementById(
+        "viewer"
+    );
+
+const output =
+    document.getElementById(
+        "output"
+    );
+
+
+image.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            clicks.length
+            >= labels.length
+        ) {
+            return;
+        }
+
+        const rect =
+            image
+            .getBoundingClientRect();
+
+        const scaleX =
+            image.naturalWidth
+            / rect.width;
+
+        const scaleY =
+            image.naturalHeight
+            / rect.height;
+
+        const x =
+            (
+                event.clientX
+                - rect.left
+            )
+            * scaleX;
+
+        const y =
+            (
+                event.clientY
+                - rect.top
+            )
+            * scaleY;
+
+        clicks.push(
+            {
+                x:
+                    Math.round(
+                        x * 100
+                    ) / 100,
+
+                y:
+                    Math.round(
+                        y * 100
+                    ) / 100
+            }
+        );
+
+        render();
+    }
+);
+
+
+function undoPoint() {
+
+    clicks.pop();
+
+    render();
+}
+
+
+function resetAll() {
+
+    clicks = [];
+
+    render();
+}
+
+
+function render() {
+
+    document
+        .querySelectorAll(
+            ".marker, .label"
+        )
+        .forEach(
+            element =>
+                element.remove()
+        );
+
+    const result = {};
+
+    clicks.forEach(
+        (
+            point,
+            index
+        ) => {
+
+            result[
+                labels[index]
+            ] = point;
+
+
+            const marker =
+                document
+                .createElement(
+                    "div"
+                );
+
+            marker.className =
+                "marker";
+
+            marker.style.left =
+                point.x + "px";
+
+            marker.style.top =
+                point.y + "px";
+
+            viewer.appendChild(
+                marker
+            );
+
+
+            const label =
+                document
+                .createElement(
+                    "div"
+                );
+
+            label.className =
+                "label";
+
+            label.style.left =
+                point.x + "px";
+
+            label.style.top =
+                point.y + "px";
+
+            label.textContent =
+                labels[index];
+
+            viewer.appendChild(
+                label
+            );
+        }
+    );
+
+    output.textContent =
+        JSON.stringify(
+            result,
+            null,
+            2
+        );
+}
+
+
+render();
+
+</script>
+
+</body>
+
+</html>

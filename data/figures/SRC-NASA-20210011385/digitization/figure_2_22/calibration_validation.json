@@ -1,0 +1,68 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "manual_click_consistency": {
+    "lower_left_repeat_difference_px": 3.0,
+    "right_baseline_difference_px": 1.0,
+    "left_axis_alignment_difference_px": 1.0,
+    "threshold_px": 5.0,
+    "pass": true
+  },
+  "transform_math": {
+    "x_round_trip_pass": true,
+    "y_round_trip_pass": true,
+    "pass": true
+  },
+  "x_major_ticks": [
+    {
+      "value_um": 10.0,
+      "pixel_x": 187.33,
+      "round_trip_value_um": 10.0
+    },
+    {
+      "value_um": 100.0,
+      "pixel_x": 627.748,
+      "round_trip_value_um": 100.0
+    },
+    {
+      "value_um": 1000.0,
+      "pixel_x": 1068.165,
+      "round_trip_value_um": 1000.0
+    },
+    {
+      "value_um": 10000.0,
+      "pixel_x": 1508.582,
+      "round_trip_value_um": 10000.0
+    },
+    {
+      "value_um": 100000.0,
+      "pixel_x": 1949.0,
+      "round_trip_value_um": 100000.0
+    }
+  ],
+  "y_major_ticks": [
+    {
+      "value_mm_s": 0.01,
+      "pixel_y": 872.08,
+      "round_trip_value_mm_s": 0.01
+    },
+    {
+      "value_mm_s": 0.1,
+      "pixel_y": 597.887,
+      "round_trip_value_mm_s": 0.1
+    },
+    {
+      "value_mm_s": 1.0,
+      "pixel_y": 323.693,
+      "round_trip_value_mm_s": 1.0
+    },
+    {
+      "value_mm_s": 10.0,
+      "pixel_y": 49.5,
+      "round_trip_value_mm_s": 10.0
+    }
+  ],
+  "plot_top_extrapolated_value_mm_s": 14.891679,
+  "visual_overlay_status": "needs_human_review",
+  "final_status": "needs_visual_overlay_review"
+}

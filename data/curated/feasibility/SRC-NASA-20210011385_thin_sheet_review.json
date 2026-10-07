@@ -1,0 +1,117 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "family": "PMMA-THIN-SHEET-OPPOSED-FLOW",
+  "candidate_count": 8,
+  "lane_counts": {
+    "setup_context": 2,
+    "simulation_context": 5,
+    "measurement_review": 1
+  },
+  "candidates": [
+    {
+      "review_id": "TS-REVIEW-001",
+      "study_id": "BASSII-CH2.2-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "setup_context",
+      "pages": [
+        29
+      ],
+      "evidence_kind": "setup",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "2.2.3 Experimental Setup\nThe Burning and Suppression of Solids-II (BASS-II) apparatus (Ref. 12) in the ISS is depicted in Figure 2.6. It is a combustion tunnel, a 76-mm square duct, where the PMMA fuel samples, 20 mm wide and about 95 mm long with the thickness ranging from 100 to 400 µ m, are burned in an opposed-flow configuration. A fan forces a flow of an O2-N2 mixture through flow straighteners from the right to the left and the sample is ignited at the left end. Depending on the flow velocity and O2 concentration, a steady flame is established that spreads from the left end of the sample towards the right end. The O2 level can be adjusted to 21 percent or below and the flow velocity can range from 0 to 50 cm/s. A hot wire anemometer is used to calibrate the flow velocity with fan voltage, which is used to determine the flow velocity.\nExperiments were conducted in the Microgravity Science Glovebox of the ISS by two crew members. Operation instructions were communicated from NASA Glenn Operations Center in realtime as the experiment progressed. Each test starts by creating a desired opposing flow by adjusting the fan voltage. After the flow stabilizes, the igniter is turned on until a visible flame is observed. The igniter is then turned off and the flame is photographed with a high-resolution digital still camera with a frame rate of 1 per second. A radiometer is used to confirm flame extinction when the visible flame goes out. In some of the tests, the flow velocity is changed during the spread to maximize the test matrix without having to burn additional samples."
+    },
+    {
+      "review_id": "TS-REVIEW-002",
+      "study_id": "BASSII-CH2.2-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "simulation_context",
+      "pages": [
+        30
+      ],
+      "evidence_kind": "computational",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "2.2.4 Data Analysis\nAn image processing application that is based on MATLAB ® (The MathWorks, Inc.) has been developed at San Diego State University to obtain flame spread rate and other information from the sequence of top-view digital photographs. A typical color image of the top view 10 s after ignition is shown in Figure 2.7(a) for flame spread over 100µ m-thick PMMA sheet for the ambient conditions of 20.7 percent O2, 1 atm, and an opposed-flow velocity of 2.5 cm/s. The dots along the axis, 6 mm apart, are superimposed on the image to help display the spatial resolution of the image. The ignition wire, glowing red at x = 36 mm, and the burnout location, the black line at x = 42 mm are visible in this picture. To eliminate the effect of edge propagation, the central part of the flame, bracketed between the two white lines parallel to the axis and about 14 mm apart, is isolated. The red green blue (RGB) values of each pixel of the central slice are then converted to an intensity value using built-in MATLAB ®  tools. Across the width of the section, these intensity values are averaged, producing a 2D representation of the flame as shown in Figure 2.7(b). The variation of the width-averaged intensity along the x direction (axis) is shown in Figure 2.7(c). The leading edge of the flame is determined by locating a fixed threshold intensity. A value of 30 for the threshold value was found to work well for tracking the flame leading edge for almost all the tests. The location of the maximum intensity is identified by finding the maxima of the intensity curve (Figure 2.7(c)).\nA number of consecutive locations are used to obtain the flame spread rate by finding the slope of the linear regression analysis. The uncertainty in the spread rate calculations through this method depends on the sample size, but five consecutive locations have been found to be a good compromise between noise and temporal precision. Spread rates obtained by tracking the leading edge and bright edge (the maximum intensity location) are shown in Figure 2.8. The result has been found to be reproducible within 5 percent uncertainty regardless of how the flame movement is tracked."
+    },
+    {
+      "review_id": "TS-REVIEW-003",
+      "study_id": "BASSII-CH2.2-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "simulation_context",
+      "pages": [
+        33,
+        34
+      ],
+      "evidence_kind": "computational",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "The global-balance radiation model (Ref. 6) is used for modeling gas and surface radiation. While the computational fluids dynamics solution is 2D, the radiation model calculates the Planck mean absorption coefficient, used in calculating the radiative source term, by equating the thin-gas expression for radiative losses from the entire computational domain to three-dimensional radiative loss from the domain, accurately calculated using a narrow band model (Ref. 16). The radiation calculation (Ref. 17) accounts for losses due to the finite width of the sample.\nA large set of computations is carried out by varying opposed-flow velocity and fuel thicknesses for the ambient conditions of 21/79 (percent by volume) mixture of O2 and N2 at 1 atm pressure. The resulting spread rates are shown in Figure 2.11. At relatively large values of the opposed-flow velocity Vg , the spread rate Vf can be seen to be relatively independent of the opposing flow velocity and inversely proportional to the fuel thickness as predicted by the thermal theory (Ref. 1). However, as Vg is reduced, Vf decreases, leading to flame extinguishment that is seen in the experiments. Moreover, the extinction velocity is identical at 1.5 cm/s for all the four thicknesses studied. This finding has been ascertained by making sure that the results are independent of grid density and the computational domain. The computational results also reproduce the experimental trend of the increase of the extinction velocity at lower O2 levels. For flame spread over 100µ m-thick sheet of PMMA, the calculations were repeated at a lower O2 level of 16 percent and the two sets of spread rates are compared in Figure 2.12. At a lower O2 level, the spread rate can be seen to significantly lower and the kinetic effect sets in early for Vg greater than 16 cm/s. The extinction velocity is found to be 3.5 cm/s as opposed to 1.5 cm/s at 21 percent O2. This is consistent with the experimental finding discussed in the previous section.\nFigure 2.11.-Computational spread rate for flame spread over thin polymethylmethacrylate. Although spread rate can be seen to be function of fuel thickness, extinction velocity is same at 1.5 cm/s for each thickness. Spread rates for downward spread configuration are indicated by empty symbols. Absolute spread rate ( Vf ). Opposed-flow velocity ( Vg )."
+    },
+    {
+      "review_id": "TS-REVIEW-004",
+      "study_id": "BASSII-CH2.2-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "simulation_context",
+      "pages": [
+        34
+      ],
+      "evidence_kind": "computational",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "25\nFigure 2.12.-Computational spread rate for flame spread over 100µ m-thick sheet of polymethylmethacrylate at two different O2 levels. Extinction velocity increases from 1.5 cm/s at 21 percent O2 to 3.5 cm/s at 16 percent, closely matching experimental results.\nIt should be mentioned that when the computational model is used (Ref. 15) for downward spread configuration in a quiescent 1g environment, a steady spread results for 21 percent O2 with spread rates of 2.8, 1.6, 1.2, and 0.9 mm/s, for 100, 200, 300 and 400 µm, respectively, as shown in Figure 2.11. At 16 percent O2, however, the buoyancy-created flow is strong enough to cause blowoff extinction."
+    },
+    {
+      "review_id": "TS-REVIEW-005",
+      "study_id": "BASSII-CH2.3-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "measurement_review",
+      "pages": [
+        45
+      ],
+      "evidence_kind": "experimental",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "36\nFigure 2.15.-Downward flame spread over polymethylmethacrylate sheets of 50µ m thickness in presence of forced opposed flow of air. Filled symbols represent blowoff extinction.\nOne way to experimentally establish if there is kinetic effect in downward spread rate is to reduce the strength of the buoyancy-generated flow or eliminate it altogether as in a microgravity environment. If the flow velocity is reduced below 40 cm/s, the increased residence time would reduce and weaken the kinetic effect and the spread rate can be expected to increase (in a kinetically controlled flame) until the thermal limit is reached. On the other hand, if the thermal limit is already established in the downward experiment (see Figure 2.14), then the spread rate is expected to remain unaltered as the opposing flow velocity is reduced in the absence of buoyancy. A comparison of experiments in the downward configuration with that in a microgravity environment, therefore, can be used to establish the thermal regime for a given O2 level."
+    },
+    {
+      "review_id": "TS-REVIEW-006",
+      "study_id": "BASSII-CH2.3-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "setup_context",
+      "pages": [
+        46
+      ],
+      "evidence_kind": "setup",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "Experiments were conducted in the Microgravity Science Glovebox of ISS by two crew members. Operation instructions were communicated from NASA Glenn Operations Center in realtime as the experiment progressed. Each test starts by creating a desired opposing flow by adjusting the fan voltage. After the flow stabilizes, the igniter is turned on until a visible flame is observed. The igniter is then turned off and the top view of the flame propagation is photographed with a high-resolution digital still camera with a frame rate of 1 per second. A video camera captures the side view of the flame propagation. In some of the tests, the flow velocity is changed during the spread to maximize the test matrix without having to burn additional samples.\nFor downward spreading experiments, the Flame Stabilizer apparatus (Ref. 4) is used, where a 2-cmwide sample of PMMA is held vertically by a stainless steel sample holder and ignited at the top with a top-view camera recording the flame spread. The sample holders used in the microgravity and downward experiments are shown in Figure 2.17. While the BASS sample holder has a built-in igniter, piloted ignition is used in the downward experiments. The downward experiments were performed in the atmospheric condition (pressure 101 kPa, O2 level 21 percent).\nIdeally, the controllable parameters in a flame spread experiments include oxidizer mixture (percent of O2 by volume), oxidizer pressure, oxidizer velocity, fuel type, fuel thickness, fuel width, fuel length, and external radiation. In the data presented, the fuel thickness is the most important parameter of interest."
+    },
+    {
+      "review_id": "TS-REVIEW-007",
+      "study_id": "BASSII-CH2.3-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "simulation_context",
+      "pages": [
+        50
+      ],
+      "evidence_kind": "computational",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "Although de Ris expression for spread rate is based on the linearized ( lin ) flame temperature (the theory neglects advection in the normal direction to the fuel bed, replacing it with enhanced linearized diffusion that leads to the closed-form expression for flame spread rate in terms of a linearized flame temperature), the adiabatic ( adb ) flame temperature is easier to compute and can be seen to produce good agreement with the experimentally ( expt ) determined value of the equilibrium ( eql ) flame coefficient.\nUsing Fadb in Equation (2.11), spread rates calculated for different fuel thicknesses are plotted in Figure 2.21. Spread rate data for all four different fuel thickness studies are superposed along with data from downward experiments with nine different fuel thicknesses. The thermal regime formula for the thin fuel, Equation (2.11), seems to fit the experimental results quite well. Further downward experiments are conducted with progressively higher fuel thicknesses. Use of extruded PMMA produces considerable dripping (possibly because the methylmethacrylate chains are broken during extrusion making it easier for PMMA to drip) producing unsteady spread, while cast PMMA is less susceptible to dripping, producing a steady spread. Data for 2-cm-wide samples are added in Figure 2.22 with the purpose of creating a thick limit and delineating thermally thin fuel. Although for thicker fuels, the spread rate is slightly width dependent, a value of 0.042 mm/s for a 10-cm-wide sample (Ref. 23) as opposed to 0.044 mm/s for the 2-cm-wide sample, an average value of 0.044 mm/s is selected as the average spread rate for downward spread over PMMA in the thick limit.\nThe value of the flame coefficient F is not affected by the fuel thickness; therefore, Fadb that works so well with the thin fuel formula can also be applied to the thick-limit formula of Equation (2.11). However, the flow velocity Vg is an unknown for downward spread and should be replaced by an effective velocity."
+    },
+    {
+      "review_id": "TS-REVIEW-008",
+      "study_id": "BASSII-CH2.3-THIN-SHEET",
+      "review_status": "pending",
+      "review_lane": "simulation_context",
+      "pages": [
+        51
+      ],
+      "evidence_kind": "computational",
+      "data_form": "figure_linked",
+      "has_numeric_value": true,
+      "context": "42\nFigure 2.22.-Comparison of microgravity, downward flame spread, and Fernandez-Pello and Williams experimental data at different thicknesses of polymethylmethacrylate. Also showing thin and thick fuel theoretical thermal limits.\nUsing the experimental value of Vf ,thick = 0.044 mm/s, the effective value of the opposing flow created by natural convection can be calculated from Equation (2.11) as"
+    }
+  ]
+}

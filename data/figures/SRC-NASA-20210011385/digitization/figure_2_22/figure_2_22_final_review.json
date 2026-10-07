@@ -1,0 +1,277 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "extraction_method": "manual_human_digitization",
+  "calibration_status": "axis_calibrated_visual_pass",
+  "verification_status": "human_overlay_verified",
+  "theoretical_curves_included": false,
+  "excluded_theoretical_series": [
+    "Thermally thin limit",
+    "Thermally thick limit"
+  ],
+  "series": {
+    "mrc": {
+      "evidence_type": "experimental",
+      "label": "MRC",
+      "marker": "red open circle",
+      "point_count": 2,
+      "points": [
+        {
+          "pixel_x": 362,
+          "pixel_y": 37,
+          "thickness_um": 24.923,
+          "spread_rate_mm_s": 11.10678
+        },
+        {
+          "pixel_x": 498,
+          "pixel_y": 100,
+          "thickness_um": 50.746,
+          "spread_rate_mm_s": 6.5437
+        }
+      ]
+    },
+    "vcf": {
+      "evidence_type": "experimental",
+      "label": "VCF",
+      "marker": "green open circle",
+      "point_count": 5,
+      "points": [
+        {
+          "pixel_x": 363,
+          "pixel_y": 49,
+          "thickness_um": 25.054,
+          "spread_rate_mm_s": 10.04208
+        },
+        {
+          "pixel_x": 469,
+          "pixel_y": 98,
+          "thickness_um": 43.607,
+          "spread_rate_mm_s": 6.65453
+        },
+        {
+          "pixel_x": 496,
+          "pixel_y": 139,
+          "thickness_um": 50.218,
+          "spread_rate_mm_s": 4.71615
+        },
+        {
+          "pixel_x": 575,
+          "pixel_y": 165,
+          "thickness_um": 75.898,
+          "spread_rate_mm_s": 3.79109
+        },
+        {
+          "pixel_x": 576,
+          "pixel_y": 143,
+          "thickness_um": 76.296,
+          "spread_rate_mm_s": 4.56037
+        }
+      ]
+    },
+    "astra": {
+      "evidence_type": "experimental",
+      "label": "Astra",
+      "marker": "blue open circle",
+      "point_count": 1,
+      "points": [
+        {
+          "pixel_x": 761,
+          "pixel_y": 334,
+          "thickness_um": 200.706,
+          "spread_rate_mm_s": 0.91709
+        }
+      ]
+    },
+    "nasa": {
+      "evidence_type": "experimental",
+      "label": "NASA",
+      "marker": "black open circle",
+      "point_count": 3,
+      "points": [
+        {
+          "pixel_x": 628,
+          "pixel_y": 242,
+          "thickness_um": 100.132,
+          "spread_rate_mm_s": 1.98582
+        },
+        {
+          "pixel_x": 842,
+          "pixel_y": 386,
+          "thickness_um": 306.532,
+          "spread_rate_mm_s": 0.5926
+        },
+        {
+          "pixel_x": 898,
+          "pixel_y": 403,
+          "thickness_um": 410.798,
+          "spread_rate_mm_s": 0.51376
+        }
+      ]
+    },
+    "bass": {
+      "evidence_type": "experimental",
+      "label": "BASS",
+      "marker": "red filled circle",
+      "point_count": 4,
+      "points": [
+        {
+          "pixel_x": 629,
+          "pixel_y": 228,
+          "thickness_um": 100.657,
+          "spread_rate_mm_s": 2.23357
+        },
+        {
+          "pixel_x": 762,
+          "pixel_y": 315,
+          "thickness_um": 201.758,
+          "spread_rate_mm_s": 1.07573
+        },
+        {
+          "pixel_x": 840,
+          "pixel_y": 371,
+          "thickness_um": 303.344,
+          "spread_rate_mm_s": 0.67216
+        },
+        {
+          "pixel_x": 897,
+          "pixel_y": 423,
+          "thickness_um": 408.656,
+          "spread_rate_mm_s": 0.43433
+        }
+      ]
+    },
+    "ridout": {
+      "evidence_type": "experimental",
+      "label": "Ridout",
+      "marker": "red filled triangle",
+      "point_count": 4,
+      "points": [
+        {
+          "pixel_x": 1069,
+          "pixel_y": 572,
+          "thickness_um": 1004.375,
+          "spread_rate_mm_s": 0.12428
+        },
+        {
+          "pixel_x": 1289.33,
+          "pixel_y": 661,
+          "thickness_um": 3178.183,
+          "spread_rate_mm_s": 0.05886
+        },
+        {
+          "pixel_x": 1422.33,
+          "pixel_y": 674,
+          "thickness_um": 6370.376,
+          "spread_rate_mm_s": 0.05277
+        },
+        {
+          "pixel_x": 1555.33,
+          "pixel_y": 701,
+          "thickness_um": 12768.835,
+          "spread_rate_mm_s": 0.04207
+        }
+      ]
+    },
+    "fernandez_pello_williams": {
+      "evidence_type": "experimental",
+      "label": "Fernandez-Pello and Williams",
+      "marker": "blue filled triangle",
+      "point_count": 14,
+      "points": [
+        {
+          "pixel_x": 841.33,
+          "pixel_y": 369,
+          "thickness_um": 305.466,
+          "spread_rate_mm_s": 0.68354
+        },
+        {
+          "pixel_x": 859.33,
+          "pixel_y": 386,
+          "thickness_um": 335.608,
+          "spread_rate_mm_s": 0.5926
+        },
+        {
+          "pixel_x": 883.33,
+          "pixel_y": 419,
+          "thickness_um": 380.475,
+          "spread_rate_mm_s": 0.44917
+        },
+        {
+          "pixel_x": 905.33,
+          "pixel_y": 436,
+          "thickness_um": 426.854,
+          "spread_rate_mm_s": 0.38941
+        },
+        {
+          "pixel_x": 916.33,
+          "pixel_y": 441,
+          "thickness_um": 452.122,
+          "spread_rate_mm_s": 0.3734
+        },
+        {
+          "pixel_x": 1032.33,
+          "pixel_y": 548,
+          "thickness_um": 829.166,
+          "spread_rate_mm_s": 0.15203
+        },
+        {
+          "pixel_x": 1138.33,
+          "pixel_y": 596,
+          "thickness_um": 1443.186,
+          "spread_rate_mm_s": 0.1016
+        },
+        {
+          "pixel_x": 1244.33,
+          "pixel_y": 634,
+          "thickness_um": 2511.904,
+          "spread_rate_mm_s": 0.07384
+        },
+        {
+          "pixel_x": 1359.33,
+          "pixel_y": 673,
+          "thickness_um": 4582.674,
+          "spread_rate_mm_s": 0.05322
+        },
+        {
+          "pixel_x": 1439.33,
+          "pixel_y": 682,
+          "thickness_um": 6962.494,
+          "spread_rate_mm_s": 0.04934
+        },
+        {
+          "pixel_x": 1543.33,
+          "pixel_y": 694,
+          "thickness_um": 11992.353,
+          "spread_rate_mm_s": 0.04461
+        },
+        {
+          "pixel_x": 1678.33,
+          "pixel_y": 703,
+          "thickness_um": 24290.235,
+          "spread_rate_mm_s": 0.04137
+        },
+        {
+          "pixel_x": 1755.33,
+          "pixel_y": 710,
+          "thickness_um": 36330.036,
+          "spread_rate_mm_s": 0.039
+        },
+        {
+          "pixel_x": 1895.33,
+          "pixel_y": 705,
+          "thickness_um": 75534.615,
+          "spread_rate_mm_s": 0.04068
+        }
+      ]
+    }
+  },
+  "review_notes": [
+    "Figure 2.22 log-axis calibration passed visual review.",
+    "Only experimental marker series are included.",
+    "Thermally thin and thermally thick theoretical curves remain excluded.",
+    "Series provenance and independence still require review before modeling.",
+    "Final 33-point overlay visually reviewed and passed. Marker centres align with experimental markers; legend markers and theoretical curves are excluded."
+  ],
+  "human_verified": true,
+  "overlay_verified": true
+}

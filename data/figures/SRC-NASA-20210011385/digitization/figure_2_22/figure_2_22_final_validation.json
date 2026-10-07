@@ -1,0 +1,34 @@
+{
+  "source_id": "SRC-NASA-20210011385",
+  "figure_ref": "2.22",
+  "series_counts": {
+    "mrc": 2,
+    "vcf": 5,
+    "astra": 1,
+    "nasa": 3,
+    "bass": 4,
+    "ridout": 4,
+    "fernandez_pello_williams": 14
+  },
+  "expected_series_counts": {
+    "mrc": 2,
+    "vcf": 5,
+    "astra": 1,
+    "nasa": 3,
+    "bass": 4,
+    "ridout": 4,
+    "fernandez_pello_williams": 14
+  },
+  "total_point_count": 33,
+  "errors": [],
+  "warnings": [],
+  "automatic_validation": "pass",
+  "visual_overlay_status": "pass",
+  "final_status": "pass",
+  "human_review_notes": [
+    "All 33 review boxes align with experimental marker centres.",
+    "No legend example markers were selected.",
+    "Thermally thin and thermally thick theoretical curves were not digitized as experimental evidence.",
+    "Cross-study provenance remains unresolved and must be audited before modeling."
+  ]
+}
