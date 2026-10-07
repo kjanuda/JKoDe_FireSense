@@ -116,3 +116,10 @@ data/curated/external_validation/approved_v0/
 # ------------------------------------------------------------
 
 .gitignore.before-firesense-v0.1.0
+
+# Local development / AI assistant notes
+apps/web/AGENTS.md
+apps/web/CLAUDE.md
+
+# Local source backups
+*.before_*
